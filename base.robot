@@ -7,7 +7,7 @@ Library              RequestsLibrary
 #Seção para setagem de variáveis para utilização
 *** Variables ***
 ${id}    0uxuPY0cbmQhpEz1  
-${idnovo}    YA3Ej8h8w940so1g
+${idnovo}    U8304Klh3YApcK1R
 
 #Seção para criação dos cenários de teste
 *** Test Cases ***
@@ -21,7 +21,7 @@ Cenario: GET Todos os Usuarios 200
     Criar Sessao
     GET Endpoint /usuarios
     Validar Status Code "200"
-    Validar quantidade "${18}"
+    Validar quantidade "${17}"
     Printar Conteudo Response
 
 Cenario: POST Cadastrar Usuario 201
@@ -70,14 +70,17 @@ GET Endpoint /usuarios        #guardando a keyword GET on Session dentro da vari
 POST Endpoint /usuarios
 #variável precisa ser do tipo dict. no robot a variável que vai ser setada
 #como dicionario precisa ter um &
-    &{payload}                Create Dictionary      nome=Charles Spring   email=charlies@gmail.com    password=12345    administrador=true                   
+    &{payload}                Create Dictionary      nome=Nellie Nelson   email=nellien@gmail.com    password=12345    administrador=true                   
     ${response}               POST On Session        serverest        /usuarios/    data=&{payload}
-    #Com a keyword abaixo vai aparecer a resposta da solicitação com o id do usuário no terminal
+    #Com a keyword abaixo vai aparecer a mensagem de retorno, nesse caso com o id do usuário no terminal
     Log To Console            Response: ${response.content}
     Set Global Variable       ${response}
 
 GET Endpoint /usuarios/id
-    ${response}               GET On Session        serverest        /usuarios/pkzJsmONymbAJmdX
+    ${response}               GET On Session        serverest        /usuarios/${idnovo} 
+    Log To Console            Response: ${response.content}
+    Set Global Variable       ${response}
+
 
 DELETE Endpoint /usuarios/id
     ${response}               DELETE On Session        serverest        /usuarios/${id}
@@ -85,7 +88,7 @@ DELETE Endpoint /usuarios/id
     Set Global Variable       ${response}
 
 PUT Endpoint /usuarios/id
-    &{payload}                Create Dictionary      nome=Janice de Souza    email=janicee@gmail.com    password=123    administrador=true                   
+    &{payload}                Create Dictionary      nome=Janice de Sousa    email=janicedesousa@gmail.com    password=123    administrador=true                   
     ${response}               PUT On Session         serverest        /usuarios/${idnovo}    data=&{payload}      
     Log To Console            Response: ${response.content}
     Set Global Variable       ${response}
