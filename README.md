@@ -36,10 +36,12 @@ git checkout develop
 ````
 
 ## Bibliotecas utilizadas
-- Requests Library
+- <a href="https://robotframework.org/robotframework/latest/libraries/BuiltIn.html#library-documentation-top">BuiltIn</a>
+- <a href="https://marketsquare.github.io/robotframework-requests/doc/RequestsLibrary.html#library-documentation-top">RequestsLibrary</a>
+
 
 ## Referências
-
+- Vídeos da trilha de aprendizado da Compass UOL
 
 ## Autora
 <a href="https://www.linkedin.com/in/manoellasouza/">Manoella Souza</a>
@@ -49,7 +51,7 @@ git checkout develop
 
 ## Bastidores 
 
-<img align="left" alt="cat-pc" height="110" style="border-radius:50px;" src="https://media3.giphy.com/media/2IGcITcJg09VK/giphy.gif">  
+<img align="left" alt="cat-pc" height="150" style="border-radius:70px;" src="https://s4.gifyu.com/images/video-3.gif">  
 
 
 
