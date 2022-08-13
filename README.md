@@ -1,4 +1,6 @@
-# Projeto Final - Testando a API ServeRest com Robot <img align="right" alt="logo-compass" height="30" style="border-radius:50px;" src="https://i.ibb.co/qCC4kKF/logo-compass2.png"> 
+<img align="right" alt="logo-compass" height="30" style="border-radius:50px;" src="https://i.ibb.co/qCC4kKF/logo-compass2.png"> 
+
+# Projeto Final - Testando a API ServeRest com Robot 
 
 ### Tópicos
    * [Sobre o projeto](#sobre-o-projeto)
@@ -79,6 +81,12 @@ git checkout develop
 ## Bastidores 
 
 <img align="left" alt="cat-pc" height="150" style="border-radius:70px;" src="https://s4.gifyu.com/images/video-3.gif">  
+
+
+
+
+
+
 
 
 
