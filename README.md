@@ -4,7 +4,7 @@
    * [Sobre o projeto](#sobre-o-projeto)
    * [Pré-requisitos](#pré-requisitos)
    * [Rodando o projeto](#rodando-o-projeto)
-   * [Bibliotecas utilizadas](#bibliotecas-utilizadas)
+   * [Libraries utilizadas](#libraries-utilizadas)
    * [Referências](#referências)
    * [Autora](#autora)
    * [Licença](#licença)
@@ -14,17 +14,21 @@
 ## Sobre o projeto 
 Projeto sobre automação de testes da API ServeRest utilizando o Robot Framework, realizado durante as Sprints 5 e 6 do Programa de Bolsas RoboTron da Compass UOL.
 
-## Objetivo
-
+Além do conteúdo estudado nas sprints passadas, este projeto tem como objetivo reforçar os seguintes conhecimentos:
+- Escrita de cenários de teste em TDD
+- Utilização das libraries do Robot 
+- Lidar com requests e responses
+- Autenticação de APIs
+- Manipular dados estáticos
 
 ## Pré-requisitos 
-- <a href="https://www.python.org/downloads/">Python 3</a>
-- <a href="https://robotframework.org/">Robot Framework</a> 
-- <a href="https://git-scm.com/downloads">Git</a>
-- <a href="https://code.visualstudio.com/">Visual Studio Code</a>
+- <a href="https://www.python.org/downloads/">Python 3</a>: é a linguagem base do Robot Framework
+- <a href="https://robotframework.org/">Robot Framework</a>: para fazer a automação de testes através das libraries
+- <a href="https://git-scm.com/downloads">Git</a>: para clonar o projeto para a sua máquina
+- <a href="https://code.visualstudio.com/">Visual Studio Code</a> para rodar o projeto na sua máquina
 
-## Bibliotecas utilizadas
-- <a href="https://robotframework.org/robotframework/latest/libraries/BuiltIn.html#library-documentation-top">BuiltIn</a>: biblioteca padrão do Robot que possui as palavras-chave mais utilizadas
+## Libraries utilizadas
+- <a href="https://robotframework.org/robotframework/latest/libraries/BuiltIn.html#library-documentation-top">BuiltIn</a>: library padrão do Robot que possui as palavras-chave mais utilizadas
 - <a href="https://marketsquare.github.io/robotframework-requests/doc/RequestsLibrary.html#library-documentation-top">RequestsLibrary</a>: utilizada para fazer as requisições HTTP REST
 - <a href="https://pypi.org/project/robotframework-faker/">Robot Framework Faker</a>: para fazer um fake das massas de dados dentro dos testes
 - <a href="https://robotframework.org/robotframework/latest/libraries/OperatingSystem.html">Operating System</a>: para ler os arquivos JSON
@@ -32,7 +36,6 @@ Projeto sobre automação de testes da API ServeRest utilizando o Robot Framewor
 ## Extensões VS Code recomendadas
 - <a href="https://marketplace.visualstudio.com/items?itemName=ms-python.python">Python</a>
 - <a href="https://marketplace.visualstudio.com/items?itemName=d-biehl.robotcode">Robot Code</a>
-- <a href="https://marketplace.visualstudio.com/items?itemName=mechatroner.rainbow-csv">Rainbow CSV</a>
 - <a href="https://marketplace.visualstudio.com/items?itemName=TabNine.tabnine-vscode">Tabnine AI Autocomplete</a>
 
  ## Rodando o projeto
@@ -61,8 +64,6 @@ git checkout develop
 
 # Abra o VS Code dentro da pasta e rode os testes
 ````
-
-
 
 ## Referências
 - <a href="https://serverest.dev/#/">Documentação da ServeRest</a>
