@@ -5,6 +5,7 @@ Library              RequestsLibrary
 Resource             ./usuarios_keywords.robot
 Resource             ./login_keywords.robot
 Resource             ./produtos_keywords.robot
+Resource             ./common.robot
 
 #Seção para criação dos cenários de teste. Escrita baseada em ações
 *** Test Cases ***
@@ -20,7 +21,7 @@ Cenario: GET Todos os Usuarios 200
     Criar Sessao
     GET Endpoint /usuarios
     Validar Status Code "200"
-    Validar quantidade "${21}"
+    #Validar quantidade "${21}"
     Printar Conteudo Response
 
 Cenario: POST Cadastrar Usuario 201
@@ -29,6 +30,12 @@ Cenario: POST Cadastrar Usuario 201
     POST Endpoint /usuarios
     Validar Status Code "201"
     Validar Se Mensagem Contem "sucesso" 
+
+Cenario: POST Criar Usuario de Massa Estatica 201
+    [Tags]    POSTUSERESTATICO
+    Criar Sessao
+    Criar Usuario Estatico Valido
+    Validar Status Code "201"
 
 Cenario: GET Usuario Específico 200
     [Tags]    GET
@@ -42,48 +49,46 @@ Cenario: PUT Editar Usuario 200
     PUT Endpoint /usuarios/id
     Validar Status Code "200"
 
+#Cenario: PUT Editar Usuario 201
+#   Criar Sessao
+#   PUT Endpoint /usuarios/"${id}"
+
 Cenario: DELETE Deletar Usuario 200
     [Tags]    DELETE
     Criar Sessao
     DELETE Endpoint /usuarios/id
     Validar Status Code "200"
 
-#Cenario: PUT Editar Usuario 201
-#   Criar Sessao
-#   PUT Endpoint /usuarios/"${id}"
-
 Cenario: GET Todos os Produtos 200
     [Tags]    GETPRODUTOS
     Criar Sessao
     GET Endpoint /produtos
     Validar Status Code "200"
-    Validar quantidade "${4}"
+    #Validar quantidade "${4}"
     Printar Conteudo Response
 
 Cenario: POST Criar Produto 201
     [Tags]    POSTPRODUTOS
     Criar Sessao
+    Fazer Login e Armazenar Token
     POST Endpoint /produtos    
     Validar Status Code "201"
 
+# Cenario: GET Produto Específico 200
+
+# Cenario: PUT Editar Produto 200
+
+# Cenario: PUT Editar Produto 201
+
+Cenario: DELETE Excluir produto 200
+    [Tags]    DELETEPRODUTO
+    Criar Sessao
+    Fazer Login e Armazenar Token
+    Criar um Produto e Armazenar ID
+    DELETE Endpoint /produtos
+    Validar Status Code "200"
 
 #Seção para criação de Keywords Personalizadas
 *** Keywords ***
 Criar Sessao              #nome (alias)       #url
     Create Session        serverest    https://serverest.dev/
-
-Validar Status Code "${statuscode}"
-    Should Be True    ${response.status_code} == ${statuscode} 
-
-Validar Quantidade "${quantidade}"
-    Should Be Equal    ${response.json()["quantidade"]}    ${quantidade}
-                                    #first                   second
-
-Validar Se Mensagem Contem "${palavra}"
-    Should Contain    ${response.json()["message"]}    ${palavra}
-                                    #container           item
-
-Printar Conteudo Response    #pegar somente o nome do índice 0 (primeiro cadastro) que está na lista de usuários
-    #Log To Console            Nome: ${response.json()["usuarios"][1]["nome"]}
-                             #mostrar todos           
-    Log To Console            Response: ${response.json()}

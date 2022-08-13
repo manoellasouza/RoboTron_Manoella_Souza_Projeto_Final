@@ -1,0 +1,26 @@
+{
+    "user_valido": {
+        "nome": "Zeca de Souza",
+        "email": "zequinha@qa.com.br",
+        "password": "teste",
+        "administrador": "true"
+    },
+    "user_invalido": {
+        "nome": "Invalido Tester",
+        "email": "fulano@qa.com.br",
+        "password": "teste",
+        "administrador": "true"
+    },
+    "user_sem_senha": {
+        "nome": "Victoria Spring",
+        "email": "victspr@qa.com.br",
+        "password": " ",
+        "administrador": "true"
+    },
+    "user_sem_email": {
+        "nome": "Sebastian Hope",
+        "email": " ",
+        "password": "12345",
+        "administrador": "true"
+    }
+}

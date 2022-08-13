@@ -2,8 +2,8 @@
 Documentation        Keywords e Variaveis para Ações do enpoint Login
 
 *** Variables ***
-${email_para_login}    testesUser@qa.com.br    
-${password_para_login}    contaDeTeste3221
+${email_para_login}    charlie.s@gmail.com    
+${password_para_login}    12345
 
 *** Keywords ***
 POST Endpoint /login
@@ -11,3 +11,14 @@ POST Endpoint /login
     ${response}               POST On Session        serverest        /login    data=&{payload}
     Log To Console            Response: ${response.content}
     Set Global Variable       ${response}
+
+Validar Ter Logado
+    Should Be Equal            ${response.json()["message"]}    Login realizado com sucesso
+    Should Not Be Empty        ${response.json()["authorization"]} 
+
+Fazer Login e Armazenar Token
+    POST Endpoint /login
+    Validar Ter Logado
+    ${token_auth}        Set Variable        ${response.json()["authorization"]}   
+    Log To Console       Token Salvo: ${token_auth}
+    Set Global Variable    ${token_auth}

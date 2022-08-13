@@ -1,89 +1,147 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 5.0.1 (Python 3.10.5 on win32)" generated="20220812 15:09:34.083" rpa="false" schemaversion="3">
+<robot generator="Robot 5.0.1 (Python 3.10.5 on win32)" generated="20220812 23:35:49.614" rpa="false" schemaversion="3">
 <suite id="s1" name="Base" source="D:\Pessoal\SENAC\Estágio\Compass\Sprint 5 - Robot-Framework em APIs\CHALLENGE\base.robot">
-<test id="s1-t1" name="Cenario: POST Criar Produto 201" line="63">
+<test id="s1-t1" name="Cenario: GET Todos os Usuarios 200" line="19">
 <kw name="Criar Sessao">
 <kw name="Create Session" library="RequestsLibrary">
 <arg>serverest</arg>
 <arg>https://serverest.dev/</arg>
 <doc>Create Session: create a HTTP session to a server</doc>
-<msg timestamp="20220812 15:09:34.278" level="INFO">Creating Session using : alias=serverest, url=https://serverest.dev/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<status status="PASS" starttime="20220812 15:09:34.278" endtime="20220812 15:09:34.278"/>
+<msg timestamp="20220812 23:35:49.888" level="INFO">Creating Session using : alias=serverest, url=https://serverest.dev/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20220812 23:35:49.888" endtime="20220812 23:35:49.889"/>
 </kw>
-<status status="PASS" starttime="20220812 15:09:34.278" endtime="20220812 15:09:34.278"/>
+<status status="PASS" starttime="20220812 23:35:49.887" endtime="20220812 23:35:49.889"/>
 </kw>
-<kw name="POST Endpoint /produtos" library="produtos_keywords">
-<kw name="Create Dictionary" library="BuiltIn">
-<var>&amp;{header}</var>
-<arg>Authorization=${token_auth}</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20220812 15:09:34.278" level="INFO">&amp;{header} = { Authorization=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3Rlc1VzZXJAcWEuY29tLmJyIiwicGFzc3dvcmQiOiJjb250YURlVGVzdGUzMjIxIiwiaWF0IjoxNjYwMzI3NjA0LCJleHAiOjE2NjAzMjgyMDR9.uNIV4Bv_pcc...</msg>
-<status status="PASS" starttime="20220812 15:09:34.278" endtime="20220812 15:09:34.278"/>
-</kw>
-<kw name="Create Dictionary" library="BuiltIn">
-<var>&amp;{payload}</var>
-<arg>nome=Cadeira Gamer do Paraguai</arg>
-<arg>preco=5200</arg>
-<arg>descricao=Cadeira</arg>
-<arg>quantidade=285</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20220812 15:09:34.278" level="INFO">&amp;{payload} = { nome=Cadeira Gamer do Paraguai | preco=5200 | descricao=Cadeira | quantidade=285 }</msg>
-<status status="PASS" starttime="20220812 15:09:34.278" endtime="20220812 15:09:34.278"/>
-</kw>
-<kw name="POST On Session" library="RequestsLibrary">
+<kw name="GET Endpoint /usuarios" library="usuarios_keywords">
+<kw name="GET On Session" library="RequestsLibrary">
 <var>${response}</var>
 <arg>serverest</arg>
-<arg>/produtos</arg>
-<arg>data=&amp;{payload}</arg>
-<arg>headers=&amp;{header}</arg>
-<doc>Sends a POST request on a previously created HTTP Session.</doc>
-<msg timestamp="20220812 15:09:34.643" level="INFO">POST Request : url=https://serverest.dev/produtos 
- path_url=/produtos 
- headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3Rlc1VzZXJAcWEuY29tLmJyIiwicGFzc3dvcmQiOiJjb250YURlVGVzdGUzMjIxIiwiaWF0IjoxNjYwMzI3NjA0LCJleHAiOjE2NjAzMjgyMDR9.uNIV4Bv_pcc7oYlA2cWx4JaeWbnD2KL0XinN30Ti6-k', 'Content-Length': '74', 'Content-Type': 'application/x-www-form-urlencoded'} 
- body=nome=Cadeira+Gamer+do+Paraguai&amp;preco=5200&amp;descricao=Cadeira&amp;quantidade=285 
+<arg>/usuarios/</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20220812 23:35:50.274" level="INFO">GET Request : url=https://serverest.dev/usuarios/ 
+ path_url=/usuarios/ 
+ headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
  </msg>
-<msg timestamp="20220812 15:09:34.643" level="INFO">POST Response : url=https://serverest.dev/produtos 
- status=400, reason=Bad Request 
- headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'x-moesif-transaction-id': 'a70785bf-11dd-464f-801a-c3418b3a7562', 'content-type': 'application/json; charset=utf-8', 'X-Cloud-Trace-Context': '3ef3bc1706016f3aa407f495ba154a43;o=1', 'Date': 'Fri, 12 Aug 2022 18:09:33 GMT', 'Server': 'Google Frontend', 'Content-Length': '53'} 
+<msg timestamp="20220812 23:35:50.274" level="INFO">GET Response : url=https://serverest.dev/usuarios/ 
+ status=200, reason=OK 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'x-moesif-transaction-id': 'b5dd374e-a306-4b4e-a51a-c523aa0b16bf', 'content-type': 'application/json; charset=utf-8', 'X-Cloud-Trace-Context': 'd82347eda9dd2bd323ab03532a074d00', 'Date': 'Sat, 13 Aug 2022 02:35:49 GMT', 'Server': 'Google Frontend', 'Content-Length': '464'} 
  body={
-    "message": "Já existe produto com esse nome"
+    "quantidade": 2,
+    "usuarios": [
+        {
+            "nome": "Fulano da Silva",
+            "email": "fulano@qa.com",
+            "password": "teste",
+            "administrador": "true",
+            "_id": "0uxuPY0cbmQhpEz1"
+        },
+        {
+            "nome": "Charles Spring",
+            "email": "charlie.s@gmail.com",
+            "password": "12345",
+            "administrador": "true",
+            "_id": "IbB57PWIkeqEebGU"
+        }
+    ]
 } 
  </msg>
-<msg timestamp="20220812 15:09:34.643" level="INFO">C:\Users\manoe\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\connectionpool.py:1043: InsecureRequestWarning: Unverified HTTPS request is being made to host 'serverest.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+<msg timestamp="20220812 23:35:50.274" level="INFO">C:\Users\manoe\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\connectionpool.py:1043: InsecureRequestWarning: Unverified HTTPS request is being made to host 'serverest.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
   warnings.warn(</msg>
-<msg timestamp="20220812 15:09:34.659" level="FAIL">HTTPError: 400 Client Error: Bad Request for url: https://serverest.dev/produtos</msg>
-<status status="FAIL" starttime="20220812 15:09:34.278" endtime="20220812 15:09:34.659"/>
-</kw>
-<kw name="Log To Console" library="BuiltIn">
-<arg>Response: ${response.content}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="NOT RUN" starttime="20220812 15:09:34.659" endtime="20220812 15:09:34.659"/>
+<msg timestamp="20220812 23:35:50.275" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220812 23:35:49.890" endtime="20220812 23:35:50.275"/>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <arg>${response}</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<status status="NOT RUN" starttime="20220812 15:09:34.659" endtime="20220812 15:09:34.659"/>
+<msg timestamp="20220812 23:35:50.276" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220812 23:35:50.275" endtime="20220812 23:35:50.276"/>
 </kw>
-<status status="FAIL" starttime="20220812 15:09:34.278" endtime="20220812 15:09:34.659"/>
+<status status="PASS" starttime="20220812 23:35:49.889" endtime="20220812 23:35:50.277"/>
 </kw>
-<kw name="Validar Status Code &quot;201&quot;" sourcename="Validar Status Code &quot;${statuscode}&quot;">
-<status status="NOT RUN" starttime="20220812 15:09:34.659" endtime="20220812 15:09:34.659"/>
+<kw name="Validar Status Code &quot;200&quot;" library="common" sourcename="Validar Status Code &quot;${statuscode}&quot;">
+<kw name="Should Be True" library="BuiltIn">
+<arg>${response.status_code} == ${statuscode}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" starttime="20220812 23:35:50.281" endtime="20220812 23:35:50.283"/>
 </kw>
-<tag>POSTPRODUTOS</tag>
-<status status="FAIL" starttime="20220812 15:09:34.278" endtime="20220812 15:09:34.659">HTTPError: 400 Client Error: Bad Request for url: https://serverest.dev/produtos</status>
+<status status="PASS" starttime="20220812 23:35:50.280" endtime="20220812 23:35:50.283"/>
+</kw>
+<kw name="Printar Conteudo Response" library="usuarios_keywords">
+<kw name="Log To Console" library="BuiltIn">
+<arg>Nome: ${response.json()["usuarios"][1]["nome"]}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220812 23:35:50.284" endtime="20220812 23:35:50.286"/>
+</kw>
+<status status="PASS" starttime="20220812 23:35:50.284" endtime="20220812 23:35:50.287"/>
+</kw>
+<tag>GET</tag>
+<status status="PASS" starttime="20220812 23:35:49.886" endtime="20220812 23:35:50.287"/>
+</test>
+<test id="s1-t2" name="Cenario: GET Usuario Específico 200" line="40">
+<kw name="Criar Sessao">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>serverest</arg>
+<arg>https://serverest.dev/</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20220812 23:35:50.295" level="INFO">Creating Session using : alias=serverest, url=https://serverest.dev/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20220812 23:35:50.294" endtime="20220812 23:35:50.295"/>
+</kw>
+<status status="PASS" starttime="20220812 23:35:50.294" endtime="20220812 23:35:50.295"/>
+</kw>
+<kw name="GET Endpoint /usuarios/id" library="usuarios_keywords">
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>serverest</arg>
+<arg>/usuarios/${idnovo}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20220812 23:35:50.693" level="INFO">GET Request : url=https://serverest.dev/usuarios/fAwnXdthZAJrrU5I 
+ path_url=/usuarios/fAwnXdthZAJrrU5I 
+ headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20220812 23:35:50.694" level="INFO">GET Response : url=https://serverest.dev/usuarios/fAwnXdthZAJrrU5I 
+ status=400, reason=Bad Request 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'x-moesif-transaction-id': '4ea0c221-7ced-4855-8349-19e461bb4ac1', 'content-type': 'application/json; charset=utf-8', 'X-Cloud-Trace-Context': 'ded7dbea0453354e2e99caa61ea3ded9', 'Date': 'Sat, 13 Aug 2022 02:35:49 GMT', 'Server': 'Google Frontend', 'Content-Length': '45'} 
+ body={
+    "message": "Usuário não encontrado"
+} 
+ </msg>
+<msg timestamp="20220812 23:35:50.694" level="INFO">C:\Users\manoe\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\connectionpool.py:1043: InsecureRequestWarning: Unverified HTTPS request is being made to host 'serverest.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20220812 23:35:50.695" level="FAIL">HTTPError: 400 Client Error: Bad Request for url: https://serverest.dev/usuarios/fAwnXdthZAJrrU5I</msg>
+<status status="FAIL" starttime="20220812 23:35:50.296" endtime="20220812 23:35:50.698"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Response: ${response.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20220812 23:35:50.699" endtime="20220812 23:35:50.699"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${response}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="NOT RUN" starttime="20220812 23:35:50.699" endtime="20220812 23:35:50.699"/>
+</kw>
+<status status="FAIL" starttime="20220812 23:35:50.295" endtime="20220812 23:35:50.700"/>
+</kw>
+<kw name="Validar Status Code &quot;200&quot;" library="common" sourcename="Validar Status Code &quot;${statuscode}&quot;">
+<status status="NOT RUN" starttime="20220812 23:35:50.701" endtime="20220812 23:35:50.701"/>
+</kw>
+<tag>GET</tag>
+<status status="FAIL" starttime="20220812 23:35:50.290" endtime="20220812 23:35:50.703">HTTPError: 400 Client Error: Bad Request for url: https://serverest.dev/usuarios/fAwnXdthZAJrrU5I</status>
 </test>
 <doc>Arquivo simples para requisições HTTP em APIs REST</doc>
-<status status="FAIL" starttime="20220812 15:09:34.083" endtime="20220812 15:09:34.659"/>
+<status status="FAIL" starttime="20220812 23:35:49.619" endtime="20220812 23:35:50.706"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="1" skip="0">All Tests</stat>
+<stat pass="1" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
-<stat pass="0" fail="1" skip="0">POSTPRODUTOS</stat>
+<stat pass="1" fail="1" skip="0">GET</stat>
 </tag>
 <suite>
-<stat pass="0" fail="1" skip="0" id="s1" name="Base">Base</stat>
+<stat pass="1" fail="1" skip="0" id="s1" name="Base">Base</stat>
 </suite>
 </statistics>
 <errors>
