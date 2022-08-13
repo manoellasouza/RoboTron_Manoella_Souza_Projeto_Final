@@ -14,7 +14,7 @@
 ## Sobre o projeto 
 Projeto sobre automação de testes da API ServeRest utilizando o Robot Framework, realizado durante as Sprints 5 e 6 do Programa de Bolsas RoboTron da Compass UOL.
 
-Além do conteúdo estudado nas sprints passadas, este projeto tem como objetivo reforçar os seguintes conhecimentos:
+Além do conteúdo estudado nas sprints passadas, este projeto também tem como objetivo reforçar os seguintes conhecimentos:
 - Escrita de cenários de teste em TDD
 - Utilização das libraries do Robot 
 - Lidar com requests e responses
@@ -66,7 +66,7 @@ git checkout develop
 ````
 
 ## Referências
-- <a href="https://serverest.dev/#/">Documentação da ServeRest</a>
+- <a href="https://serverest.dev/#/">Documentação da API ServeRest</a>
 - Vídeos da trilha de aprendizado da Compass UOL
 - Um agradecidmento especial aos evangelistas da Compass UOL e aos meus colegas de equipe pelo suporte: <a href="https://github.com/OliveiraMariC">Mari</a>, <a href="https://github.com/lauraghrk">Laura</a>, <a href="https://github.com/phconte">Paulo</a> e <a href="https://github.com/PFrek">Pedro</a> &#128155;
 
