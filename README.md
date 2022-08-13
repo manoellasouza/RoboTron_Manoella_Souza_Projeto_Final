@@ -51,7 +51,7 @@ git checkout develop
 ## Referências
 - <a href="https://serverest.dev/#/">Documentação da ServeRest</a>
 - Vídeos da trilha de aprendizado da Compass UOL
-- Um agradecidmento especial aos evangelistas da Compass UOL e aos meus colegas de equipe pelo suporte: <a href="https://github.com/OliveiraMariC">Mari</a>, <a href="https://robotframework.org/robotframework/latest/libraries/BuiltIn.html#library-documentation-top">Laura</a>, <a href="https://github.com/phconte">Paulo</a> e <a href="https://github.com/PFrek">Pedro</a> &#128155;
+- Um agradecidmento especial aos evangelistas da Compass UOL e aos meus colegas de equipe pelo suporte: <a href="https://github.com/OliveiraMariC">Mari</a>, <a href="https://github.com/lauraghrk">Laura</a>, <a href="https://github.com/phconte">Paulo</a> e <a href="https://github.com/PFrek">Pedro</a> &#128155;
 
 ## Autora
 <a href="https://www.linkedin.com/in/manoellasouza/">Manoella Souza</a>
