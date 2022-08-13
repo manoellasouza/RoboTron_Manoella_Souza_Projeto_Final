@@ -1,4 +1,4 @@
-# Projeto Final - Testando a API ServeRest com Robot
+# Projeto Final - Testando a API ServeRest com Robot <img align="right" alt="logo-compass" height="30" style="border-radius:50px;" src="https://i.ibb.co/qCC4kKF/logo-compass2.png"> 
 
 ### Tópicos
    * [Sobre o projeto](#sobre-o-projeto)
@@ -11,17 +11,26 @@
    * [Bastidores](#bastidores)
 
 
-## Sobre o projeto
-
+## Sobre o projeto 
 Projeto sobre automação de testes da API ServeRest utilizando o Robot Framework, realizado durante as Sprints 5 e 6 do Programa de Bolsas RoboTron da Compass UOL.
 
-## Pré-requisitos 
-Você vai precisar ter em sua máquina o <a href="https://www.python.org/downloads/">Python 3</a>, o <a href="https://robotframework.org/">Robot Framework</a> e o <a href="https://git-scm.com/downloads">Git</a>.
+## Objetivo
 
-Para trabalhar com o código eu utilizei o editor <a href="https://code.visualstudio.com/">Visual Studio Code</a>.
+
+## Pré-requisitos 
+- <a href="https://www.python.org/downloads/">Python 3</a>
+- <a href="https://robotframework.org/">Robot Framework</a> 
+- <a href="https://git-scm.com/downloads">Git</a>
+- <a href="https://code.visualstudio.com/">Visual Studio Code</a>
 
  ## Rodando o projeto
  ````bash 
+# Instale o Robot Framework na sua máquina através do CMD
+pip install robotframework
+
+# Verifique se a instalação foi bem sucedida
+robot --version
+
 # Crie uma pasta na sua máquina
 
 # Abra o Git Bash dentro da pasta
@@ -39,9 +48,10 @@ git checkout develop
 - <a href="https://robotframework.org/robotframework/latest/libraries/BuiltIn.html#library-documentation-top">BuiltIn</a>
 - <a href="https://marketsquare.github.io/robotframework-requests/doc/RequestsLibrary.html#library-documentation-top">RequestsLibrary</a>
 
-
 ## Referências
+- <a href="https://serverest.dev/#/">Documentação da ServeRest</a>
 - Vídeos da trilha de aprendizado da Compass UOL
+- Um agradecidmento especial aos evangelistas da Compass UOL e aos meus colegas de equipe pelo suporte: <a href="https://github.com/OliveiraMariC">Mari</a>, <a href="https://robotframework.org/robotframework/latest/libraries/BuiltIn.html#library-documentation-top">Laura</a>, <a href="https://github.com/phconte">Paulo</a> e <a href="https://github.com/PFrek">Pedro</a> &#128155;
 
 ## Autora
 <a href="https://www.linkedin.com/in/manoellasouza/">Manoella Souza</a>
