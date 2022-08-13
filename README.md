@@ -23,6 +23,18 @@ Projeto sobre automação de testes da API ServeRest utilizando o Robot Framewor
 - <a href="https://git-scm.com/downloads">Git</a>
 - <a href="https://code.visualstudio.com/">Visual Studio Code</a>
 
+## Bibliotecas utilizadas
+- <a href="https://robotframework.org/robotframework/latest/libraries/BuiltIn.html#library-documentation-top">BuiltIn</a>: biblioteca padrão do Robot que possui as palavras-chave mais utilizadas
+- <a href="https://marketsquare.github.io/robotframework-requests/doc/RequestsLibrary.html#library-documentation-top">RequestsLibrary</a>: utilizada para fazer as requisições HTTP REST
+- <a href="https://pypi.org/project/robotframework-faker/">Robot Framework Faker</a>: para fazer um fake das massas de dados dentro dos testes
+- <a href="https://robotframework.org/robotframework/latest/libraries/OperatingSystem.html">Operating System</a>: para ler os arquivos JSON
+
+## Extensões VS Code recomendadas
+- <a href="https://marketplace.visualstudio.com/items?itemName=ms-python.python">Python</a>
+- <a href="https://marketplace.visualstudio.com/items?itemName=d-biehl.robotcode">Robot Code</a>
+- <a href="https://marketplace.visualstudio.com/items?itemName=mechatroner.rainbow-csv">Rainbow CSV</a>
+- <a href="https://marketplace.visualstudio.com/items?itemName=TabNine.tabnine-vscode">Tabnine AI Autocomplete</a>
+
  ## Rodando o projeto
  ````bash 
 # Instale o Robot Framework na sua máquina através do CMD
@@ -30,6 +42,12 @@ pip install robotframework
 
 # Verifique se a instalação foi bem sucedida
 robot --version
+
+#Instale a RequestsLibrary
+pip install robotframework-requests
+
+#Instale a Robot Framework Faker
+pip install robotframework-faker
 
 # Crie uma pasta na sua máquina
 
@@ -44,9 +62,7 @@ git checkout develop
 # Abra o VS Code dentro da pasta e rode os testes
 ````
 
-## Bibliotecas utilizadas
-- <a href="https://robotframework.org/robotframework/latest/libraries/BuiltIn.html#library-documentation-top">BuiltIn</a>
-- <a href="https://marketsquare.github.io/robotframework-requests/doc/RequestsLibrary.html#library-documentation-top">RequestsLibrary</a>
+
 
 ## Referências
 - <a href="https://serverest.dev/#/">Documentação da ServeRest</a>
