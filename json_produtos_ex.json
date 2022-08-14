@@ -1,0 +1,38 @@
+{
+    "produto_valido": {
+        "nome": "Monitor Fallen",
+        "preco": 1550,
+        "descricao": "Monitor",
+        "quantidade": 100
+    },
+    "produto_invalido": {
+        "nome": "Teclado Fallen",
+        "preco": 250,
+        "descricao": "Teclado",
+        "quantidade": 200
+    },
+    "produto_sem_nome": {
+        "nome": " ",
+        "preco": 250,
+        "descricao": "Teclado",
+        "quantidade": 200
+    },
+    "produto_sem_preco": {
+        "nome": "Teclado Logitech",
+        "preco": " ",
+        "descricao": "Teclado",
+        "quantidade": 200
+    },
+    "produto_sem_descricao": {
+        "nome": "Teclado Logitech",
+        "preco": 250,
+        "descricao": " ",
+        "quantidade": 200
+    },
+    "produto_sem_quantidade": {
+        "nome": "Teclado Logitech",
+        "preco": 250,
+        "descricao": "Teclado",
+        "quantidade": " "
+    } 
+}

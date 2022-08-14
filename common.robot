@@ -2,9 +2,6 @@
 Documentation        Keywords e Variaveis para Ações Gerais
 Library              OperatingSystem  
 
-*** Variables ***
-${email_para_login}    charlie.s@gmail.com    
-${password_para_login}    12345
 
 *** Keywords ***
 

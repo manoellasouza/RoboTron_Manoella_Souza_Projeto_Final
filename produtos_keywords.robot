@@ -1,5 +1,7 @@
 *** Settings ***
 Documentation        Keywords e Variaveis para Ações do enpoint Produtos
+Resource             ./common.robot
+Resource             ./login_keywords.robot
 
 *** Keywords ***
 GET Endpoint /produtos
@@ -7,15 +9,14 @@ GET Endpoint /produtos
     Set Global Variable       ${response}
 
 POST Endpoint /produtos 
-    &{header}                 Create Dictionary      Authorization=${token_auth}  
-    &{payload}                Create Dictionary      nome=ImpressoraA EpsonO    preco=1200    descricao=Impressora    quantidade=150                        
-    ${response}               POST On Session        serverest        /produtos    data=&{payload}    headers=&{header}
+    &{header}                 Create Dictionary      Authorization=${token_auth}                         
+    ${response}               POST On Session        serverest        /produtos    json=&{payload}    headers=&{header}
     Log To Console            Response: ${response.content}
     Set Global Variable       ${response}
 
 DELETE Endpoint /produtos
     &{header}                 Create Dictionary      Authorization=${token_auth}  
-    ${response}               POST On Session        serverest        /produtos/${id_produto}    headers=&{header}
+    ${response}               DELETE On Session        serverest        /produtos/${id_produto}    headers=&{header}
     Log To Console            Response: ${response.content}
     Set Global Variable       ${response}
 
@@ -24,8 +25,14 @@ Validar Ter Criado o Produto
     Should Not Be Empty        ${response.json()["_id"]} 
 
 Criar Um Produto e Armazenar ID
-    POST Endpoint /produtos
+    Criar Produto Estatico Valido
     Validar Ter Criado o Produto
     ${id_produto}        Set Variable        ${response.json()["_id"]}   
     Log To Console       ID Produto: ${id_produto}
     Set Global Variable    ${id_produto}
+
+Criar Produto Estatico Valido
+    ${json}                Importar JSON Estatico        json_produtos_ex.json  
+    ${payload}             Set variable                  ${json["produto_valido"]} 
+    Set Global Variable    ${payload} 
+    POST Endpoint /produtos
