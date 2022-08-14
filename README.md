@@ -1,4 +1,6 @@
-# Projeto Final - Testando a API ServeRest com Robot <img align="right" alt="logo-compass" height="30" style="border-radius:50px;" src="https://i.ibb.co/qCC4kKF/logo-compass2.png"> 
+<img align="right" alt="logo-compass" height="30" style="border-radius:50px;" src="https://i.ibb.co/qCC4kKF/logo-compass2.png"> 
+
+# Projeto Final - Testando a API ServeRest com Robot 
 
 ### Tópicos
    * [Sobre o projeto](#sobre-o-projeto)
