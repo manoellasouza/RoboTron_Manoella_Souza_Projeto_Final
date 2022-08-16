@@ -1,5 +1,6 @@
 *** Settings ***
 Documentation        Keywords e Variaveis para Ações do enpoint Login
+Library              RequestsLibrary
 Resource             ./common.robot
 
 *** Variables ***

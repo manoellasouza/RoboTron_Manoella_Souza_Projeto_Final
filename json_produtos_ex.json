@@ -1,9 +1,9 @@
 {
     "produto_valido": {
-        "nome": "Monitor Fallen",
-        "preco": 1550,
+        "nome": "Monitor Logitech",
+        "preco": 550,
         "descricao": "Monitor",
-        "quantidade": 100
+        "quantidade": 150
     },
     "produto_invalido": {
         "nome": "Teclado Fallen",

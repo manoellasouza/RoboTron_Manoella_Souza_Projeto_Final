@@ -8,6 +8,9 @@ Library              OperatingSystem
 Validar Status Code "${statuscode}"
     Should Be True    ${response.status_code} == ${statuscode} 
 
+Printar Conteudo Response 
+    Log To Console            Response: ${response.json()} 
+
 Importar JSON Estatico
     [Arguments]    ${nome_arquivo}
     ${arquivo}     Get File      ${EXECDIR}/${nome_arquivo} 

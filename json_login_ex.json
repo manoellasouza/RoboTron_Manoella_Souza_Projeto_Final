@@ -9,10 +9,10 @@
     },
     "user_sem_senha": {
         "email":"fulano@qa.com",
-        "password":""
+        "password":" "
     },
     "user_sem_email": {
-        "email":"",
+        "email":" ",
         "password":"teste"
     }
 }
