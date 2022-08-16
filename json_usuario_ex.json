@@ -7,7 +7,7 @@
     }, 
     "user_invalido": {
         "nome": "Invalido Tester",
-        "email": "fulano@qa.com.br",
+        "email": "zequinha@qa.com.br",
         "password": "teste",
         "administrador": "true"
     },

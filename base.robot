@@ -11,26 +11,46 @@ Resource             ./common.robot
 #Seção para criação dos cenários de teste. Escrita baseada em ações
 *** Test Cases ***
 
-Cenario: POST Login Massa Estatica 200
+# LOGIN
+
+Cenario 01: POST Login Massa Estatica 200
    [Tags]    POSTLOGIN
    Criar Sessao
    Criar Login Estatico Valido
    Validar Status Code "200"
 
-Cenario: GET Todos os Usuarios 200
+#O teste abaixo está gerando o erro 401 ao invés do 400
+Cenario 02: POST Login Massa Estatica E-mail Invalido 400
+   [Tags]    POSTLOGINEMAIL
+   Criar Sessao
+   Criar Login Estatico E-mail Invalido
+   #Criar Login Estatico Senha Invalida
+   Validar Status Code "400"
+   Validar Email/Senha Invalidos
+
+# USUÁRIOS
+
+Cenario 03: GET Todos os Usuarios 200
     [Tags]    GETALLUSERS
     Criar Sessao
     GET Endpoint /usuarios
     Validar Status Code "200"
     Validar quantidade "${1}"
 
-Cenario: POST Criar Usuario de Massa Estatica 201
-    [Tags]    POSTUSERESTATICO
+Cenario 04: POST Criar Usuario de Massa Estatica 201
+    [Tags]    POSTUSERVALIDO
     Criar Sessao
     Criar Usuario Estatico Valido
     Validar Status Code "201"
 
-Cenario: GET Usuario Específico 200
+Cenario 05: POST Criar Usuario de Massa Estatica 400
+    [Tags]    POSTUSERINVALIDO
+    Criar Sessao
+    Criar Usuario E-mail Ja Cadastrado
+    Validar Status Code "400"
+    Validar Mensagem E-mail Invalido
+
+Cenario 06: GET Usuario Específico 200
     [Tags]    GETUSER
     Criar Sessao
     Criar Um Usuario e Armazenar ID
@@ -38,19 +58,14 @@ Cenario: GET Usuario Específico 200
     Validar Status Code "200"
     DELETE Endpoint /usuarios/id
 
-Cenario: PUT Editar Usuario 200
-    [Tags]    PUTUSER
+Cenario 07: GET Usuario Específico 400
+    [Tags]    GETUSERINVALIDO
     Criar Sessao
-    Criar Um Usuario e Armazenar ID
-    PUT Endpoint /usuarios/id
-    Validar Status Code "200"
-    DELETE Endpoint /usuarios/id
+    GET ID User Inválida 
+    Validar Status Code "400"
+    Validar Mensagem ID User Invalida
 
-#Cenario: PUT Editar Usuario 201
-#   Criar Sessao
-#   PUT Endpoint /usuarios/"${id}"
-
-Cenario: DELETE Deletar Usuario 200
+Cenario 08: DELETE Deletar Usuario 200
     [Tags]    DELETEUSER
     Criar Sessao
     Fazer Login e Armazenar Token
@@ -58,22 +73,59 @@ Cenario: DELETE Deletar Usuario 200
     DELETE Endpoint /usuarios/id
     Validar Status Code "200"
 
-Cenario: GET Todos os Produtos 200
+#Cenario 09: DELETE Deletar Usuario 400       Carrinho Cadastrado
+
+Cenario 10: PUT Editar Usuario 200
+    [Tags]    PUTUSER
+    Criar Sessao
+    Criar Um Usuario e Armazenar ID
+    PUT Endpoint /usuarios/id
+    Validar Status Code "200"
+    DELETE Endpoint /usuarios/id
+
+Cenario 11: PUT Editar Usuario 201
+    [Tags]    PUTUSER201
+    Criar Sessao
+    PUT Endpoint Cadastro /usuarios/id
+    Validar Status Code "201"
+    Validar Ter Criado o Usuario
+    DELETE Endpoint /usuarios/id
+
+Cenario 12: PUT Editar Usuario 400
+    [Tags]    PUTUSER400
+    Criar Sessao
+    PUT Endpoint Cadastro Invalido /usuarios/id
+    Validar Status Code "400"
+    Validar Mensagem E-mail Invalido
+
+# PRODUTOS 
+
+Cenario 13: GET Todos os Produtos 200
     [Tags]    GETALLPROD
     Criar Sessao
     GET Endpoint /produtos
     Validar Status Code "200"
-    Validar quantidade "${3}"
+    Validar quantidade "${4}"
     #Printar Conteudo Response
 
-Cenario: POST Criar Produto de Massa Estatica 201
+Cenario 14: POST Criar Produto de Massa Estatica 201
     [Tags]    POSTPRODESTATICO
     Criar Sessao
     Fazer Login e Armazenar Token
-    Criar Produto Estatico Valido
+    Criar Um Produto e Armazenar ID
     Validar Status Code "201"
+    DELETE Endpoint /produtos
 
-Cenario: GET Produto Específico 200
+#Cenario 15: POST Criar Produto de Massa Estatica 400
+#"Já existe produto com esse nome"
+
+#Cenario 16: POST Criar Produto de Massa Estatica 401
+#"Token ausente, inválido ou expirado"
+
+#Cenario 17: POST Criar Produto de Massa Estatica 403
+#"Rota exclusiva para administradores"
+
+Cenario 18: GET Produto Específico 200
     [Tags]     GETPROD
     Criar Sessao
     Fazer Login e Armazenar Token
@@ -82,7 +134,26 @@ Cenario: GET Produto Específico 200
     Validar Status Code "200"
     DELETE Endpoint /produtos
 
-Cenario: PUT Editar Produto 200
+#Cenario 19: GET Produto Específico 400
+
+Cenario 20: DELETE Excluir Produto 200
+    [Tags]    DELETEPROD
+    Criar Sessao
+    Fazer Login e Armazenar Token
+    Criar um Produto e Armazenar ID
+    DELETE Endpoint /produtos
+    Validar Status Code "200"
+
+#Cenario 21: DELETE Excluir Produto 400 
+#"Não é permitido excluir produto que faz parte de carrinho"
+
+#Cenario 22: DELETE Excluir Produto 401
+#Token de acesso ausente, inválido, expirado ou usuário do token não existe mais"
+
+#Cenario 23: DELETE Excluir Produto 403
+#Rota exclusiva para administradores
+
+Cenario 24: PUT Editar Produto 200
     [Tags]     PUTPROD
     Criar Sessao
     Fazer Login e Armazenar Token
@@ -91,24 +162,27 @@ Cenario: PUT Editar Produto 200
     Validar Status Code "200"
     DELETE Endpoint /produtos
 
+# Cenario 25: PUT Editar Produto 201
+#"Cadastro realizado com sucesso"
 
-# Cenario: PUT Editar Produto 201
+# Cenario 26: PUT Editar Produto 400
+#"Já existe produto com esse nome"
 
-Cenario: DELETE Excluir Produto 200
-    [Tags]    DELETEPRO
-    Criar Sessao
-    Fazer Login e Armazenar Token
-    Criar um Produto e Armazenar ID
-    DELETE Endpoint /produtos
-    Validar Status Code "200"
+# Cenario 27: PUT Editar Produto 401
+#Token de acesso ausente, inválido, expirado ou usuário do token não existe mais"
 
-Cenario: GET Todos os Carrinhos 200
+# Cenario 28: PUT Editar Produto 403
+#Rota exclusiva para administradores
+
+# CARRINHOS
+
+Cenario 29: GET Todos os Carrinhos 200
     [Tags]     GETALLCAR
     Criar Sessao
     GET Endpoint /carrinhos
     Validar Status Code "200"
     
-Cenario: POST Criar Carrinho 201
+Cenario 30: POST Criar Carrinho 201
     [Tags]    POSTCARRINHO
     Criar Sessao
     Fazer Login e Armazenar Token
@@ -116,7 +190,14 @@ Cenario: POST Criar Carrinho 201
     Validar Status Code "201"
     DELETE Endpoint /carrinhos
 
-
+# Cenario 31: POST Criar Carrinho 400
+# Cenario 32: POST Criar Carrinho 401
+# Cenario 33: GET Carrinho ID 200
+# Cenario 34: GET Carrinho ID 400
+# Cenario 35: DELETE Carrinho Concluir Compra 200
+# Cenario 36: DELETE Carrinho Concluir Compra 401
+# Cenario 37: DELETE Carrinho Cancelar Compra 200
+# Cenario 38: DELETE Carrinho Cancelar Compra 401
 
 #Seção para criação de Keywords Personalizadas
 *** Keywords ***

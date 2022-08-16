@@ -7,8 +7,8 @@ Resource             ./common.robot
 ${nome_do_usuario}         Charles Spring 
 ${email_do_usuario}        charlie.s@gmail.com       
 ${senha_do_usuario}        12345
-${id}        0jhpfVnYUWRYkiMi  
-${idnovo}        0jhpfVnYUWRYkiMi
+${id}        6AndZba8ce35cg28  
+${idnovo}        1469875
 
 *** Keywords ***
 GET Endpoint /usuarios 
@@ -43,6 +43,15 @@ PUT Endpoint /usuarios/id
     Log To Console            Response: ${response.content}
     Set Global Variable       ${response}
 
+PUT Endpoint Cadastro /usuarios/id
+    ${json}                Importar JSON Estatico        json_usuario_ex.json  
+    ${payload}             Set variable                  ${json["user_valido"]} 
+    ${response}            PUT On Session        serverest        /usuarios/1562586    json=&{payload}    expected_status=201  
+    ${id_user}             Set Variable        ${response.json()["_id"]}   
+    Log To Console         ID Produto: ${id_user}
+    Set Global Variable    ${id_user} 
+    Set Global Variable    ${response}
+    
 Validar Quantidade "${quantidade}"
     Should Be Equal    ${response.json()["quantidade"]}    ${quantidade}
                                     #first                   second
@@ -73,3 +82,28 @@ Criar Um Usuario e Armazenar ID
     Log To Console       ID Produto: ${id_user}
     Set Global Variable    ${id_user}
 
+#Usuário Inválido
+Criar Usuario E-mail Ja Cadastrado
+    ${json}                Importar JSON Estatico        json_usuario_ex.json  
+    ${payload}             Set variable                  ${json["user_invalido"]} 
+    Set Global Variable    ${payload} 
+    ${response}               POST On Session        serverest        /usuarios/    json=&{payload}    expected_status=400
+    Log To Console            Response: ${response.content}
+    Set Global Variable       ${response}
+
+Validar Mensagem E-mail Invalido
+    Should Be Equal            ${response.json()["message"]}    Este email já está sendo usado
+
+GET ID User Inválida 
+    ${response}               GET On Session        serverest        /usuarios/123456789    expected_status=400            
+    Log To Console            Response: ${response.content}
+    Set Global Variable       ${response}
+
+Validar Mensagem ID User Invalida
+    Should Be Equal            ${response.json()["message"]}    Usuário não encontrado
+
+PUT Endpoint Cadastro Invalido /usuarios/id
+    ${json}                Importar JSON Estatico        json_usuario_ex.json  
+    ${payload}             Set variable                  ${json["user_invalido"]} 
+    ${response}            PUT On Session        serverest        /usuarios/1562586    json=&{payload}    expected_status=400  
+    Set Global Variable    ${response}

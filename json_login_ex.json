@@ -5,10 +5,10 @@
     },
     "user_invalido": {
         "email": "emailinexistente@gmail.com",
-        "password":"12345"
+        "password":"teste"
     },
     "user_sem_senha": {
-        "email":"fulano@qa.com",
+        "email":"zequinha@qa.com.br",
         "password":" "
     },
     "user_sem_email": {
