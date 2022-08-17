@@ -16,16 +16,18 @@ Resource             ./common.robot
 Cenario 01: POST Login Massa Estatica 200
    [Tags]    POSTLOGIN
    Criar Sessao
-   Criar Login Estatico Valido
+   Selecionar Usuario Login Valido
+   POST Endpoint /login
    Validar Status Code "200"
+   Validar Ter Logado
 
-#O teste abaixo está gerando o erro 401 ao invés do 400
-#Ao testar no Postman, também é retornado 401. Só retorna 400 se um dos campos estiver em branco.
+#Só retorna 400 se um dos campos estiver em branco, porém a mensagem esperada fica diferente
 Cenario 02: POST Login Massa Estatica E-mail Invalido 400
    [Tags]    POSTLOGIN400
    Criar Sessao
-   Criar Login Estatico E-mail Invalido
-   Validar Status Code "400"
+   Selecionar Usuario Login Invalido
+   POST Endpoint /login
+   #Validar Status Code "400"
    Validar Mensagem Email/Senha Invalidos
 
 # USUÁRIOS
@@ -236,20 +238,62 @@ Cenario 29: GET Todos os Carrinhos 200
     Validar Status Code "200"
     
 Cenario 30: POST Criar Carrinho 201
-    [Tags]    POSTCARRINHO
+    [Tags]    POSTCARR201
     Criar Sessao
     Fazer Login e Armazenar Token
     Criar Carrinho Estatico Valido
     Validar Status Code "201"
-    DELETE Endpoint /carrinhos
+    DELETE Endpoint /carrinhos/concluir-compra
 
-# Cenario 31: POST Criar Carrinho 400
+Cenario 31: POST Criar Carrinho 400
+    [Tags]    POSTCAR400
+    Criar Sessao
+    Fazer Login e Armazenar Token
+    Criar Carrinho Estatico Valido
+    Criar Carrinho Estatico Valido
+    Validar Status Code "400"
+    DELETE Endpoint /carrinhos/concluir-compra
+
 # Cenario 32: POST Criar Carrinho 401
-# Cenario 33: GET Carrinho ID 200
-# Cenario 34: GET Carrinho ID 400
-# Cenario 35: DELETE Carrinho Concluir Compra 200
+#     [Tags]    POSTCAR401
+#     Criar Sessao
+#     Fazer Login e Armazenar Token
+#     Criar Carrinho Estatico Valido
+#     Validar Status Code "400"
+#     DELETE Endpoint /carrinhos/concluir-compra
+
+Cenario 33: GET Carrinho ID 200
+    [Tags]    GETCAR200
+    Criar Sessao
+    Fazer Login e Armazenar Token
+    Criar Um Carrinho e Armazenar ID
+    GET Endpoint /carrinhos/id
+    DELETE Endpoint /carrinhos/concluir-compra
+
+Cenario 34: GET Carrinho ID 400
+    [Tags]    GETCAR400
+    Criar Sessao
+    Fazer Login e Armazenar Token
+    GET Endpoint Carrinho Não Encontrado
+
+Cenario 35: DELETE Carrinho Concluir Compra 200
+    [Tags]    CONCLUIRCAR200
+    Criar Sessao
+    Fazer Login e Armazenar Token
+    Criar Carrinho Estatico Valido
+    DELETE Endpoint /carrinhos/concluir-compra
+    Validar Status Code "200"
+
 # Cenario 36: DELETE Carrinho Concluir Compra 401
-# Cenario 37: DELETE Carrinho Cancelar Compra 200
+
+Cenario 37: DELETE Carrinho Cancelar Compra 200
+    [Tags]    CANCELARCAR200
+    Criar Sessao
+    Fazer Login e Armazenar Token
+    Criar Carrinho Estatico Valido
+    DELETE Endpoint /carrinhos/cancelar-compra
+    Validar Status Code "200"
+
 # Cenario 38: DELETE Carrinho Cancelar Compra 401
 
 #Seção para criação de Keywords Personalizadas
