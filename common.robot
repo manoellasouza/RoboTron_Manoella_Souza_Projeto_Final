@@ -16,3 +16,12 @@ Importar JSON Estatico
     ${arquivo}     Get File      ${EXECDIR}/${nome_arquivo} 
     ${data}        Evaluate      json.loads('''${arquivo}''')    json  
     [return]       ${data}
+
+Validar Mensagem Rota Exclusiva Admin
+    Should Be Equal            ${response.json()["message"]}    Rota exclusiva para administradores
+
+Validar Mensagem E-mail Invalido
+    Should Be Equal            ${response.json()["message"]}    Este email já está sendo usado
+
+Validar Mensagem Token Invalido
+    Should Be Equal            ${response.json()["message"]}    Token de acesso ausente, inválido, expirado ou usuário do token não existe mais

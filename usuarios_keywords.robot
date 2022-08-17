@@ -7,7 +7,7 @@ Resource             ./common.robot
 ${nome_do_usuario}         Charles Spring 
 ${email_do_usuario}        charlie.s@gmail.com       
 ${senha_do_usuario}        12345
-${id}        6AndZba8ce35cg28  
+${id}        wTG0ezK8Wpv3CGMu  
 ${idnovo}        1469875
 
 *** Keywords ***
@@ -48,7 +48,7 @@ PUT Endpoint Cadastro /usuarios/id
     ${payload}             Set variable                  ${json["user_valido"]} 
     ${response}            PUT On Session        serverest        /usuarios/1562586    json=&{payload}    expected_status=201  
     ${id_user}             Set Variable        ${response.json()["_id"]}   
-    Log To Console         ID Produto: ${id_user}
+    Log To Console         ID User: ${id_user}
     Set Global Variable    ${id_user} 
     Set Global Variable    ${response}
     
@@ -84,15 +84,11 @@ Criar Um Usuario e Armazenar ID
 
 #Usuário Inválido
 Criar Usuario E-mail Ja Cadastrado
-    ${json}                Importar JSON Estatico        json_usuario_ex.json  
-    ${payload}             Set variable                  ${json["user_invalido"]} 
-    Set Global Variable    ${payload} 
+    ${json}                   Importar JSON Estatico        json_usuario_ex.json  
+    ${payload}                Set variable                  ${json["user_invalido"]} 
     ${response}               POST On Session        serverest        /usuarios/    json=&{payload}    expected_status=400
     Log To Console            Response: ${response.content}
     Set Global Variable       ${response}
-
-Validar Mensagem E-mail Invalido
-    Should Be Equal            ${response.json()["message"]}    Este email já está sendo usado
 
 GET ID User Inválida 
     ${response}               GET On Session        serverest        /usuarios/123456789    expected_status=400            

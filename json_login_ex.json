@@ -14,5 +14,9 @@
     "user_sem_email": {
         "email":" ",
         "password":"teste"
+    },
+    "user_sem_admin": {
+        "email":"anne-s@qa.com.br",
+        "password":"12345"
     }
 }

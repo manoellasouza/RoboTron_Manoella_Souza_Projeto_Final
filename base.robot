@@ -20,13 +20,13 @@ Cenario 01: POST Login Massa Estatica 200
    Validar Status Code "200"
 
 #O teste abaixo está gerando o erro 401 ao invés do 400
+#Ao testar no Postman, também é retornado 401. Só retorna 400 se um dos campos estiver em branco.
 Cenario 02: POST Login Massa Estatica E-mail Invalido 400
-   [Tags]    POSTLOGINEMAIL
+   [Tags]    POSTLOGIN400
    Criar Sessao
    Criar Login Estatico E-mail Invalido
-   #Criar Login Estatico Senha Invalida
    Validar Status Code "400"
-   Validar Email/Senha Invalidos
+   Validar Mensagem Email/Senha Invalidos
 
 # USUÁRIOS
 
@@ -35,16 +35,17 @@ Cenario 03: GET Todos os Usuarios 200
     Criar Sessao
     GET Endpoint /usuarios
     Validar Status Code "200"
-    Validar quantidade "${1}"
+    Validar quantidade "${2}"
 
 Cenario 04: POST Criar Usuario de Massa Estatica 201
-    [Tags]    POSTUSERVALIDO
+    [Tags]    POSTUSER201
     Criar Sessao
-    Criar Usuario Estatico Valido
+    Criar Um Usuario e Armazenar ID
     Validar Status Code "201"
+    DELETE Endpoint /usuarios/id
 
 Cenario 05: POST Criar Usuario de Massa Estatica 400
-    [Tags]    POSTUSERINVALIDO
+    [Tags]    POSTUSER400
     Criar Sessao
     Criar Usuario E-mail Ja Cadastrado
     Validar Status Code "400"
@@ -109,21 +110,35 @@ Cenario 13: GET Todos os Produtos 200
     #Printar Conteudo Response
 
 Cenario 14: POST Criar Produto de Massa Estatica 201
-    [Tags]    POSTPRODESTATICO
+    [Tags]    POSTPROD201
     Criar Sessao
     Fazer Login e Armazenar Token
     Criar Um Produto e Armazenar ID
     Validar Status Code "201"
     DELETE Endpoint /produtos
 
-#Cenario 15: POST Criar Produto de Massa Estatica 400
-#"Já existe produto com esse nome"
+Cenario 15: POST Criar Produto de Massa Estatica 400
+   [Tags]    POSTPROD400
+    Criar Sessao
+    Fazer Login e Armazenar Token
+    Criar Produto Invalido
+    Validar Status Code "400"
+    Validar Mensagem Produto Invalido
 
-#Cenario 16: POST Criar Produto de Massa Estatica 401
-#"Token ausente, inválido ou expirado"
+Cenario 16: POST Criar Produto de Massa Estatica 401
+   [Tags]    POSTPROD401
+    Criar Sessao
+    Criar Produto Token Invalido
+    Validar Status Code "401"
+    Validar Mensagem Token Invalido
 
-#Cenario 17: POST Criar Produto de Massa Estatica 403
-#"Rota exclusiva para administradores"
+Cenario 17: POST Criar Produto de Massa Estatica 403
+   [Tags]    POSTPROD403
+    Criar Sessao
+    Criar Login Estatico Admin False
+    Criar Produto Admin False
+    Validar Status Code "403"
+    Validar Mensagem Rota Exclusiva Admin
 
 Cenario 18: GET Produto Específico 200
     [Tags]     GETPROD
@@ -134,10 +149,15 @@ Cenario 18: GET Produto Específico 200
     Validar Status Code "200"
     DELETE Endpoint /produtos
 
-#Cenario 19: GET Produto Específico 400
+Cenario 19: GET Produto Específico 400
+    [Tags]     GETPROD400
+    Criar Sessao
+    GET Endpoint Produto ID Invalido
+    Validar Status Code "400"
+    Validar Mensagem Produto Não Encontrado
 
 Cenario 20: DELETE Excluir Produto 200
-    [Tags]    DELETEPROD
+    [Tags]    DELETEPROD200
     Criar Sessao
     Fazer Login e Armazenar Token
     Criar um Produto e Armazenar ID
@@ -147,14 +167,25 @@ Cenario 20: DELETE Excluir Produto 200
 #Cenario 21: DELETE Excluir Produto 400 
 #"Não é permitido excluir produto que faz parte de carrinho"
 
-#Cenario 22: DELETE Excluir Produto 401
-#Token de acesso ausente, inválido, expirado ou usuário do token não existe mais"
+Cenario 22: DELETE Excluir Produto 401
+    [Tags]    DELETEPROD401
+    Criar Sessao
+    Fazer Login e Armazenar Token
+    Criar um Produto e Armazenar ID
+    DELETE Produto Token Invalido
+    DELETE Endpoint /produtos
 
-#Cenario 23: DELETE Excluir Produto 403
-#Rota exclusiva para administradores
+Cenario 23: DELETE Excluir Produto 403
+    [Tags]    DELETEPROD403
+    Criar Sessao
+    Fazer Login e Armazenar Token
+    Criar um Produto e Armazenar ID
+    DELETE Produto Admin False
+    Fazer Login e Armazenar Token
+    DELETE Endpoint /produtos
 
 Cenario 24: PUT Editar Produto 200
-    [Tags]     PUTPROD
+    [Tags]     PUTPROD200
     Criar Sessao
     Fazer Login e Armazenar Token
     Criar Um Produto e Armazenar ID
@@ -162,17 +193,39 @@ Cenario 24: PUT Editar Produto 200
     Validar Status Code "200"
     DELETE Endpoint /produtos
 
-# Cenario 25: PUT Editar Produto 201
-#"Cadastro realizado com sucesso"
+Cenario 25: PUT Editar Produto 201
+    [Tags]     PUTPROD201
+    Criar Sessao
+    Fazer Login e Armazenar Token
+    PUT Endpoint Cadastro /produtos/id
+    Validar Status Code "201"
+    Validar Ter Criado o Produto
+    DELETE Endpoint /produtos
 
-# Cenario 26: PUT Editar Produto 400
-#"Já existe produto com esse nome"
+Cenario 26: PUT Editar Produto 400
+   [Tags]     PUTPROD400
+    Criar Sessao
+    Fazer Login e Armazenar Token
+    PUT Endpoint Cadastro Produto Inválido
+    Validar Status Code "400"
+    Validar Mensagem Produto Invalido
 
-# Cenario 27: PUT Editar Produto 401
-#Token de acesso ausente, inválido, expirado ou usuário do token não existe mais"
+Cenario 27: PUT Editar Produto 401
+    [Tags]     PUTPROD401
+    Criar Sessao
+    Fazer Login e Armazenar Token
+    Criar Um Produto e Armazenar ID
+    PUT Produto Token Invalido
+    DELETE Endpoint /produtos
 
-# Cenario 28: PUT Editar Produto 403
-#Rota exclusiva para administradores
+Cenario 28: PUT Editar Produto 403
+    [Tags]     PUTPROD403
+    Criar Sessao
+    Fazer Login e Armazenar Token
+    Criar Um Produto e Armazenar ID
+    PUT Produto Admin False
+    Fazer Login e Armazenar Token
+    DELETE Endpoint /produtos
 
 # CARRINHOS
 

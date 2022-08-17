@@ -34,12 +34,14 @@ Criar Login Estatico E-mail Invalido
     Log To Console         Response: ${response.content}
     Set Global Variable    ${response}
 
-Criar Login Estatico Senha Invalida
-    ${json}                Importar JSON Estatico        json_login_ex.json  
-    ${payload}             Set variable                  ${json["user_sem_senha"]}
-    ${response}            POST On Session        serverest        /login    json=&{payload}    expected_status=400 
-    Log To Console         Response: ${response.content}
-    Set Global Variable    ${response}
-
-Validar Email/Senha Invalidos
+Validar Mensagem Email/Senha Invalidos
     Should Be Equal            ${response.json()["message"]}    Email e/ou senha inválidos
+
+Criar Login Estatico Admin False
+    ${json}                Importar JSON Estatico        json_login_ex.json  
+    ${payload}             Set variable                  ${json["user_sem_admin"]}
+    ${response}            POST On Session        serverest        /login    json=&{payload}    
+    ${token_auth}          Set Variable        ${response.json()["authorization"]}   
+    Log To Console         Token Salvo: ${token_auth}
+    Set Global Variable    ${token_auth}
+

@@ -24,8 +24,8 @@
         "administrador": "true"
     },
     "user_sem_admin": {
-        "nome": "Sem Email Tester",
-        "email": " ",
+        "nome": "Anne Shirley",
+        "email": "anne-s@qa.com.br",
         "password": "12345",
         "administrador": "false"
     }
