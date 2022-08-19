@@ -39,6 +39,7 @@ POST Endpoint /carrinhos
     ${response}               POST On Session                        serverest        /carrinhos    json=&{payload}    headers=&{header}    expected_status=any
     Log To Console            Response: ${response.content}
     Set Global Variable       ${response}
+    
 
 DELETE Endpoint /carrinhos/concluir-compra
     &{header}                 Create Dictionary                  Authorization=${token_auth}  

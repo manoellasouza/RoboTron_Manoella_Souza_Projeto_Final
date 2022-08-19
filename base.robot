@@ -14,7 +14,7 @@ Resource             ./common.robot
 # LOGIN
 
 Cenario 01: POST Login 200
-   [Tags]    POSTLOGIN200
+   [Tags]    POSTLOGIN200   
    Criar Sessao
    Selecionar Usuario Login Valido
    POST Endpoint /login
@@ -34,7 +34,7 @@ Cenario 02: POST Login E-mail Invalido 400
 # USUÁRIOS
 
 Cenario 03: GET Listar Todos os Usuarios 200
-    [Tags]    GETALLUSERS
+    [Tags]    GETALLUSERS    
     Criar Sessao
     GET Endpoint /usuarios
     Validar Status Code "200"
@@ -42,7 +42,7 @@ Cenario 03: GET Listar Todos os Usuarios 200
     Validar quantidade "${2}"
 
 Cenario 04: POST Criar Usuario 201
-    [Tags]    POSTUSER201
+    [Tags]    POSTUSER201    
     Criar Sessao
     Criar Um Usuario e Armazenar ID
     Validar Ter Criado o Usuario
@@ -97,7 +97,7 @@ Cenario 09: DELETE Deletar Usuario Carrinho Cadastrado 400
     DELETE Endpoint /carrinhos/cancelar-compra
 
 Cenario 10: PUT Editar Usuario 200
-    [Tags]    PUTUSER200
+    [Tags]    PUTUSER200    
     Criar Sessao
     Criar Um Usuario e Armazenar ID
     PUT Endpoint /usuarios/id
@@ -124,7 +124,7 @@ Cenario 12: PUT Editar Usuario E-mail Já Cadastrado 400
 # PRODUTOS 
 
 Cenario 13: GET Listar Todos os Produtos 200
-    [Tags]    GETALLPROD
+    [Tags]    GETALLPROD    
     Criar Sessao
     GET Endpoint /produtos
     Validar Status Code "200"
@@ -149,7 +149,7 @@ Cenario 15: POST Criar Produto Nome Já Existente 400
     Validar Mensagem Produto Invalido
 
 Cenario 16: POST Criar Produto Token Inválido 401
-   [Tags]    POSTPROD401
+   [Tags]    POSTPROD401    
     Criar Sessao
     Criar Produto Token Invalido
     Validar Status Code "401"
@@ -165,7 +165,7 @@ Cenario 17: POST Criar Produto Rota Administrador 403
     Validar Mensagem Rota Exclusiva Admin
 
 Cenario 18: GET Buscar Produto 200
-    [Tags]     GETPROD200
+    [Tags]     GETPROD200    
     Criar Sessao
     Fazer Login e Armazenar Token
     Criar Um Produto e Armazenar ID
@@ -276,11 +276,12 @@ Cenario 29: GET Listar Todos os Carrinhos 200
     Validar Se Carrinho Contém IdProduto "BeeJh5lz3k6kSIzA"
     
 Cenario 30: POST Criar Carrinho 201
-    [Tags]    POSTCAR201
+    [Tags]    POSTCAR201    
     Criar Sessao
     Fazer Login e Armazenar Token
     Criar Carrinho Estatico Valido
     Validar Status Code "201"
+    Validar Ter Criado o Carrinho
     DELETE Endpoint /carrinhos/concluir-compra
 
 Cenario 31: POST Criar Carrinho Errado 400
@@ -314,7 +315,7 @@ Cenario 34: GET Buscar Carrinho Não Encontrado 400
     GET Endpoint Carrinho Não Encontrado
 
 Cenario 35: DELETE Carrinho Concluir Compra 200
-    [Tags]    CONCLUIRCAR200
+    [Tags]    CONCLUIRCAR200   
     Criar Sessao
     Fazer Login e Armazenar Token
     Criar Carrinho Estatico Valido
