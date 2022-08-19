@@ -1,120 +1,110 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 5.0.1 (Python 3.10.5 on win32)" generated="20220817 20:03:58.679" rpa="false" schemaversion="3">
+<robot generator="Robot 5.0.1 (Python 3.10.5 on win32)" generated="20220818 19:03:04.100" rpa="false" schemaversion="3">
 <suite id="s1" name="Base" source="D:\Pessoal\SENAC\Estágio\Compass\Sprint 5 - Robot-Framework em APIs\CHALLENGE\base.robot">
-<test id="s1-t1" name="Cenario 02: POST Login Massa Estatica E-mail Invalido 400" line="25">
-<kw name="Criar Sessao">
+<test id="s1-t1" name="Cenario 29: GET Todos os Carrinhos 200" line="269">
+<kw name="Criar Sessao" library="common">
 <kw name="Create Session" library="RequestsLibrary">
 <arg>serverest</arg>
 <arg>http://localhost:3000</arg>
 <doc>Create Session: create a HTTP session to a server</doc>
-<msg timestamp="20220817 20:03:58.893" level="INFO">Creating Session using : alias=serverest, url=http://localhost:3000, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<status status="PASS" starttime="20220817 20:03:58.892" endtime="20220817 20:03:58.893"/>
+<msg timestamp="20220818 19:03:04.303" level="INFO">Creating Session using : alias=serverest, url=http://localhost:3000, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20220818 19:03:04.303" endtime="20220818 19:03:04.303"/>
 </kw>
-<status status="PASS" starttime="20220817 20:03:58.892" endtime="20220817 20:03:58.893"/>
+<status status="PASS" starttime="20220818 19:03:04.303" endtime="20220818 19:03:04.303"/>
 </kw>
-<kw name="Selecionar Usuario Login Invalido" library="login_keywords">
-<kw name="Importar JSON Estatico" library="common">
-<var>${json}</var>
-<arg>json_login_ex.json</arg>
-<kw name="Get File" library="OperatingSystem">
-<var>${arquivo}</var>
-<arg>${EXECDIR}/${nome_arquivo}</arg>
-<doc>Returns the contents of a specified file.</doc>
-<msg timestamp="20220817 20:03:58.894" level="INFO" html="true">Getting file '&lt;a href="file://D:\Pessoal\SENAC\Estágio\Compass\Sprint 5 - Robot-Framework em APIs\CHALLENGE\json_login_ex.json"&gt;D:\Pessoal\SENAC\Estágio\Compass\Sprint 5 - Robot-Framework em APIs\CHALLENGE\json_login_ex.json&lt;/a&gt;'.</msg>
-<msg timestamp="20220817 20:03:58.894" level="INFO">${arquivo} = {   
-    "user_valido": {
-        "email":"zequinha@qa.com.br",
-        "password":"teste"
-    },
-    "user_invalido": {
-        "email": "emailinexistente@gmail.com",
-        "password":"teste"
-    }...</msg>
-<status status="PASS" starttime="20220817 20:03:58.894" endtime="20220817 20:03:58.894"/>
-</kw>
-<kw name="Evaluate" library="BuiltIn">
-<var>${data}</var>
-<arg>json.loads('''${arquivo}''')</arg>
-<arg>json</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<msg timestamp="20220817 20:03:58.895" level="INFO">${data} = {'user_valido': {'email': 'zequinha@qa.com.br', 'password': 'teste'}, 'user_invalido': {'email': 'emailinexistente@gmail.com', 'password': 'teste'}, 'user_sem_senha': {'email': 'zequinha@qa.com.br', '...</msg>
-<status status="PASS" starttime="20220817 20:03:58.895" endtime="20220817 20:03:58.895"/>
-</kw>
-<msg timestamp="20220817 20:03:58.895" level="INFO">${json} = {'user_valido': {'email': 'zequinha@qa.com.br', 'password': 'teste'}, 'user_invalido': {'email': 'emailinexistente@gmail.com', 'password': 'teste'}, 'user_sem_senha': {'email': 'zequinha@qa.com.br', '...</msg>
-<status status="PASS" starttime="20220817 20:03:58.894" endtime="20220817 20:03:58.895"/>
-</kw>
-<kw name="Set Variable" library="BuiltIn">
-<var>${payload}</var>
-<arg>${json["user_invalido"]}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20220817 20:03:58.896" level="INFO">${payload} = {'email': 'emailinexistente@gmail.com', 'password': 'teste'}</msg>
-<status status="PASS" starttime="20220817 20:03:58.895" endtime="20220817 20:03:58.896"/>
-</kw>
-<kw name="Set Global Variable" library="BuiltIn">
-<arg>${payload}</arg>
-<doc>Makes a variable available globally in all tests and suites.</doc>
-<msg timestamp="20220817 20:03:58.896" level="INFO">${payload} = {'email': 'emailinexistente@gmail.com', 'password': 'teste'}</msg>
-<status status="PASS" starttime="20220817 20:03:58.896" endtime="20220817 20:03:58.896"/>
-</kw>
-<status status="PASS" starttime="20220817 20:03:58.893" endtime="20220817 20:03:58.896"/>
-</kw>
-<kw name="POST Endpoint /login" library="login_keywords">
-<kw name="POST On Session" library="RequestsLibrary">
+<kw name="GET Endpoint /carrinhos" library="carrinho_keywords">
+<kw name="GET On Session" library="RequestsLibrary">
 <var>${response}</var>
 <arg>serverest</arg>
-<arg>/login</arg>
-<arg>json=&amp;{payload}</arg>
-<arg>expected_status=any</arg>
-<doc>Sends a POST request on a previously created HTTP Session.</doc>
-<msg timestamp="20220817 20:03:58.911" level="INFO">POST Request : url=http://localhost:3000/login 
- path_url=/login 
- headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '60', 'Content-Type': 'application/json'} 
- body=b'{"email": "emailinexistente@gmail.com", "password": "teste"}' 
+<arg>/carrinhos</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20220818 19:03:04.319" level="INFO">GET Request : url=http://localhost:3000/carrinhos 
+ path_url=/carrinhos 
+ headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
  </msg>
-<msg timestamp="20220817 20:03:58.912" level="INFO">POST Response : url=http://localhost:3000/login 
- status=401, reason=Unauthorized 
- headers={'Access-Control-Allow-Origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'x-moesif-transaction-id': '5ffb9bf0-03ad-4041-a3e3-83352944558d', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '48', 'Date': 'Wed, 17 Aug 2022 23:03:58 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+<msg timestamp="20220818 19:03:04.319" level="INFO">GET Response : url=http://localhost:3000/carrinhos 
+ status=200, reason=OK 
+ headers={'Access-Control-Allow-Origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'x-moesif-transaction-id': '09dbfea5-f4b1-4227-97c5-d27fd3f3562f', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '595', 'Date': 'Thu, 18 Aug 2022 22:03:04 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
  body={
-    "message": "Email e/ou senha inválidos"
+    "quantidade": 1,
+    "carrinhos": [
+        {
+            "produtos": [
+                {
+                    "idProduto": "BeeJh5lz3k6kSIzA",
+                    "quantidade": 2,
+                    "precoUnitario": 470
+                },
+                {
+                    "idProduto": "K6leHdftCeOJj8BJ",
+                    "quantidade": 1,
+                    "precoUnitario": 5240
+                }
+            ],
+            "precoTotal": 6180,
+            "quantidadeTotal": 3,
+            "idUsuario": "oUb7aGkMtSEPf6BZ",
+            "_id": "qbMqntef4iTOwWfg"
+        }
+    ]
 } 
  </msg>
-<msg timestamp="20220817 20:03:58.912" level="INFO">${response} = &lt;Response [401]&gt;</msg>
-<status status="PASS" starttime="20220817 20:03:58.897" endtime="20220817 20:03:58.912"/>
-</kw>
-<kw name="Log To Console" library="BuiltIn">
-<arg>Response: ${response.content}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20220817 20:03:58.913" endtime="20220817 20:03:58.915"/>
+<msg timestamp="20220818 19:03:04.319" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220818 19:03:04.303" endtime="20220818 19:03:04.319"/>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <arg>${response}</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<msg timestamp="20220817 20:03:58.915" level="INFO">${response} = &lt;Response [401]&gt;</msg>
-<status status="PASS" starttime="20220817 20:03:58.915" endtime="20220817 20:03:58.915"/>
+<msg timestamp="20220818 19:03:04.319" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220818 19:03:04.319" endtime="20220818 19:03:04.319"/>
 </kw>
-<status status="PASS" starttime="20220817 20:03:58.897" endtime="20220817 20:03:58.916"/>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Response: ${response.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220818 19:03:04.319" endtime="20220818 19:03:04.319"/>
 </kw>
-<kw name="Validar Mensagem Email/Senha Invalidos" library="login_keywords">
-<kw name="Should Be Equal" library="BuiltIn">
-<arg>${response.json()["message"]}</arg>
-<arg>Email e/ou senha inválidos</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" starttime="20220817 20:03:58.916" endtime="20220817 20:03:58.917"/>
+<status status="PASS" starttime="20220818 19:03:04.303" endtime="20220818 19:03:04.319"/>
 </kw>
-<status status="PASS" starttime="20220817 20:03:58.916" endtime="20220817 20:03:58.917"/>
+<kw name="Validar Status Code &quot;200&quot;" library="common" sourcename="Validar Status Code &quot;${statuscode}&quot;">
+<kw name="Should Be True" library="BuiltIn">
+<arg>${response.status_code} == ${statuscode}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" starttime="20220818 19:03:04.319" endtime="20220818 19:03:04.319"/>
 </kw>
-<tag>POSTLOGIN400</tag>
-<status status="PASS" starttime="20220817 20:03:58.891" endtime="20220817 20:03:58.917"/>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Status Code Retornado: ${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220818 19:03:04.319" endtime="20220818 19:03:04.319"/>
+</kw>
+<status status="PASS" starttime="20220818 19:03:04.319" endtime="20220818 19:03:04.319"/>
+</kw>
+<kw name="Validar Se Carrinho Contém IdProduto &quot;BeeJh5lz3k6kSIzA&quot;" library="carrinho_keywords" sourcename="Validar Se Carrinho Contém IdProduto &quot;${idProduto}&quot;">
+<kw name="Should Contain" library="BuiltIn">
+<arg>${response.json()["carrinhos"][0]["produtos"][0]["idProduto"]}</arg>
+<arg>${idProduto}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20220818 19:03:04.319" endtime="20220818 19:03:04.319"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Carrinho contém IdProduto: ${response.json()["carrinhos"][0]["produtos"][0]["idProduto"]}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220818 19:03:04.319" endtime="20220818 19:03:04.319"/>
+</kw>
+<status status="PASS" starttime="20220818 19:03:04.319" endtime="20220818 19:03:04.319"/>
+</kw>
+<tag>GETALLCAR</tag>
+<status status="PASS" starttime="20220818 19:03:04.303" endtime="20220818 19:03:04.319"/>
 </test>
 <doc>Arquivo simples para requisições HTTP em APIs REST</doc>
-<status status="PASS" starttime="20220817 20:03:58.682" endtime="20220817 20:03:58.922"/>
+<status status="PASS" starttime="20220818 19:03:04.100" endtime="20220818 19:03:04.335"/>
 </suite>
 <statistics>
 <total>
 <stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
-<stat pass="1" fail="0" skip="0">POSTLOGIN400</stat>
+<stat pass="1" fail="0" skip="0">GETALLCAR</stat>
 </tag>
 <suite>
 <stat pass="1" fail="0" skip="0" id="s1" name="Base">Base</stat>
