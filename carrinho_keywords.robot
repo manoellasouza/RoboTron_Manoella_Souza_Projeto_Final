@@ -65,3 +65,7 @@ Validar Mensagem Produto Carrinho Cadastrado
 Validar Se Carrinho Contém IdProduto "${idProduto}"
     Should Contain          ${response.json()["carrinhos"][0]["produtos"][0]["idProduto"]}    ${idProduto}
     Log To Console          Carrinho contém IdProduto: ${response.json()["carrinhos"][0]["produtos"][0]["idProduto"]}
+
+Validar Se Carrinho Foi Excluido 
+    Should Not Contain          ${response.json()["carrinhos"][0]["_id"]}    ${id_carrinho}
+

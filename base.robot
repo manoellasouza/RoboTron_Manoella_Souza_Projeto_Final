@@ -13,7 +13,7 @@ Resource             ./common.robot
 
 # LOGIN
 
-Cenario 01: POST Login Massa Estatica 200
+Cenario 01: POST Login 200
    [Tags]    POSTLOGIN200
    Criar Sessao
    Selecionar Usuario Login Valido
@@ -21,8 +21,9 @@ Cenario 01: POST Login Massa Estatica 200
    Validar Status Code "200"
    Validar Ter Logado
 
-#Só retorna 400 se um dos campos estiver em branco, porém a mensagem esperada fica diferente e o teste não passa
-Cenario 02: POST Login Massa Estatica E-mail Invalido 400
+#Neste teste ele retorna 401 ao invés da resposta 400, que é o que consta na documentação
+#Só retorna 400 se um dos campos estiver em branco, porém a mensagem fica diferente da esperada
+Cenario 02: POST Login E-mail Invalido 400
    [Tags]    POSTLOGIN400
    Criar Sessao
    Selecionar Usuario Login Invalido
@@ -32,7 +33,7 @@ Cenario 02: POST Login Massa Estatica E-mail Invalido 400
 
 # USUÁRIOS
 
-Cenario 03: GET Todos os Usuarios 200
+Cenario 03: GET Listar Todos os Usuarios 200
     [Tags]    GETALLUSERS
     Criar Sessao
     GET Endpoint /usuarios
@@ -40,7 +41,7 @@ Cenario 03: GET Todos os Usuarios 200
     Validar Se Response Contem "Anne Shirley"
     Validar quantidade "${2}"
 
-Cenario 04: POST Criar Usuario de Massa Estatica 201
+Cenario 04: POST Criar Usuario 201
     [Tags]    POSTUSER201
     Criar Sessao
     Criar Um Usuario e Armazenar ID
@@ -49,7 +50,7 @@ Cenario 04: POST Criar Usuario de Massa Estatica 201
     GET Endpoint /usuarios/id
     DELETE Endpoint /usuarios/id
 
-Cenario 05: POST Criar Usuario de Massa Estatica 400
+Cenario 05: POST Criar Usuario E-mail Já Cadastrado 400
     [Tags]    POSTUSER400
     Criar Sessao
     Criar Usuario Estatico Invalido
@@ -57,7 +58,7 @@ Cenario 05: POST Criar Usuario de Massa Estatica 400
     Validar Status Code "400"
     Validar Mensagem E-mail Invalido
 
-Cenario 06: GET Usuario Específico 200
+Cenario 06: GET Buscar Usuario 200
     [Tags]    GETUSER200
     Criar Sessao
     Criar Um Usuario e Armazenar ID
@@ -66,7 +67,7 @@ Cenario 06: GET Usuario Específico 200
     Validar Cadastro do E-mail "beltrano@qa.com.br"
     DELETE Endpoint /usuarios/id
 
-Cenario 07: GET Usuario Específico 400
+Cenario 07: GET Buscar Usuario Não Encontrado 400
     [Tags]    GETUSER400
     Criar Sessao
     Selecionar ID User Invalido  
@@ -84,7 +85,7 @@ Cenario 08: DELETE Deletar Usuario 200
     GET Endpoint /usuarios/id
     Validar Mensagem Usuário Não Encontrado
     
-Cenario 09: DELETE Deletar Usuario 400   
+Cenario 09: DELETE Deletar Usuario Carrinho Cadastrado 400   
     [Tags]    DELETEUSER400
     Criar Sessao
     Fazer Login e Armazenar Token
@@ -104,7 +105,7 @@ Cenario 10: PUT Editar Usuario 200
     GET Endpoint /usuarios/id
     DELETE Endpoint /usuarios/id
 
-Cenario 11: PUT Editar Usuario 201
+Cenario 11: PUT Editar Usuario e Cadastrar 201
     [Tags]    PUTUSER201
     Criar Sessao
     Criar Usuario Estatico Valido
@@ -113,7 +114,7 @@ Cenario 11: PUT Editar Usuario 201
     Validar Ter Criado o Usuario
     DELETE Endpoint /usuarios/id
 
-Cenario 12: PUT Editar Usuario 400
+Cenario 12: PUT Editar Usuario E-mail Já Cadastrado 400
     [Tags]    PUTUSER400
     Criar Sessao
     PUT Endpoint Cadastro Invalido /usuarios/id
@@ -122,15 +123,15 @@ Cenario 12: PUT Editar Usuario 400
 
 # PRODUTOS 
 
-Cenario 13: GET Todos os Produtos 200
+Cenario 13: GET Listar Todos os Produtos 200
     [Tags]    GETALLPROD
     Criar Sessao
     GET Endpoint /produtos
     Validar Status Code "200"
-    Validar quantidade "${4}"
+    Validar quantidade "${3}"
     Validar Nome Produto Cadastrado "Logitech MX Vertical"
 
-Cenario 14: POST Criar Produto de Massa Estatica 201
+Cenario 14: POST Criar Produto 201
     [Tags]    POSTPROD201
     Criar Sessao
     Fazer Login e Armazenar Token
@@ -138,7 +139,7 @@ Cenario 14: POST Criar Produto de Massa Estatica 201
     Validar Status Code "201"
     DELETE Endpoint /produtos
 
-Cenario 15: POST Criar Produto de Massa Estatica 400
+Cenario 15: POST Criar Produto Nome Já Existente 400
    [Tags]    POSTPROD400
     Criar Sessao
     Fazer Login e Armazenar Token
@@ -147,14 +148,14 @@ Cenario 15: POST Criar Produto de Massa Estatica 400
     Validar Status Code "400"
     Validar Mensagem Produto Invalido
 
-Cenario 16: POST Criar Produto de Massa Estatica 401
+Cenario 16: POST Criar Produto Token Inválido 401
    [Tags]    POSTPROD401
     Criar Sessao
     Criar Produto Token Invalido
     Validar Status Code "401"
     Validar Mensagem Token Invalido
 
-Cenario 17: POST Criar Produto de Massa Estatica 403
+Cenario 17: POST Criar Produto Rota Administrador 403
    [Tags]    POSTPROD403
     Criar Sessao
     Criar Login Estatico Admin False
@@ -163,16 +164,17 @@ Cenario 17: POST Criar Produto de Massa Estatica 403
     Validar Status Code "403"
     Validar Mensagem Rota Exclusiva Admin
 
-Cenario 18: GET Produto Específico 200
-    [Tags]     GETPROD
+Cenario 18: GET Buscar Produto 200
+    [Tags]     GETPROD200
     Criar Sessao
     Fazer Login e Armazenar Token
     Criar Um Produto e Armazenar ID
     GET Endpoint /produtos/id
     Validar Status Code "200"
+    Validar Nome Produto Buscado "Monitor Logitech"
     DELETE Endpoint /produtos
 
-Cenario 19: GET Produto Específico 400
+Cenario 19: GET Buscar Produto Não Encontrado 400
     [Tags]     GETPROD400
     Criar Sessao
     Selecionar ID Produto Invalido
@@ -190,7 +192,7 @@ Cenario 20: DELETE Excluir Produto 200
     GET Endpoint /produtos/id
     Validar Mensagem Produto Não Encontrado
 
-Cenario 21: DELETE Excluir Produto 400 
+Cenario 21: DELETE Excluir Produto Carrinho 400 
     [Tags]    DELETEPROD400
     Criar Sessao
     Fazer Login e Armazenar Token
@@ -199,7 +201,7 @@ Cenario 21: DELETE Excluir Produto 400
     Validar Status Code "400"
     Validar Mensagem Produto Carrinho Cadastrado
 
-Cenario 22: DELETE Excluir Produto 401
+Cenario 22: DELETE Excluir Produto Token Inválido 401
     [Tags]    DELETEPROD401
     Criar Sessao
     Fazer Login e Armazenar Token
@@ -208,7 +210,7 @@ Cenario 22: DELETE Excluir Produto 401
     Fazer Login e Armazenar Token
     DELETE Endpoint /produtos
 
-Cenario 23: DELETE Excluir Produto 403
+Cenario 23: DELETE Excluir Produto Rota Administrador 403
     [Tags]    DELETEPROD403
     Criar Sessao
     Fazer Login e Armazenar Token
@@ -227,7 +229,7 @@ Cenario 24: PUT Editar Produto 200
     GET Endpoint /produtos/id
     DELETE Endpoint /produtos
 
-Cenario 25: PUT Editar Produto 201
+Cenario 25: PUT Editar Produto Cadastro 201
     [Tags]     PUTPROD201
     Criar Sessao
     Fazer Login e Armazenar Token
@@ -238,7 +240,7 @@ Cenario 25: PUT Editar Produto 201
     GET Endpoint /produtos/id
     DELETE Endpoint /produtos
 
-Cenario 26: PUT Editar Produto 400
+Cenario 26: PUT Editar Produto Nome Já Existente 400
    [Tags]     PUTPROD400
     Criar Sessao
     Fazer Login e Armazenar Token
@@ -246,7 +248,7 @@ Cenario 26: PUT Editar Produto 400
     Validar Status Code "400"
     Validar Mensagem Produto Invalido
 
-Cenario 27: PUT Editar Produto 401
+Cenario 27: PUT Editar Produto Token Inválido 401
     [Tags]     PUTPROD401
     Criar Sessao
     Fazer Login e Armazenar Token
@@ -255,7 +257,7 @@ Cenario 27: PUT Editar Produto 401
     Fazer Login e Armazenar Token
     DELETE Endpoint /produtos
 
-Cenario 28: PUT Editar Produto 403
+Cenario 28: PUT Editar Produto Rota Administrador 403
     [Tags]     PUTPROD403
     Criar Sessao
     Fazer Login e Armazenar Token
@@ -266,8 +268,8 @@ Cenario 28: PUT Editar Produto 403
 
 # CARRINHOS
 
-Cenario 29: GET Todos os Carrinhos 200
-    [Tags]     GETALLCAR
+Cenario 29: GET Listar Todos os Carrinhos 200
+    [Tags]     GETALLCARS
     Criar Sessao
     GET Endpoint /carrinhos
     Validar Status Code "200"
@@ -281,7 +283,7 @@ Cenario 30: POST Criar Carrinho 201
     Validar Status Code "201"
     DELETE Endpoint /carrinhos/concluir-compra
 
-Cenario 31: POST Criar Carrinho 400
+Cenario 31: POST Criar Carrinho Errado 400
     [Tags]    POSTCAR400
     Criar Sessao
     Fazer Login e Armazenar Token
@@ -290,14 +292,14 @@ Cenario 31: POST Criar Carrinho 400
     Validar Status Code "400"
     DELETE Endpoint /carrinhos/concluir-compra
 
-Cenario 32: POST Criar Carrinho 401
+Cenario 32: POST Criar Carrinho Token Inválido 401
      [Tags]    POSTCAR401
     Criar Sessao
     Selecionar Token Invalido
     Criar Carrinho Estatico Valido
     Validar Status Code "401"
 
-Cenario 33: GET Carrinho ID 200
+Cenario 33: GET Buscar Carrinho 200
     [Tags]    GETCAR200
     Criar Sessao
     Fazer Login e Armazenar Token
@@ -305,7 +307,7 @@ Cenario 33: GET Carrinho ID 200
     GET Endpoint /carrinhos/id
     DELETE Endpoint /carrinhos/concluir-compra
 
-Cenario 34: GET Carrinho ID 400
+Cenario 34: GET Buscar Carrinho Não Encontrado 400
     [Tags]    GETCAR400
     Criar Sessao
     Fazer Login e Armazenar Token
@@ -319,7 +321,7 @@ Cenario 35: DELETE Carrinho Concluir Compra 200
     DELETE Endpoint /carrinhos/concluir-compra
     Validar Status Code "200"
 
-Cenario 36: DELETE Carrinho Concluir Compra 401
+Cenario 36: DELETE Carrinho Concluir Compra Token Inválido 401
     [Tags]    CONCLUIRCAR401
     Criar Sessao
     Fazer Login e Armazenar Token
@@ -338,7 +340,7 @@ Cenario 37: DELETE Carrinho Cancelar Compra 200
     DELETE Endpoint /carrinhos/cancelar-compra
     Validar Status Code "200"
 
-Cenario 38: DELETE Carrinho Cancelar Compra 401
+Cenario 38: DELETE Carrinho Cancelar Compra Token Inválido 401
     [Tags]    CANCELARCAR401
     Criar Sessao
     Fazer Login e Armazenar Token

@@ -113,3 +113,7 @@ Validar Mensagem Produto Invalido
 Validar Nome Produto Cadastrado "${produto}"
     Should Contain          ${response.json()["produtos"][0]["nome"]}    ${produto}
     Log To Console          Produto Cadastrado: ${response.json()["produtos"][0]["nome"]}
+
+Validar Nome Produto Buscado "${produto}"
+    Should Contain          ${response.json()["nome"]}    ${produto}
+    Log To Console          Produto Buscado: ${response.json()["nome"]}

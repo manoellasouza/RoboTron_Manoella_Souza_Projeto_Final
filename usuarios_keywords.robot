@@ -10,7 +10,7 @@ Selecionar ID User Invalido
     Set Global Variable    ${id_user}
 
 Selecionar ID User Login
-    ${id_user}             Set Variable        ZqLU2uGlKb9c4cpC
+    ${id_user}             Set Variable        oUb7aGkMtSEPf6BZ
     Set Global Variable    ${id_user}
 
 Criar Um Usuario e Armazenar ID
@@ -76,7 +76,7 @@ Validar Quantidade "${quantidade}"
     Log To Console         Quantidade Cadastrada: ${response.json()["quantidade"]}
 
 Validar Se Response Contem "${nome}"
-    Should Contain          ${response.json()["usuarios"][1]["nome"]}    ${nome}
+    Should Contain          ${response.json()["usuarios"][0]["nome"]}    ${nome}
     Log To Console          Nome Cadastrado: ${response.json()["usuarios"][1]["nome"]}     
 
 Validar Cadastro do E-mail "${email}"
