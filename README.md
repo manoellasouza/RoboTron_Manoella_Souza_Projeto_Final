@@ -27,7 +27,8 @@ Além do conteúdo estudado nas sprints passadas, este projeto também tem como 
 - <a href="https://www.python.org/downloads/">Python 3</a>: é a linguagem base do Robot Framework
 - <a href="https://robotframework.org/">Robot Framework</a>: para fazer a automação de testes através das libraries
 - <a href="https://git-scm.com/downloads">Git</a>: para clonar o projeto para a sua máquina
-- <a href="https://code.visualstudio.com/">Visual Studio Code</a> para rodar o projeto na sua máquina
+- <a href="https://nodejs.org/en/">Node.js</a>: para rodar os testes localmente e para os testes front-end
+- <a href="https://code.visualstudio.com/">Visual Studio Code</a>: para rodar o projeto na sua máquina
 
 ## Libraries utilizadas
 - <a href="https://robotframework.org/robotframework/latest/libraries/BuiltIn.html#library-documentation-top">BuiltIn</a>: library padrão do Robot que possui as palavras-chave mais utilizadas
@@ -64,7 +65,10 @@ git clone https://github.com/manoellasouza/RoboTron_Manoella_Souza_Projeto_Final
 # Altere a branch para acessar os arquivos
 git checkout develop
 
-# Abra o VS Code dentro da pasta e rode os testes
+# Rode a ServeRest localmente no CMD (não feche o CMD enquanto estiver realizando os testes!)
+npx serverest
+
+# Abra o VS Code dentro da pasta criada e rode os testes
 ````
 
 ## Referências
@@ -81,12 +85,3 @@ git checkout develop
 ## Bastidores 
 
 <img align="left" alt="cat-pc" height="150" style="border-radius:70px;" src="https://s4.gifyu.com/images/video-3.gif">  
-
-
-
-
-
-
-
-
-
