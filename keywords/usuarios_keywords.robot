@@ -1,7 +1,6 @@
 *** Settings ***
-Documentation        Keywords e Variaveis para Ações do enpoint Usuarios
-Library              RequestsLibrary
-Resource             ./common.robot
+Documentation        Keywords e Variaveis para Ações do enpoint Produtos
+Resource             ../support/base.robot
 
 *** Keywords ***
 
@@ -36,34 +35,35 @@ GET Endpoint /usuarios
     Set Global Variable       ${response}
 
 GET Endpoint /usuarios/id
-    ${response}               GET On Session        serverest        /usuarios/${id_user}    expected_status=any 
+    ${response}               GET On Session        serverest        /usuarios/${response.json()["_id"]}    expected_status=any 
     Log To Console            Response: ${response.content}
     Set Global Variable       ${response}
 
 POST Endpoint /usuarios
-    ${response}               POST On Session        serverest        /usuarios/    json=&{payload}    expected_status=any
+    ${response}               POST On Session        serverest        /usuarios/    json=&{payload}        expected_status=any
     Log To Console            Response: ${response.content}
     Log To Console            Response: ${payload}
-    Set Global Variable       ${response}
+    ${id_user}                Set Variable        ${response.json()["_id"]} 
+    Set Global Variable       ${id_user} 
+    Set Global Variable       ${response}        
 
 DELETE Endpoint /usuarios/id
-    ${response}               DELETE On Session        serverest        /usuarios/${id_user}    expected_status=any   
-    Log To Console            ID Deletado: ${id_user}
+    ${response}               DELETE On Session        serverest        /usuarios/${id_user}      expected_status=any   
     Log To Console            Response: ${response.content}
     Set Global Variable       ${response}
 
-PUT Endpoint /usuarios/id
-    &{payload}                Create Dictionary      nome=Fulano de Souza    email=beltrano@qa.com.br    password=teste    administrador=true
-    ${response}               PUT On Session        serverest        /usuarios/${id_user}    data=&{payload}    expected_status=any      
+PUT Endpoint /usuarios
+    ${response}               PUT On Session        serverest        /usuarios/${id_user}        json=&{payload}    expected_status=200      
     Log To Console            Response: ${response.content}
     Set Global Variable       ${response}
+    
 
-PUT Endpoint Cadastro /usuarios/id
+PUT Endpoint Cadastro /usuarios
     ${response}                PUT On Session        serverest        /usuarios/1562586    json=&{payload}    expected_status=any 
-    ${id_user}                 Set Variable        ${response.json()["_id"]}   
-    Log To Console             ID User: ${id_user}
-    Log To Console             Dados: ${payload}
-    Set Global Variable        ${id_user} 
+    # ${id_user}                 Set Global Variable          ${response.json()["_id"]}   
+    # Log To Console             ID User: ${id_user}
+    # Log To Console             Dados: ${payload}
+    # Set Global Variable        ${id_user} 
     Set Global Variable        ${response}
     
 PUT Endpoint Cadastro Invalido /usuarios/id
@@ -85,3 +85,7 @@ Validar Cadastro do E-mail "${email}"
 
 Validar Mensagem Usuário Não Encontrado
     Should Be Equal            ${response.json()["message"]}    Usuário não encontrado
+
+
+
+    

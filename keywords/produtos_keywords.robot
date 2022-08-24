@@ -1,7 +1,6 @@
 *** Settings ***
 Documentation        Keywords e Variaveis para Ações do enpoint Produtos
-Resource             ./common.robot
-Resource             ./login_keywords.robot
+Resource             ../support/base.robot
 
 *** Keywords ***
 Criar Produto Estatico Valido
@@ -117,3 +116,14 @@ Validar Nome Produto Cadastrado "${produto}"
 Validar Nome Produto Buscado "${produto}"
     Should Contain          ${response.json()["nome"]}    ${produto}
     Log To Console          Produto Buscado: ${response.json()["nome"]}
+
+Criar Produto Dinamico Valido    
+    ${payload}                 Criar Dados Produto Valido        
+    Set Global Variable        ${payload}
+    POST Endpoint /produtos
+    Validar Ter Criado o Produto
+    ${id_produto}        Set Variable        ${response.json()["_id"]}   
+    Log To Console       ID Produto: ${id_produto}
+    Set Global Variable    ${id_produto}
+
+    

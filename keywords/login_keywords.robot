@@ -1,7 +1,6 @@
 *** Settings ***
-Documentation        Keywords e Variaveis para Ações do enpoint Login
-Library              RequestsLibrary
-Resource             ./common.robot
+Documentation        Keywords e Variaveis para Ações do enpoint Produtos
+Resource             ../support/base.robot
 
 *** Variables ***
 ${email_para_login}    fulano@qa.com    

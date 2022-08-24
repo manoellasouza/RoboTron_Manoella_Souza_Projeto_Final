@@ -1,8 +1,6 @@
 *** Settings ***
 Documentation        Keywords e Variaveis para Ações do enpoint Produtos
-Resource             ./common.robot
-Resource             ./login_keywords.robot
-Library               json
+Resource             ../support/base.robot
 
 *** Keywords ***
 Criar Carrinho Estatico Valido
