@@ -21,13 +21,14 @@ Além do conteúdo estudado nas sprints passadas, este projeto também tem como 
 - Utilização das libraries do Robot 
 - Lidar com requests e responses
 - Autenticação de APIs
-- Manipular dados estáticos
+- Manipular dados estáticos e dinâmicos
+- Criar e consumir library em Python
 
 ## Pré-requisitos 
 - <a href="https://www.python.org/downloads/">Python 3</a>: é a linguagem base do Robot Framework
 - <a href="https://robotframework.org/">Robot Framework</a>: para fazer a automação de testes através das libraries
 - <a href="https://git-scm.com/downloads">Git</a>: para clonar o projeto para a sua máquina
-- <a href="https://nodejs.org/en/">Node.js</a>: para rodar os testes localmente e para os testes front-end
+- <a href="https://nodejs.org/en/">Node.js</a>: para rodar os testes localmente
 - <a href="https://code.visualstudio.com/">Visual Studio Code</a>: para rodar o projeto na sua máquina
 
 ## Libraries utilizadas
