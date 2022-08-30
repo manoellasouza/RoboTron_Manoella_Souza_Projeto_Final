@@ -1,23 +1,25 @@
 *** Settings ***
 Documentation        Arquivo de testes para endpoint /produtos
 Resource             ../keywords/produtos_keywords.robot
+Resource             ../keywords/login_keywords.robot
+Resource             ../consumir_library_python.robot
 
-Suite Setup          Criar Sessao
-Suite Teardown        
+Suite Setup          Criar Sessao    
 
 *** Test Cases ***
+Cenario 13: GET Listar Todos os Produtos 200
+    [Tags]    GETALLPROD    
+    GET Endpoint /produtos
+    Validar Status Code "200"
+    Validar Quantidade Total "${3}"
+    Validar Nome Produto Cadastrado "Logitech MX Vertical"
+    # Validar Quantidade de Produtos "Mouse"
+
 Cenario: POST Criar Produto de Massa Dinamica 201
     [Tags]    POSTPRODDIN201
     Fazer Login e Armazenar Token
     Cadastrar Produto Dinamico Valido 
     Validar Status Code "201"
-
-Cenario 13: GET Listar Todos os Produtos 200
-    [Tags]    GETALLPROD    
-    GET Endpoint /produtos
-    Validar Status Code "200"
-    Validar quantidade "${3}"
-    Validar Nome Produto Cadastrado "Logitech MX Vertical"
 
 Cenario 14: POST Criar Produto 201
     [Tags]    POSTPROD201
@@ -32,13 +34,13 @@ Cenario 15: POST Criar Produto Nome Já Existente 400
     Criar Produto Estatico Invalido
     POST Endpoint /produtos
     Validar Status Code "400"
-    Validar Mensagem Produto Invalido
+    Validar Mensagem "Já existe produto com esse nome"
 
 Cenario 16: POST Criar Produto Token Inválido 401
    [Tags]    POSTPROD401    
     Criar Produto Token Invalido
     Validar Status Code "401"
-    Validar Mensagem Token Invalido
+    Validar Mensagem "Token de acesso ausente, inválido, expirado ou usuário do token não existe mais"
 
 Cenario 17: POST Criar Produto Rota Administrador 403
    [Tags]    POSTPROD403
@@ -46,7 +48,7 @@ Cenario 17: POST Criar Produto Rota Administrador 403
     Criar Produto Estatico Valido
     POST Endpoint /produtos 
     Validar Status Code "403"
-    Validar Mensagem Rota Exclusiva Admin
+    Validar Mensagem "Rota exclusiva para administradores"
 
 Cenario 18: GET Buscar Produto 200
     [Tags]     GETPROD200    
@@ -62,7 +64,7 @@ Cenario 19: GET Buscar Produto Não Encontrado 400
     Selecionar ID Produto Invalido
     GET Endpoint /produtos/id
     Validar Status Code "400"
-    Validar Mensagem Produto Não Encontrado
+    Validar Mensagem "Produto não encontrado"
 
 Cenario 20: DELETE Excluir Produto 200
     [Tags]    DELETEPROD200
@@ -71,7 +73,7 @@ Cenario 20: DELETE Excluir Produto 200
     DELETE Endpoint /produtos
     Validar Status Code "200"
     GET Endpoint /produtos/id
-    Validar Mensagem Produto Não Encontrado
+    Validar Mensagem "Produto não encontrado"
 
 Cenario 21: DELETE Excluir Produto Carrinho 400 
     [Tags]    DELETEPROD400
@@ -79,7 +81,7 @@ Cenario 21: DELETE Excluir Produto Carrinho 400
     Selecionar ID Produto Carrinho
     DELETE Endpoint /produtos
     Validar Status Code "400"
-    Validar Mensagem Produto Carrinho Cadastrado
+    Validar Mensagem "Não é permitido excluir produto que faz parte de carrinho"
 
 Cenario 22: DELETE Excluir Produto Token Inválido 401
     [Tags]    DELETEPROD401

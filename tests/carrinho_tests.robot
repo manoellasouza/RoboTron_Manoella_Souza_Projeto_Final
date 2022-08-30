@@ -1,9 +1,9 @@
 *** Settings ***
 Documentation        Arquivo de testes para endpoint /carrinho
 Resource             ../keywords/carrinho_keywords.robot
+Resource             ../keywords/login_keywords.robot    
 
 Suite Setup          Criar Sessao
-Suite Teardown        
 
 *** Test Cases ***
 Cenario 29: GET Listar Todos os Carrinhos 200

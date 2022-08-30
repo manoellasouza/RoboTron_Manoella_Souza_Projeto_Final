@@ -3,9 +3,13 @@
         "email":"zequinha@qa.com.br",
         "password":"teste"
     },
-    "user_invalido": {
+    "user_email_invalido": {
         "email": "emailinexistente@gmail.com",
         "password":"teste"
+    },
+    "user_senha_invalida": {
+        "email": "zequinha@qa.com.br",
+        "password":"teste123"
     },
     "user_sem_senha": {
         "email":"zequinha@qa.com.br",

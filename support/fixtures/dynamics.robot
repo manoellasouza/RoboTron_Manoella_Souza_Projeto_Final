@@ -9,6 +9,7 @@ Criar Dados Usuario Valido
     ${payload}                Create Dictionary    nome=${nome}    email=${email}    password=senha123    administrador=true    
     Log To Console            ${payload}
     Set Global Variable       ${payload} 
+    Set Global Variable       ${nome}
     
 Criar Dados Produto Valido
     ${random_produto}           FakerLibrary.Word

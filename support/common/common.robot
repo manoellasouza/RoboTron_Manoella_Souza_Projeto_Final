@@ -4,7 +4,6 @@ Library              OperatingSystem
 
 
 *** Keywords ***
-
 Validar Status Code "${statuscode}"
     Should Be True        ${response.status_code} == ${statuscode} 
     Log To Console        Status Code Retornado: ${response.status_code}
@@ -19,14 +18,13 @@ Validar Ter Criado o Usuario
     Should Be Equal            ${response.json()["message"]}    Cadastro realizado com sucesso
     Should Not Be Empty        ${response.json()["_id"]} 
 
-Validar Mensagem Rota Exclusiva Admin
-    Should Be Equal            ${response.json()["message"]}    Rota exclusiva para administradores
+Validar Mensagem "${message}"
+    Should Be Equal            ${response.json()["message"]}    ${message}
 
-Validar Mensagem E-mail Invalido
-    Should Be Equal            ${response.json()["message"]}    Este email já está sendo usado
 
-Validar Mensagem Token Invalido
-    Should Be Equal            ${response.json()["message"]}    Token de acesso ausente, inválido, expirado ou usuário do token não existe mais
+Validar Quantidade Total "${quantidade}"
+    Should Be Equal        ${response.json()["quantidade"]}    ${quantidade}
+    Log To Console         Quantidade Cadastrada: ${response.json()["quantidade"]}
 
 Selecionar Token Invalido
     ${token_auth}             Set Variable        12563737   

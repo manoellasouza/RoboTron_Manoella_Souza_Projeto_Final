@@ -1,24 +1,42 @@
 {
     "user_valido": {
-        "nome": "Fulano da Silva",
-        "email": "beltrano@qa.com.br",
+        "nome": "Charlie Spring",
+        "email": "charlies@qa.com.br",
         "password": "teste",
         "administrador": "true"
     }, 
-    "user_invalido": {
-        "nome": "Invalido Tester",
+    "user_email_cadastrado": {
+        "nome": "Invalido Teste",
         "email": "zequinha@qa.com.br",
         "password": "teste",
         "administrador": "true"
     },
+    "user_email_invalido": {
+        "nome": "Invalido Teste",
+        "email": "zequinhaqa.com.br",
+        "password": "teste",
+        "administrador": "true"
+    },
+    "user_sem_nome": {
+        "nome": "",
+        "email": "charlies@qa.com.br",
+        "password": "teste",
+        "administrador": "true"
+    },
     "user_sem_senha": {
-        "nome": "Sem Senha Tester",
+        "nome": "Sem Senha Teste",
+        "email": "victspr@qa.com.br",
+        "password": "",
+        "administrador": "true"
+    },
+    "user_senha_espaco": {
+        "nome": "Sem Senha Teste",
         "email": "victspr@qa.com.br",
         "password": " ",
         "administrador": "true"
     },
     "user_sem_email": {
-        "nome": "Sem Email Tester",
+        "nome": "Sem Email Teste",
         "email": " ",
         "password": "12345",
         "administrador": "true"
@@ -27,6 +45,6 @@
         "nome": "Anne Shirley",
         "email": "anne-s@qa.com.br",
         "password": "12345",
-        "administrador": "false"
+        "administrador": " "
     }
 }

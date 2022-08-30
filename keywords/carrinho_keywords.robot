@@ -13,9 +13,9 @@ Criar Carrinho Estatico Valido
 Criar Um Carrinho e Armazenar ID
     Criar Carrinho Estatico Valido
     Validar Ter Criado o Carrinho
-    ${id_carrinho}        Set Variable        ${response.json()["_id"]}   
-    Log To Console       ID Carrinho: ${id_carrinho}
-    Set Global Variable    ${id_carrinho}
+    ${id_carrinho}                    Set Variable                        ${response.json()["_id"]}   
+    Log To Console                    ID Carrinho: ${id_carrinho}
+    Set Global Variable               ${id_carrinho}
 
 GET Endpoint /carrinhos
     ${response}               GET On Session        serverest        /carrinhos
@@ -37,8 +37,6 @@ POST Endpoint /carrinhos
     ${response}               POST On Session                        serverest        /carrinhos    json=&{payload}    headers=&{header}    expected_status=any
     Log To Console            Response: ${response.content}
     Set Global Variable       ${response}
-    
-
 DELETE Endpoint /carrinhos/concluir-compra
     &{header}                 Create Dictionary                  Authorization=${token_auth}  
     ${response}               DELETE On Session                        serverest        /carrinhos/concluir-compra/    headers=&{header}    expected_status=any
@@ -54,12 +52,6 @@ DELETE Endpoint /carrinhos/cancelar-compra
 Validar Ter Criado o Carrinho
     Should Be Equal            ${response.json()["message"]}    Cadastro realizado com sucesso
     Should Not Be Empty        ${response.json()["_id"]} 
-
-Validar Mensagem Usuario Carrinho Cadastrado
-    Should Be Equal            ${response.json()["message"]}    Não é permitido excluir usuário com carrinho cadastrado
-
-Validar Mensagem Produto Carrinho Cadastrado
-    Should Be Equal            ${response.json()["message"]}    Não é permitido excluir produto que faz parte de carrinho
 
 Validar Se Carrinho Contém IdProduto "${idProduto}"
     Should Contain          ${response.json()["carrinhos"][0]["produtos"][0]["idProduto"]}    ${idProduto}

@@ -3,22 +3,17 @@ Documentation        Keywords e Variaveis para Ações do enpoint Produtos
 Resource             ../support/base.robot
 
 *** Keywords ***
-Criar Produto Estatico Valido
-    ${json}                Importar JSON Estatico        json_produtos_ex.json  
-    ${payload}             Set variable                  ${json["produto_valido"]} 
-    Set Global Variable    ${payload} 
-
-Criar Produto Estatico Invalido
-    ${json}                   Importar JSON Estatico        json_produtos_ex.json  
-    ${payload}                Set variable                  ${json["produto_invalido"]}   
-    Set Global Variable       ${payload} 
-
+Selecionar Produto Estatico "${produto}"
+    ${json}                               Importar JSON Estatico            json_produtos_ex.json  
+    ${payload}                            Set variable                      ${json["${produto}"]}
+    Set Global Variable                   ${payload}
+    
 Selecionar ID Produto Carrinho
     ${id_produto}             Set Variable        BeeJh5lz3k6kSIzA
     Set Global Variable       ${id_produto}
 
 Criar Um Produto e Armazenar ID
-    Criar Produto Estatico Valido
+    Selecionar Produto Estatico "produto_valido"
     POST Endpoint /produtos 
     Validar Ter Criado o Produto
     ${id_produto}        Set Variable        ${response.json()["_id"]}   
@@ -26,7 +21,7 @@ Criar Um Produto e Armazenar ID
     Set Global Variable    ${id_produto}
 
 Criar Produto Token Invalido
-    Criar Produto Estatico Valido  
+    Selecionar Produto Estatico "produto_invalido" 
     &{header}                 Create Dictionary      Authorization="12563737"                         
     ${response}               POST On Session        serverest        /produtos    json=&{payload}    headers=&{header}    expected_status=401 
     Log To Console            Response: ${response.content}
@@ -83,7 +78,7 @@ PUT Endpoint /produtos/id
     Set Global Variable       ${response}
 
 PUT Endpoint Cadastro Produto Inválido
-    Criar Produto Estatico Invalido
+    Selecionar Produto Estatico "produto_invalido"
     &{header}              Create Dictionary             Authorization=${token_auth}
     ${response}            PUT On Session                serverest                        /produtos/1562586    json=&{payload}    headers=&{header}    expected_status=400 
     Set Global Variable    ${response}
@@ -103,27 +98,21 @@ Validar Ter Criado o Produto
     Should Be Equal            ${response.json()["message"]}    Cadastro realizado com sucesso
     Should Not Be Empty        ${response.json()["_id"]} 
 
-Validar Mensagem Produto Não Encontrado
-    Should Be Equal            ${response.json()["message"]}    Produto não encontrado
-
-Validar Mensagem Produto Invalido
-    Should Be Equal            ${response.json()["message"]}    Já existe produto com esse nome
-
 Validar Nome Produto Cadastrado "${produto}"
-    Should Contain          ${response.json()["produtos"][0]["nome"]}    ${produto}
-    Log To Console          Produto Cadastrado: ${response.json()["produtos"][0]["nome"]}
+    Should Contain          ${response.json()["produtos"][2]["nome"]}    ${produto}
+    Log To Console          Produto Cadastrado: ${response.json()["produtos"][2]["nome"]}
 
 Validar Nome Produto Buscado "${produto}"
     Should Contain          ${response.json()["nome"]}    ${produto}
     Log To Console          Produto Buscado: ${response.json()["nome"]}
 
 Criar Produto Dinamico Valido    
-    ${payload}                 Criar Dados Produto Valido        
-    Set Global Variable        ${payload}
+    ${payload}                         Criar Dados Produto Valido        
+    Set Global Variable                ${payload}
     POST Endpoint /produtos
     Validar Ter Criado o Produto
-    ${id_produto}        Set Variable        ${response.json()["_id"]}   
-    Log To Console       ID Produto: ${id_produto}
-    Set Global Variable    ${id_produto}
+    ${id_produto}                      Set Variable        ${response.json()["_id"]}   
+    Log To Console                     ID Produto: ${id_produto}
+    Set Global Variable                ${id_produto}
 
     
