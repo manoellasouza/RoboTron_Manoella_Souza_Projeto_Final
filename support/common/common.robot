@@ -21,18 +21,13 @@ Validar Ter Criado o Usuario
 Validar Mensagem "${message}"
     Should Be Equal            ${response.json()["message"]}    ${message}
 
-
 Validar Quantidade Total "${quantidade}"
     Should Be Equal        ${response.json()["quantidade"]}    ${quantidade}
-    Log To Console         Quantidade Cadastrada: ${response.json()["quantidade"]}
+    Log To Console         Quantidade Total: ${response.json()["quantidade"]}
 
 Selecionar Token Invalido
     ${token_auth}             Set Variable        12563737   
     Set Global Variable       ${token_auth}
-
-Selecionar ID Produto Invalido
-    ${id_produto}             Set Variable        12563737
-    Set Global Variable       ${id_produto}
 
 Validar Se Response Contem "${palavra}"
     Should Contain          ${response.json()["message"]}    ${palavra}

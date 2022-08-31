@@ -12,7 +12,7 @@
         "quantidade": 200
     },
     "produto_sem_nome": {
-        "nome": " ",
+        "nome": "",
         "preco": 250,
         "descricao": "Teclado",
         "quantidade": 200
@@ -26,7 +26,7 @@
     "produto_sem_descricao": {
         "nome": "Teclado Logitech",
         "preco": 250,
-        "descricao": " ",
+        "descricao": "",
         "quantidade": 200
     },
     "produto_sem_quantidade": {

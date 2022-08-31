@@ -1,8 +1,6 @@
 *** Settings ***
 Documentation        Arquivo de testes para endpoint /carrinho
-Resource             ../keywords/carrinho_keywords.robot
-Resource             ../keywords/login_keywords.robot    
-
+Resource             ../support/base.robot 
 Suite Setup          Criar Sessao
 
 *** Test Cases ***

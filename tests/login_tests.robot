@@ -1,7 +1,6 @@
 *** Settings ***
 Documentation        Arquivo de testes para endpoint /login
-Resource              ../keywords/login_keywords.robot
-Library               ../library_test.py
+Resource             ../support/base.robot
 
 Suite Setup          Criar Sessao       
 
@@ -15,7 +14,7 @@ Cenario 01: POST Login Estatico Valido 200
 
 Cenario 02: POST Login Estatico E-mail Invalido 400
    [Tags]    EMAILINVALIDO
-   Selecionar Usuario Login "user_invalido"
+   Selecionar Usuario Login "user_email_invalido"
    POST Endpoint /login
    # Neste teste ele retorna 401 ao invés da resposta 400, que é o que consta na documentação
    # Validar Status Code "400"

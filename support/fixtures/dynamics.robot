@@ -18,4 +18,5 @@ Criar Dados Produto Valido
     ${payload}                  Create Dictionary    nome=${random_produto}    preco=${random_preco}    descricao=produto teste    quantidade=${random_qtd}    
     Log To Console              ${payload}
     Set Global Variable         ${payload} 
+    Set Global Variable         ${random_produto}
     

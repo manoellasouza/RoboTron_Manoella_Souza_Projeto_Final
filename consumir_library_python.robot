@@ -18,13 +18,28 @@ Library              library_test.py
 
 Validar Quantidade Usuários Administradores
     ${users}                        Get Endpoint Usuarios Administradores
-    ${qnt}=                         Get length    ${users}
-    Should Be Equal As Numbers      ${qnt}        2
+    ${qnt}=                         Get length                                    ${users}
+    Should Be Equal As Numbers      ${qnt}                                            2
     Log To Console                  Quantidade de usuários adm: ${qnt}
 
 Validar Se Dado Cadastro Existe "${dado}"
-    ${users}                               Get Endpoint Dado Usuarios        ${dado}      
-    Log To Console                         ${users}
+    ${users}                        Get Endpoint Dado Usuarios                     ${dado}      
+    Log To Console                  ${users}
+
+Validar Se Dado Produto Existe "${dado}"
+    ${produtos}                     Get Endpoint Dado Produtos                      ${dado} 
+    ${qnt}=                         Get length                                    ${produtos}     
+    Log To Console                  ${produtos}
+     IF    "${qnt}" == "0"   
+        Log To Console              ${dado} não consta na lista de cadastros
+    ELSE 
+        Log To Console              Quantidade de produtos com ${dado}: ${qnt} 
+    END
+    
+
+# Validar Quantidade de Produtos "${dado}"
+#     ${produtos}                               Validar Quantidade Produtos Cadastrados        ${dado}      
+#     Log To Console                         ${produtos}
 
 
 # Validar Quantidade de Produtos "${produto}"

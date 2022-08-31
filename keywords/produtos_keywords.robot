@@ -3,22 +3,66 @@ Documentation        Keywords e Variaveis para Ações do enpoint Produtos
 Resource             ../support/base.robot
 
 *** Keywords ***
+GET Endpoint /produtos
+    ${response}                           GET On Session                     serverest            /produtos
+    Log To Console                        Response: ${response.content}
+    Set Global Variable                   ${response}
+
+GET Endpoint /produtos "${id_produto}"
+    ${response}                           GET On Session                     serverest            /produtos/${id_produto}        expected_status=any 
+    Log To Console                        Response: ${response.content}
+    Set Global Variable                   ${response}
+
+POST Endpoint /produtos 
+    &{header}                             Create Dictionary                  Authorization=${token_auth}                         
+    ${response}                           POST On Session                    serverest                    /produtos        json=&{payload}        headers=&{header}        expected_status=any 
+    Log To Console                        Response: ${response.content}
+    Set Global Variable                   ${response}
+        IF    "${response.status_code}" == "201"   
+        ${id_produto}                     Set Variable                        ${response.json()["_id"]} 
+        Set Global Variable               ${id_produto} 
+        Validar Ter Criado o Produto
+    END
+
+DELETE Endpoint /produtos
+    &{header}                             Create Dictionary                   Authorization=${token_auth}  
+    ${response}                           DELETE On Session                   serverest                    /produtos/${id_produto}        headers=&{header}        expected_status=any
+    Log To Console                        Response: ${response.content}
+    Set Global Variable                   ${response}
+
+PUT Endpoint /produtos "${id_produto}"
+    &{header}                             Create Dictionary                     Authorization=${token_auth}
+    ${response}                           PUT On Session                        serverest        /usuarios/${id_produto}        json=&{payload}    expected_status=any      
+    Log To Console                        Response: ${response.content}
+    Set Global Variable                   ${response}
+    IF    "${response.status_code}" == "201"   
+        ${id_produto}                        Set Variable                           ${response.json()["_id"]} 
+        Set Global Variable               ${id_user} 
+    END
+
+
+
+
+
+
+
+
+
 Selecionar Produto Estatico "${produto}"
     ${json}                               Importar JSON Estatico            json_produtos_ex.json  
     ${payload}                            Set variable                      ${json["${produto}"]}
     Set Global Variable                   ${payload}
     
-Selecionar ID Produto Carrinho
-    ${id_produto}             Set Variable        BeeJh5lz3k6kSIzA
-    Set Global Variable       ${id_produto}
 
-Criar Um Produto e Armazenar ID
-    Selecionar Produto Estatico "produto_valido"
-    POST Endpoint /produtos 
-    Validar Ter Criado o Produto
-    ${id_produto}        Set Variable        ${response.json()["_id"]}   
-    Log To Console       ID Produto: ${id_produto}
-    Set Global Variable    ${id_produto}
+# Criar Um Produto e Armazenar ID
+#     Selecionar Produto Estatico "produto_valido"
+#     POST Endpoint /produtos 
+#     Validar Ter Criado o Produto
+#     ${id_produto}                                  Set Variable                        ${response.json()["_id"]}   
+#     Log To Console                                 ID Produto: ${id_produto}
+#     Set Global Variable                            ${id_produto}
+
+
 
 Criar Produto Token Invalido
     Selecionar Produto Estatico "produto_invalido" 
@@ -27,28 +71,7 @@ Criar Produto Token Invalido
     Log To Console            Response: ${response.content}
     Set Global Variable       ${response}
 
-GET Endpoint /produtos
-    ${response}               GET On Session        serverest        /produtos
-    Log To Console            Response: ${response.content}
-    Set Global Variable       ${response}
 
-GET Endpoint /produtos/id
-    ${response}               GET On Session        serverest        /produtos/${id_produto}    expected_status=any 
-    Log To Console            Response: ${response.content}
-    Set Global Variable       ${response}
-
-POST Endpoint /produtos 
-    &{header}                 Create Dictionary      Authorization=${token_auth}                         
-    ${response}               POST On Session        serverest        /produtos    json=&{payload}    headers=&{header}    expected_status=any 
-    Log To Console            Response: ${payload}
-    Log To Console            Response: ${response.content}
-    Set Global Variable       ${response}
-
-DELETE Endpoint /produtos
-    &{header}                 Create Dictionary      Authorization=${token_auth}  
-    ${response}               DELETE On Session        serverest        /produtos/${id_produto}    headers=&{header}    expected_status=any
-    Log To Console            Response: ${response.content}
-    Set Global Variable       ${response}
 
 PUT Endpoint Cadastro /produtos/id
     &{header}              Create Dictionary             Authorization=${token_auth}
@@ -106,13 +129,23 @@ Validar Nome Produto Buscado "${produto}"
     Should Contain          ${response.json()["nome"]}    ${produto}
     Log To Console          Produto Buscado: ${response.json()["nome"]}
 
-Criar Produto Dinamico Valido    
-    ${payload}                         Criar Dados Produto Valido        
-    Set Global Variable                ${payload}
-    POST Endpoint /produtos
-    Validar Ter Criado o Produto
-    ${id_produto}                      Set Variable        ${response.json()["_id"]}   
-    Log To Console                     ID Produto: ${id_produto}
-    Set Global Variable                ${id_produto}
+# Criar Produto Dinamico Valido    
+#     ${payload}                         Criar Dados Produto Valido        
+#     Set Global Variable                ${payload}
 
-    
+Validar Erro Produto "${nome_erro}"   
+    IF         "${nome_erro}" == "nome" or "${nome_erro}" == "descricao"    
+        Should Be Equal                    ${response.json()["${nome_erro}"]}    ${nome_erro} não pode ficar em branco 
+    ELSE IF    "${nome_erro}" == "preco" or "${nome_erro}" == "quantidade"   
+        Should Be Equal                    ${response.json()["${nome_erro}"]}    ${nome_erro} deve ser um número 
+    END
+
+Criar Um Produto Dinamico e Armazenar ID
+    Criar Dados Produto Valido
+    POST Endpoint /produtos 
+
+
+Selecionar ID Produto "${id_produto}"
+    ${id_produto}                            Set Variable                            ${id_produto}                                   
+    Set Global Variable                       ${id_produto}
+

@@ -1,7 +1,6 @@
 *** Settings ***
 Documentation        Keywords e Variáveis para Ações do enpoint Login
 Resource             ../support/base.robot
-Library              ../library_test.py
 
 *** Keywords ***
 Selecionar Usuario Login "${user}"
@@ -16,7 +15,6 @@ POST Endpoint /login
     
 Armazenar Token    
     ${token_auth}            Set Variable        ${response.json()["authorization"]}   
-    Log To Console           Token Salvo: ${token_auth}
     Set Global Variable      ${token_auth}
 
 Fazer Login e Armazenar Token
