@@ -5,10 +5,11 @@ Resource             ../support/base.robot
 *** Keywords ***
 Criar Carrinho Estatico Valido
     ${json}                    Importar JSON Estatico        json_carrinho_ex.json  
-    ${payload}                 Set Variable                  ${json} 
+    ${payload}                 Set Variable                  ${json["carrinho_sem_qtd"]} 
     Set Global Variable        ${payload} 
     Log To Console             Response: ${payload}
     POST Endpoint /carrinhos
+
 
 Criar Um Carrinho e Armazenar ID
     Criar Carrinho Estatico Valido

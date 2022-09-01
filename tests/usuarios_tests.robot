@@ -23,9 +23,10 @@ Cenario 02: POST Criar Usuario Massa Estatica 201
 
 Cenario 03: POST Criar Usuario de Massa Dinamica 201
     [Tags]    POSTUSERDINAMICO
-    Criar Dados Usuario Valido
+    Criar Dados Usuario Dinamico Valido
     POST Endpoint /usuarios
     Validar Status Code "201"
+    Validar Ter Criado o Usuario
     Validar Se Dado Cadastro Existe "${nome}"
     DELETE Endpoint /usuarios/id
 
@@ -87,14 +88,14 @@ Cenario 11: GET Buscar Usuario Não Encontrado 400
 
 Cenario 12: DELETE Deletar Usuario 200
     [Tags]    DELETEUSER
-    Criar Dados Usuario Valido
+    Criar Dados Usuario Dinamico Valido
     POST Endpoint /usuarios
     DELETE Endpoint /usuarios/id
     Validar Status Code "200"
     Validar Se Dado Cadastro Existe "${id_user}"
 
 Cenario 13: DELETE Deletar Usuario Inexistente 200
-    [Tags]    DELETEUSERINVALIDO
+    [Tags]    DELETEUSERINEXISTENTE
     Selecionar ID User "1586282"
     DELETE Endpoint /usuarios/id
     Validar Status Code "200"
@@ -103,7 +104,6 @@ Cenario 13: DELETE Deletar Usuario Inexistente 200
     
 Cenario 14: DELETE Deletar Usuario Carrinho Cadastrado 400   
     [Tags]    DELETEUSERCARRINHO
-    Fazer Login e Armazenar Token
     Selecionar ID User "oUb7aGkMtSEPf6BZ"
     DELETE Endpoint /usuarios/id
     Validar Status Code "400"
@@ -113,7 +113,7 @@ Cenario 15: PUT Editar Usuario 200
     [Tags]    PUTUSER   
     Selecionar Usuario Estatico "user_valido"
     POST Endpoint /usuarios
-    Criar Dados Usuario Valido
+    Criar Dados Usuario Dinamico Valido
     PUT Endpoint /usuarios "${id_user}"
     Validar Status Code "200"
     Validar Se Dado Cadastro Existe "${nome}"
@@ -121,7 +121,7 @@ Cenario 15: PUT Editar Usuario 200
 
 Cenario 16: PUT Editar Usuario e Cadastrar 201
     [Tags]    PUTUSERCADASTRO
-    Criar Dados Usuario Valido
+    Criar Dados Usuario Dinamico Valido
     PUT Endpoint /usuarios "125893"
     Validar Status Code "201"
     Validar Ter Criado o Usuario
@@ -130,45 +130,35 @@ Cenario 16: PUT Editar Usuario e Cadastrar 201
 
 Cenario 17: PUT Editar Usuario E-mail Já Cadastrado 400
     [Tags]    PUTUSEREMAILCAD
-    Criar Um Usuario Dinamico e Armazenar ID
     Selecionar Usuario Estatico "user_email_cadastrado"
     PUT Endpoint /usuarios "${id_user}"
     Validar Status Code "400"
     Validar Mensagem "Este email já está sendo usado"
-    DELETE Endpoint /usuarios/id
 
 Cenario 18: PUT Editar Usuario Sem E-mail 400
     [Tags]    PUTUSERSEMEMAIL
-    Criar Um Usuario Dinamico e Armazenar ID
     Selecionar Usuario Estatico "user_sem_email"
     PUT Endpoint /usuarios "${id_user}"
     Validar Status Code "400"
     Validar Erro "email"
-    DELETE Endpoint /usuarios/id
 
 Cenario 19: PUT Editar Usuario Sem Senha 400
     [Tags]    PUTUSERSEMSENHA
-    Criar Um Usuario Dinamico e Armazenar ID
     Selecionar Usuario Estatico "user_sem_senha"
     PUT Endpoint /usuarios "${id_user}"
     Validar Status Code "400"
     Validar Erro "password"
-    DELETE Endpoint /usuarios/id
 
 Cenario 20: PUT Editar Usuario Sem Nome 400
     [Tags]    PUTUSERSEMNOME
-    Criar Um Usuario Dinamico e Armazenar ID
     Selecionar Usuario Estatico "user_sem_nome"
     PUT Endpoint /usuarios "${id_user}"
     Validar Status Code "400"
     Validar Erro "nome"
-    DELETE Endpoint /usuarios/id
 
 Cenario 21: PUT Editar Usuario Sem Adm 400
     [Tags]    PUTUSERSEMADM
-    Criar Um Usuario Dinamico e Armazenar ID
     Selecionar Usuario Estatico "user_sem_admin"
     PUT Endpoint /usuarios "${id_user}"
     Validar Status Code "400"
     Validar Erro "administrador"
-    DELETE Endpoint /usuarios/id

@@ -3,7 +3,7 @@ Documentation        Arquivo simples para geração de massa de dados
 Library              FakerLibrary    locale=pt_br
 
 *** Keywords ***
-Criar Dados Usuario Valido
+Criar Dados Usuario Dinamico Valido
     ${nome}                   FakerLibrary.Name
     ${email}                  FakerLibrary.Email
     ${payload}                Create Dictionary    nome=${nome}    email=${email}    password=senha123    administrador=true    
@@ -11,7 +11,7 @@ Criar Dados Usuario Valido
     Set Global Variable       ${payload} 
     Set Global Variable       ${nome}
     
-Criar Dados Produto Valido
+Criar Dados Produto Dinamico Valido 
     ${random_produto}           FakerLibrary.Word
     ${random_preco}             FakerLibrary.Building Number
     ${random_qtd}               FakerLibrary.Building Number

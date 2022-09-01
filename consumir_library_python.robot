@@ -26,14 +26,14 @@ Validar Se Dado Cadastro Existe "${dado}"
     ${users}                        Get Endpoint Dado Usuarios                     ${dado}      
     Log To Console                  ${users}
 
-Validar Se Dado Produto Existe "${dado}"
+Validar Nome Ou Descrição Produto "${dado}"
     ${produtos}                     Get Endpoint Dado Produtos                      ${dado} 
     ${qnt}=                         Get length                                    ${produtos}     
-    Log To Console                  ${produtos}
+    # Log To Console                  ${produtos}
      IF    "${qnt}" == "0"   
         Log To Console              ${dado} não consta na lista de cadastros
     ELSE 
-        Log To Console              Quantidade de produtos com ${dado}: ${qnt} 
+        Log To Console              ${dado} está cadastrado e aparece ${qnt} vez(es) na lista
     END
     
 

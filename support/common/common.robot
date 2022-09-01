@@ -14,10 +14,6 @@ Importar JSON Estatico
     ${data}        Evaluate      json.loads('''${arquivo}''')    json  
     [return]       ${data}
 
-Validar Ter Criado o Usuario
-    Should Be Equal            ${response.json()["message"]}    Cadastro realizado com sucesso
-    Should Not Be Empty        ${response.json()["_id"]} 
-
 Validar Mensagem "${message}"
     Should Be Equal            ${response.json()["message"]}    ${message}
 
@@ -31,3 +27,14 @@ Selecionar Token Invalido
 
 Validar Se Response Contem "${palavra}"
     Should Contain          ${response.json()["message"]}    ${palavra}
+
+Validar Erro "${nome_erro}"   
+    IF         "${nome_erro}" == "nome" or "${nome_erro}" == "password" or "${nome_erro}" == "descricao"    
+        Should Be Equal                    ${response.json()["${nome_erro}"]}    ${nome_erro} não pode ficar em branco 
+    ELSE IF    "${nome_erro}" == "email" 
+        Should Be Equal                    ${response.json()["${nome_erro}"]}    ${nome_erro} deve ser um email válido 
+    ELSE IF    "${nome_erro}" == "administrador"  
+        Should Be Equal                    ${response.json()["${nome_erro}"]}    ${nome_erro} deve ser 'true' ou 'false' 
+    ELSE IF    "${nome_erro}" == "preco" or "${nome_erro}" == "quantidade"   
+        Should Be Equal                    ${response.json()["${nome_erro}"]}    ${nome_erro} deve ser um número 
+    END
