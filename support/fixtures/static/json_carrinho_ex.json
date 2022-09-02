@@ -11,7 +11,7 @@
             }
         ]
     },
-    "carrinho_sem_id": {
+    "carrinho_sem_produto": {
         "produtos": [
             {
             "idProduto": " ",
@@ -23,11 +23,23 @@
             }
         ]
     },
-    "carrinho_sem_qtd": {
+    "carrinho_produto_duplicado": {
         "produtos": [
             {
             "idProduto": "BeeJh5lz3k6kSIzA",
-            "quantidade": " "
+            "quantidade": "1"
+            },
+            {
+            "idProduto": "BeeJh5lz3k6kSIzA",
+            "quantidade": 3 
+            }
+        ]
+    },
+    "carrinho_quantidade_insuficiente": {
+        "produtos": [
+            {
+            "idProduto": "BeeJh5lz3k6kSIzA",
+            "quantidade": 1000000000
             },
             {
             "idProduto": "K6leHdftCeOJj8BJ",

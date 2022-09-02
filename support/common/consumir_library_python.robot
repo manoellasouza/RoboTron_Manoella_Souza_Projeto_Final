@@ -1,6 +1,5 @@
 *** Settings ***
 Documentation        Arquivo de testes para Library Python
-Resource             ./support/base.robot
 Library              library_test.py
 
 # *** Test Cases ***
@@ -36,6 +35,20 @@ Validar Nome Ou Descrição Produto "${dado}"
         Log To Console              ${dado} está cadastrado e aparece ${qnt} vez(es) na lista
     END
     
+Validar Se Dado Carrinho Existe "${dado}"
+    ${users}                        Get Endpoint Dado Carrinho                     ${dado}      
+    Log To Console                  ${users}
+
+
+Validar Se Produto Saiu Estoque "${lista_prod}"
+    ${users}                        Get Endpoint Estoque                     ${lista_prod}      
+    Log To Console                  ${users}
+
+
+
+
+
+
 
 # Validar Quantidade de Produtos "${dado}"
 #     ${produtos}                               Validar Quantidade Produtos Cadastrados        ${dado}      

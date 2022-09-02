@@ -1,166 +1,119 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 5.0.1 (Python 3.10.5 on win32)" generated="20220831 22:13:57.435" rpa="false" schemaversion="3">
-<suite id="s1" name="Produtos Tests" source="D:\Pessoal\SENAC\Estágio\Compass\Sprint 5 - Robot-Framework em APIs\CHALLENGE\tests\produtos_tests.robot">
+<robot generator="Robot 5.0.1 (Python 3.10.5 on win32)" generated="20220901 22:05:29.243" rpa="false" schemaversion="3">
+<suite id="s1" name="Usuarios Tests" source="D:\Pessoal\SENAC\Estágio\Compass\Sprint 5 - Robot-Framework em APIs\CHALLENGE\tests\usuarios_tests.robot">
 <kw name="Criar Sessao" library="base" type="SETUP">
 <kw name="Create Session" library="RequestsLibrary">
 <arg>serverest</arg>
 <arg>${BASE_URI}</arg>
 <doc>Create Session: create a HTTP session to a server</doc>
-<msg timestamp="20220831 22:13:58.398" level="INFO">Creating Session using : alias=serverest, url=http://localhost:3000, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<status status="PASS" starttime="20220831 22:13:58.397" endtime="20220831 22:13:58.398"/>
+<msg timestamp="20220901 22:05:30.047" level="INFO">Creating Session using : alias=serverest, url=http://localhost:3000, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20220901 22:05:30.047" endtime="20220901 22:05:30.048"/>
 </kw>
-<status status="PASS" starttime="20220831 22:13:58.397" endtime="20220831 22:13:58.399"/>
+<status status="PASS" starttime="20220901 22:05:30.046" endtime="20220901 22:05:30.048"/>
 </kw>
-<test id="s1-t1" name="Cenario 01: GET Listar Todos os Produtos 200" line="7">
-<kw name="GET Endpoint /produtos" library="produtos_keywords">
-<kw name="GET On Session" library="RequestsLibrary">
+<test id="s1-t1" name="Cenario 13: DELETE Deletar Usuario Inexistente 200" line="97">
+<kw name="Selecionar ID User &quot;1586282&quot;" library="usuarios_keywords" sourcename="Selecionar ID User &quot;${id_user}&quot;">
+<kw name="Set Variable" library="BuiltIn">
+<var>${id_user}</var>
+<arg>${id_user}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20220901 22:05:30.049" level="INFO">${id_user} = 1586282</msg>
+<status status="PASS" starttime="20220901 22:05:30.049" endtime="20220901 22:05:30.049"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${id_user}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20220901 22:05:30.050" level="INFO">${id_user} = 1586282</msg>
+<status status="PASS" starttime="20220901 22:05:30.049" endtime="20220901 22:05:30.050"/>
+</kw>
+<status status="PASS" starttime="20220901 22:05:30.049" endtime="20220901 22:05:30.050"/>
+</kw>
+<kw name="DELETE Endpoint /usuarios/id" library="usuarios_keywords">
+<kw name="DELETE On Session" library="RequestsLibrary">
 <var>${response}</var>
 <arg>serverest</arg>
-<arg>/produtos</arg>
-<doc>Sends a GET request on a previously created HTTP Session.</doc>
-<msg timestamp="20220831 22:13:58.418" level="INFO">GET Request : url=http://localhost:3000/produtos 
- path_url=/produtos 
- headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+<arg>/usuarios/${id_user}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a DELETE request on a previously created HTTP Session.</doc>
+<msg timestamp="20220901 22:05:30.062" level="INFO">DELETE Request : url=http://localhost:3000/usuarios/1586282 
+ path_url=/usuarios/1586282 
+ headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '0'} 
  body=None 
  </msg>
-<msg timestamp="20220831 22:13:58.418" level="INFO">GET Response : url=http://localhost:3000/produtos 
+<msg timestamp="20220901 22:05:30.062" level="INFO">DELETE Response : url=http://localhost:3000/usuarios/1586282 
  status=200, reason=OK 
- headers={'Access-Control-Allow-Origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'x-moesif-transaction-id': '75e736c6-4e50-4efe-9a39-2e6a5079bbe6', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '994', 'Date': 'Thu, 01 Sep 2022 01:13:58 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ headers={'Access-Control-Allow-Origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'x-moesif-transaction-id': 'b8cd5c4f-a76e-40ae-934d-421114e3a7d7', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '46', 'Date': 'Fri, 02 Sep 2022 01:05:30 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
  body={
-    "quantidade": 5,
-    "produtos": [
-        {
-            "nome": "Mouse LG",
-            "preco": 150,
-            "descricao": "Mouse",
-            "quantidade": 109,
-            "_id": "1EnSfk9BS3g7h2zr"
-        },
-        {
-            "nome": "Mouse Samsung",
-            "preco": 250,
-            "descricao": "Mouse",
-            "quantidade": 120,
-            "_id": "28jTZ01OYQhg8uZ9"
-        },
-        {
-            "nome": "Logitech MX Vertical",
-            "preco": 470,
-            "descricao": "Mouse",
-            "quantidade": 301,
-            "_id": "BeeJh5lz3k6kSIzA"
-        },
-        {
-            "nome": "Samsung 60 polegadas",
-            "preco": 5240,
-            "descricao": "TV",
-            "quantidade": 49734,
-            "_id": "K6leHdftCeOJj8BJ"
-        },
-        {
-            "nome": "Teclado Fallen",
-            "preco": 250,
-            "descricao": "Teclado",
-            "quantidade": 200,
-            "_id": "u01f7Src6rYRziXi"
-        }
-    ]
+    "message": "Nenhum registro excluído"
 } 
  </msg>
-<msg timestamp="20220831 22:13:58.418" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20220831 22:13:58.401" endtime="20220831 22:13:58.418"/>
+<msg timestamp="20220901 22:05:30.062" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220901 22:05:30.050" endtime="20220901 22:05:30.062"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>Response: ${response.content}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20220831 22:13:58.419" endtime="20220831 22:13:58.420"/>
+<status status="PASS" starttime="20220901 22:05:30.062" endtime="20220901 22:05:30.063"/>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <arg>${response}</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<msg timestamp="20220831 22:13:58.421" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20220831 22:13:58.421" endtime="20220831 22:13:58.422"/>
+<msg timestamp="20220901 22:05:30.064" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220901 22:05:30.064" endtime="20220901 22:05:30.064"/>
 </kw>
-<status status="PASS" starttime="20220831 22:13:58.400" endtime="20220831 22:13:58.422"/>
+<status status="PASS" starttime="20220901 22:05:30.050" endtime="20220901 22:05:30.064"/>
 </kw>
 <kw name="Validar Status Code &quot;200&quot;" library="common" sourcename="Validar Status Code &quot;${statuscode}&quot;">
 <kw name="Should Be True" library="BuiltIn">
 <arg>${response.status_code} == ${statuscode}</arg>
 <doc>Fails if the given condition is not true.</doc>
-<status status="PASS" starttime="20220831 22:13:58.435" endtime="20220831 22:13:58.437"/>
+<status status="PASS" starttime="20220901 22:05:30.066" endtime="20220901 22:05:30.069"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>Status Code Retornado: ${response.status_code}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20220831 22:13:58.437" endtime="20220831 22:13:58.437"/>
+<status status="PASS" starttime="20220901 22:05:30.069" endtime="20220901 22:05:30.071"/>
 </kw>
-<status status="PASS" starttime="20220831 22:13:58.435" endtime="20220831 22:13:58.438"/>
+<status status="PASS" starttime="20220901 22:05:30.065" endtime="20220901 22:05:30.071"/>
 </kw>
-<kw name="Validar Quantidade Total &quot;${5}&quot;" library="common" sourcename="Validar Quantidade Total &quot;${quantidade}&quot;">
+<kw name="Validar Mensagem &quot;Nenhum registro excluído&quot;" library="common" sourcename="Validar Mensagem &quot;${message}&quot;">
 <kw name="Should Be Equal" library="BuiltIn">
-<arg>${response.json()["quantidade"]}</arg>
-<arg>${quantidade}</arg>
+<arg>${response.json()["message"]}</arg>
+<arg>${message}</arg>
 <doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" starttime="20220831 22:13:58.440" endtime="20220831 22:13:58.441"/>
+<status status="PASS" starttime="20220901 22:05:30.072" endtime="20220901 22:05:30.074"/>
 </kw>
-<kw name="Log To Console" library="BuiltIn">
-<arg>Quantidade Total: ${response.json()["quantidade"]}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20220831 22:13:58.442" endtime="20220831 22:13:58.444"/>
+<status status="PASS" starttime="20220901 22:05:30.072" endtime="20220901 22:05:30.074"/>
 </kw>
-<status status="PASS" starttime="20220831 22:13:58.438" endtime="20220831 22:13:58.445"/>
-</kw>
-<kw name="Validar Nome Ou Descrição Produto &quot;Mouse&quot;" library="consumir_library_python" sourcename="Validar Nome Ou Descrição Produto &quot;${dado}&quot;">
-<kw name="Get Endpoint Dado Produtos" library="library_test">
-<var>${produtos}</var>
+<kw name="Validar Se Dado Cadastro Existe &quot;${id_user}&quot;" library="consumir_library_python" sourcename="Validar Se Dado Cadastro Existe &quot;${dado}&quot;">
+<kw name="Get Endpoint Dado Usuarios" library="library_test">
+<var>${users}</var>
 <arg>${dado}</arg>
-<msg timestamp="20220831 22:13:58.450" level="INFO">${produtos} = [{'nome': 'Mouse LG', 'preco': 150, 'descricao': 'Mouse', 'quantidade': 109, '_id': '1EnSfk9BS3g7h2zr'}, {'nome': 'Mouse Samsung', 'preco': 250, 'descricao': 'Mouse', 'quantidade': 120, '_id': '28jTZ0...</msg>
-<status status="PASS" starttime="20220831 22:13:58.445" endtime="20220831 22:13:58.450"/>
+<msg timestamp="20220901 22:05:30.082" level="INFO">${users} = O dado 1586282 não consta na lista de cadastros</msg>
+<status status="PASS" starttime="20220901 22:05:30.075" endtime="20220901 22:05:30.082"/>
 </kw>
-<kw name="Get Length" library="BuiltIn">
-<var>${qnt}</var>
-<arg>${produtos}</arg>
-<doc>Returns and logs the length of the given item as an integer.</doc>
-<msg timestamp="20220831 22:13:58.451" level="INFO">Length is 3</msg>
-<msg timestamp="20220831 22:13:58.451" level="INFO">${qnt} = 3</msg>
-<status status="PASS" starttime="20220831 22:13:58.450" endtime="20220831 22:13:58.451"/>
-</kw>
-<if>
-<branch type="IF" condition="&quot;${qnt}&quot; == &quot;0&quot;">
 <kw name="Log To Console" library="BuiltIn">
-<arg>${dado} não consta na lista de cadastros</arg>
+<arg>${users}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="NOT RUN" starttime="20220831 22:13:58.451" endtime="20220831 22:13:58.451"/>
+<status status="PASS" starttime="20220901 22:05:30.082" endtime="20220901 22:05:30.083"/>
 </kw>
-<status status="NOT RUN" starttime="20220831 22:13:58.451" endtime="20220831 22:13:58.451"/>
-</branch>
-<branch type="ELSE">
-<kw name="Log To Console" library="BuiltIn">
-<arg>${dado} está cadastrado e aparece ${qnt} vez(es) na lista</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20220831 22:13:58.451" endtime="20220831 22:13:58.452"/>
+<status status="PASS" starttime="20220901 22:05:30.075" endtime="20220901 22:05:30.083"/>
 </kw>
-<status status="PASS" starttime="20220831 22:13:58.451" endtime="20220831 22:13:58.452"/>
-</branch>
-<status status="PASS" starttime="20220831 22:13:58.451" endtime="20220831 22:13:58.452"/>
-</if>
-<status status="PASS" starttime="20220831 22:13:58.445" endtime="20220831 22:13:58.452"/>
-</kw>
-<tag>GETALLPROD</tag>
-<status status="PASS" starttime="20220831 22:13:58.399" endtime="20220831 22:13:58.452"/>
+<tag>DELETEUSERINEXISTENTE</tag>
+<status status="PASS" starttime="20220901 22:05:30.048" endtime="20220901 22:05:30.084"/>
 </test>
-<doc>Arquivo de testes para endpoint /produtos</doc>
-<status status="PASS" starttime="20220831 22:13:57.438" endtime="20220831 22:13:58.465"/>
+<doc>Arquivo de testes para endpoint /usuarios</doc>
+<status status="PASS" starttime="20220901 22:05:29.246" endtime="20220901 22:05:30.085"/>
 </suite>
 <statistics>
 <total>
 <stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
-<stat pass="1" fail="0" skip="0">GETALLPROD</stat>
+<stat pass="1" fail="0" skip="0">DELETEUSERINEXISTENTE</stat>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="Produtos Tests">Produtos Tests</stat>
+<stat pass="1" fail="0" skip="0" id="s1" name="Usuarios Tests">Usuarios Tests</stat>
 </suite>
 </statistics>
 <errors>

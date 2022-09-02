@@ -46,14 +46,48 @@ def Get_Endpoint_Dado_Produtos(dado):
     r =  req.get("http://localhost:3000/produtos")
     lista = []
     para_json = r.json()
-    users = para_json['produtos']
-    for i in users:
+    products = para_json['produtos']
+    for i in products:
         if (i.get('nome') == dado):
             lista.append(i)
         if (i.get('descricao') == dado):
             lista.append(i) 
     return lista
 
+
+# def Get_Endpoint_Estoque(dado):
+#     r =  req.get("http://localhost:3000/produtos")
+
+
+#     r =  req.get("http://localhost:3000/produtos")
+#     para_json = r.json()
+#     users = para_json['usuarios']
+
+
+
+
+
+# def Get_Endpoint_Dado_Carrinho(dado):
+#     r =  req.get("http://localhost:3000/carrinhos")
+#     lista = []
+#     para_json = r.json()
+#     cars = para_json['carrinhos']
+#     listaproducts = (cars[1])
+#     products = (listaproducts['produtos'])
+#     id_carrinho = (listaproducts['_id'])
+#     for i in products:
+#         if (i.get('idProduto') == dado):
+#                 mensagem = (i['carrinhos'][1]['_id']) 
+#                 lista.append(mensagem)
+                # for x in :
+                #     # id = (x['_id'])
+                #     lista.append(x)
+    
+        #         lista.append("O produto " + dado + " está cadastrado no carrinho com ID " ) 
+                # if (i.get('precoUnitario') == dado):
+                #     lista.append(("O valor unitário " + dado + " está cadastrado no carrinho com ID " + (i['_id'])) ) 
+    # return lista
+    # return lista
 
 
 
@@ -68,6 +102,7 @@ def Selecionar_Usuario_Login(user):
         json_manipulavel = json.load(json_normal)
         usuario=json_manipulavel[user]
         return usuario
+
 
 
 

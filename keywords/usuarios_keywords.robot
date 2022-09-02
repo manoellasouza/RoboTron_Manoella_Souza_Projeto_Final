@@ -2,9 +2,6 @@
 Documentation        Keywords e Variaveis para Ações do enpoint Produtos
 Resource             ../support/base.robot
 
-*** Variables ***
-${id_user}        nM3T94jas8oCkRPw
-
 *** Keywords ***
 GET Endpoint /usuarios 
     ${response}                           GET On Session                       serverest        /usuarios

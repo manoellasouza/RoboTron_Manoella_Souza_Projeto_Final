@@ -1,6 +1,6 @@
 {   
     "user_valido": {
-        "email":"zequinha@qa.com.br",
+        "email":"fulano@qa.com",
         "password":"teste"
     },
     "user_email_invalido": {
