@@ -99,8 +99,9 @@ Cenario 13: DELETE Deletar Usuario Inexistente 200
     Selecionar ID User "1586282"
     DELETE Endpoint /usuarios/id
     Validar Status Code "200"
-    Validar Se Dado Cadastro Existe "${id_user}"
     Validar Mensagem "Nenhum registro excluído"
+    Validar Se Dado Cadastro Existe "${id_user}"
+    
     
 Cenario 14: DELETE Deletar Usuario Carrinho Cadastrado 400   
     [Tags]    DELETEUSERCARRINHO
