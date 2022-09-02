@@ -6,7 +6,7 @@ Suite Setup          Criar Sessao
 
 *** Test Cases ***
 Cenario 01: POST Login Estatico Valido 200
-   [Tags]    LOGINVALIDO   
+   [Tags]    LOGIN   
    Selecionar Usuario Login "user_valido"
    POST Endpoint /login
    Validar Status Code "200"

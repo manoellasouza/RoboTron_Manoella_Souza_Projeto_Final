@@ -16,9 +16,10 @@ Cenario 02: POST Criar Carrinho 201
     Criar Carrinho Estatico Valido e Armazenar ID
     Validar Status Code "201"
     Validar Ter Criado o Carrinho
-    DELETE Endpoint /carrinhos "concluir-compra"
-
-Cenario 03: POST Criar Carrinho Errado 400
+    Validar Estoque de Produtos "${payload}"
+    DELETE Endpoint /carrinhos "cancelar-compra"
+    
+Cenario 03: POST Criar Carrinho Duplicado 400
     [Tags]    POSTCARDUPLICADO
     Fazer Login e Armazenar Token
     Criar Carrinho Estatico Valido e Armazenar ID
@@ -26,6 +27,7 @@ Cenario 03: POST Criar Carrinho Errado 400
     Validar Status Code "400"
     Validar Mensagem "Não é permitido ter mais de 1 carrinho"
     DELETE Endpoint /carrinhos "concluir-compra"
+    Validar Estoque de Produtos "${payload}"
 
 Cenario 04: POST Criar Carrinho Produto Não Encontrado 400
     [Tags]    POSTCARPROD
@@ -34,6 +36,7 @@ Cenario 04: POST Criar Carrinho Produto Não Encontrado 400
     POST Endpoint /carrinhos
     Validar Status Code "400"
     Validar Mensagem "Produto não encontrado"
+    Validar Estoque de Produtos "${payload}"
 
 Cenario 05: POST Criar Carrinho Produto Duplicado 400
     [Tags]    POSTCARPRODDUPLICADO
@@ -42,14 +45,16 @@ Cenario 05: POST Criar Carrinho Produto Duplicado 400
     POST Endpoint /carrinhos
     Validar Status Code "400"
     Validar Mensagem "Não é permitido possuir produto duplicado"
+    Validar Estoque de Produtos "${payload}"
 
-Cenario 06: POST Criar Carrinho Produto Quantidade 400
+Cenario 06: POST Criar Carrinho Produto Quantidade Insufiente 400
     [Tags]    POSTCARQTD
     Fazer Login e Armazenar Token
     Selecionar Carrinho Estatico "carrinho_quantidade_insuficiente"
     POST Endpoint /carrinhos
     Validar Status Code "400"
     Validar Mensagem "Produto não possui quantidade suficiente"
+    Validar Estoque de Produtos "${payload}"
 
 Cenario 07: POST Criar Carrinho Token Inválido 401
      [Tags]    POSTCARTOKEN
@@ -65,6 +70,7 @@ Cenario 08: GET Buscar Carrinho 200
     GET Endpoint /carrinhos "${id_carrinho}"
     Validar Status Code "200"
     DELETE Endpoint /carrinhos "cancelar-compra"
+    Validar Estoque de Produtos "${payload}"
 
 Cenario 09: GET Buscar Carrinho Não Encontrado 400
     [Tags]    GETCARINVALIDO
@@ -81,6 +87,7 @@ Cenario 10: DELETE Carrinho Concluir Compra 200
     Validar Status Code "200"
     Validar Mensagem "Registro excluído com sucesso"
     Validar Se Carrinho Foi Excluido 
+    Validar Estoque de Produtos "${payload}"
 
 Cenario 11: DELETE Carrinho Concluir Compra 200
     [Tags]    CONCLUIRCARINVALIDO
@@ -105,6 +112,7 @@ Cenario 13: DELETE Carrinho Cancelar Compra 200
     # Na documentação aparece somente "Registro excluído com sucesso":
     Validar Mensagem "Registro excluído com sucesso. Estoque dos produtos reabastecido"
     Validar Se Carrinho Foi Excluido 
+    Validar Estoque de Produtos "${payload}"
 
 Cenario 14: DELETE Carrinho Cancelar Compra 200
     [Tags]    CANCELARCARINVALIDO
@@ -119,14 +127,5 @@ Cenario 15: DELETE Carrinho Cancelar Compra Token Inválido 401
     DELETE Endpoint /carrinhos "cancelar-compra"
     Validar Status Code "401"
     Validar Mensagem "Token de acesso ausente, inválido, expirado ou usuário do token não existe mais"
-
-
-# Cenario 35: DELETE Carrinho Concluir Compra 200
-#     [Tags]    CONCLUIRCAR 
-#     Fazer Login e Armazenar Token
-#     Conferir Estoque Produtos
-#     # Criar Carrinho Estatico Valido e Armazenar ID
-#     # DELETE Endpoint /carrinhos/concluir-compra
-#     # Validar Status Code "200"
 
 

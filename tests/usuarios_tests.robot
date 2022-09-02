@@ -19,6 +19,7 @@ Cenario 02: POST Criar Usuario Massa Estatica 201
     POST Endpoint /usuarios
     Validar Ter Criado o Usuario
     Validar Status Code "201"
+    GET Endpoint /usuarios "${id_user}"
     DELETE Endpoint /usuarios/id
 
 Cenario 03: POST Criar Usuario de Massa Dinamica 201
@@ -126,7 +127,7 @@ Cenario 16: PUT Editar Usuario e Cadastrar 201
     PUT Endpoint /usuarios "125893"
     Validar Status Code "201"
     Validar Ter Criado o Usuario
-    Validar Se Dado Cadastro Existe "${nome}"
+    Validar Se Dado Cadastro Existe "${email}"
     DELETE Endpoint /usuarios/id
 
 Cenario 17: PUT Editar Usuario E-mail Já Cadastrado 400

@@ -33,7 +33,10 @@ Selecionar Carrinho Estatico "${carrinho}"
     ${json}                    Importar JSON Estatico        json_carrinho_ex.json  
     ${payload}                 Set Variable                  ${json["${carrinho}"]} 
     Set Global Variable        ${payload} 
-    Log To Console             Response: ${payload}
+    Log To Console             Produtos Selecionados: ${payload}
+    IF    "${carrinho}" == "carrinho_valido"   
+        Validar Estoque de Produtos "${payload}"
+    END
 
 Criar Carrinho Estatico Valido e Armazenar ID
     Selecionar Carrinho Estatico "carrinho_valido"
@@ -50,10 +53,5 @@ Validar Se Carrinho Contém IdProduto "${idProduto}"
 Validar Se Carrinho Foi Excluido 
     GET Endpoint /carrinhos "${id_carrinho}"
     Should Be Equal            ${response.json()["message"]}     Carrinho não encontrado
-
-# Conferir Estoque Produtos
-#     GET Endpoint /produtos
-#     ${lista_prod}                 Set Variable                ${response.json()}
-#     Set Global Variable           ${lista_prod} 
 
 

@@ -18,6 +18,7 @@ Cenario 02: POST Criar Produto de Massa Estatica 201
     POST Endpoint /produtos 
     Validar Status Code "201"
     Validar Ter Criado o Produto
+    Validar Nome Ou Descrição Produto "Monitor Logitech" 
     DELETE Endpoint /produtos
 
 Cenario 03: POST Criar Produto de Massa Dinamica 201

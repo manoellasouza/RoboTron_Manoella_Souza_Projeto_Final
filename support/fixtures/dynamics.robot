@@ -10,6 +10,7 @@ Criar Dados Usuario Dinamico Valido
     Log To Console            ${payload}
     Set Global Variable       ${payload} 
     Set Global Variable       ${nome}
+    Set Global Variable       ${email}
     
 Criar Dados Produto Dinamico Valido 
     ${random_produto}           FakerLibrary.Word
