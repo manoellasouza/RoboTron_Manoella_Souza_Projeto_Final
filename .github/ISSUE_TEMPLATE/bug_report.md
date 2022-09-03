@@ -9,7 +9,7 @@ assignees: ''
 
 **Descrição**
 
-Ao fazer um POST no endpoint /usuarios com os campos "nome" e "password" contendo apenas uma string vazia, o cadastro é realizado normalmente. Este bug ocorre online ou de forma local. 
+Ao fazer um POST no endpoint /usuarios com os campos "nome" e "password" contendo apenas um espaço dentro da string (" "), o cadastro é realizado normalmente. Este bug ocorre online ou de forma local. 
 
 **Como reproduzir**
 
