@@ -9,7 +9,7 @@ assignees: ''
 
 **Descrição**
 
-Em POST /usuarios, ao preencher os campos nome e password com uma string vazia, o cadastro é realizado normalmente. Este bug ocorre online ou de forma local. 
+Ao fazer um POST no endpoint /usuarios com os campos nome e password contendo apenas uma string vazia, o cadastro é realizado normalmente. Este bug ocorre online ou de forma local. 
 
 **Como reproduzir**
 
@@ -28,10 +28,6 @@ Via VS Code e CMD:
 5. O cadastro será realizado com sucesso.
 
 O usuário “user_nome_espaco” pertence ao arquivo json_usuario_ex.json que se encontra em support > fixtures > static.
-
-**Expected behavior**
-
-A clear and concise description of what you expected to happen.
 
 **Screenshots**
 
