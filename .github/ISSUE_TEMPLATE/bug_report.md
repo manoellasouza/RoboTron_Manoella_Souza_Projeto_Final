@@ -9,7 +9,7 @@ assignees: ''
 
 **Descrição**
 
-Ao fazer um POST no endpoint /usuarios com os campos nome e password contendo apenas uma string vazia, o cadastro é realizado normalmente. Este bug ocorre online ou de forma local. 
+Ao fazer um POST no endpoint /usuarios com os campos "nome" e "password" contendo apenas uma string vazia, o cadastro é realizado normalmente. Este bug ocorre online ou de forma local. 
 
 **Como reproduzir**
 
@@ -17,7 +17,7 @@ Via browser:
 1. Acesse a API ServeRest online (https://serverest.dev/) ou localmente (http://localhost:3000/);
 2. Em POST /usuários clique em Try it out;
 3. Deixe apenas um espaço em branco como valor em “nome” e em “password”;
-4. Altere o e-mail para que não retorne uma mensagem dizendo que o e-mail do exemplo já está sendo usado;
+4. Altere o e-mail para que a requisição não retorne uma mensagem afirmando que o e-mail do exemplo já está sendo usado;
 5. Clique em Execute e o cadastro será realizado com sucesso.
 
 Via VS Code e CMD:
