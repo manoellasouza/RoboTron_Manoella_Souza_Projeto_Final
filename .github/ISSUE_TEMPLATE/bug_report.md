@@ -1,9 +1,7 @@
 ---
 name: Cadastro de usuários é realizado com nome e password em branco
-about: Create a report to help us improve
-title: "[BUG]"
+ID: "[BUG01]"
 labels: bug
-assignees: ''
 
 ---
 
@@ -31,7 +29,7 @@ O usuário “user_nome_espaco” pertence ao arquivo json_usuario_ex.json que s
 
 **Resultado esperado**
 
-Este cenário não está na documentação da aplicação, mas espera-se que retorne o erro 400 e uma mensagem informando que estes dados não podem ficar em branco. Isto já ocorre quando nome ou password são enviados com um valor vazio ("").
+Este cenário não está na documentação da API, mas espera-se que retorne o erro 400 e uma mensagem informando que estes dados não podem ficar em branco. Isto já ocorre quando nome ou password são enviados com um valor vazio ("").
 
 
 **Screenshots**
@@ -46,7 +44,7 @@ Via CMD:
 
 ![image](https://user-images.githubusercontent.com/100487940/188249937-91a271c1-60d5-4adb-b9b5-0b2eaadd20e6.png)
 
+**Informações adicionais**
 
-**Additional context**
-Add any other context about the problem here.
+Foram utilizados os navegadores Microsoft Edge (versão 104.0.1293.70) e Google Chrome (versão 105.0.5195.52) para fazer o teste via browser.
 
