@@ -46,5 +46,5 @@ Via CMD:
 
 **Informações adicionais**
 
-Foram utilizados os navegadores Microsoft Edge (versão 104.0.1293.70) e Google Chrome (versão 105.0.5195.52) para fazer o teste via browser.
+Foram utilizados os navegadores Microsoft Edge (versão 104.0.1293.70) e Google Chrome (versão 105.0.5195.52) para fazer o teste via browser, além do VS Code na versão 1.7.1.0.
 
