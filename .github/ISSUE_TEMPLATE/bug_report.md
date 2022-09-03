@@ -29,6 +29,11 @@ Via VS Code e CMD:
 
 O usuário “user_nome_espaco” pertence ao arquivo json_usuario_ex.json que se encontra em support > fixtures > static.
 
+**Resultado esperado**
+
+Este cenário não está na documentação da aplicação, mas espera-se que retorne o erro 400 e uma mensagem informando que estes dados não podem ficar em branco. Isto já ocorre quando nome ou password são enviados com um valor nulo.
+
+
 **Screenshots**
 
 Via browser:
@@ -41,18 +46,6 @@ Via CMD:
 
 ![image](https://user-images.githubusercontent.com/100487940/188249937-91a271c1-60d5-4adb-b9b5-0b2eaadd20e6.png)
 
-
-
-**Desktop (please complete the following information):**
- - OS: [e.g. iOS]
- - Browser [e.g. chrome, safari]
- - Version [e.g. 22]
-
-**Smartphone (please complete the following information):**
- - Device: [e.g. iPhone6]
- - OS: [e.g. iOS8.1]
- - Browser [e.g. stock browser, safari]
- - Version [e.g. 22]
 
 **Additional context**
 Add any other context about the problem here.
