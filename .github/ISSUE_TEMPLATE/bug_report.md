@@ -31,7 +31,7 @@ O usuário “user_nome_espaco” pertence ao arquivo json_usuario_ex.json que s
 
 **Resultado esperado**
 
-Este cenário não está na documentação da aplicação, mas espera-se que retorne o erro 400 e uma mensagem informando que estes dados não podem ficar em branco. Isto já ocorre quando nome ou password são enviados com um valor nulo.
+Este cenário não está na documentação da aplicação, mas espera-se que retorne o erro 400 e uma mensagem informando que estes dados não podem ficar em branco. Isto já ocorre quando nome ou password são enviados com um valor vazio ("").
 
 
 **Screenshots**
