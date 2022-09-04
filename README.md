@@ -70,6 +70,7 @@ O <a href="https://github.com/manoellasouza/RoboTron_Manoella_Souza_Projeto_Fina
     - :file_folder: [static/](static): Dir com as massas de dados estáticas
   - :file_folder: [variables/](variables): Dir com o arquivo .robot que contém as variáveis utilizadas
 - :file_folder: [tests/](tests): Dir com os arquivos de teste .robot para cada endpoint da API
+- :file_folder: [mapa-mental/](mapa-mental): Dir com o mapa mental de todas as rotas da API
 
 ### Bugs e sugestões de melhoria
   Acesse as <a href="https://github.com/manoellasouza/RoboTron_Manoella_Souza_Projeto_Final/issues">Issues</a> para conferir.
