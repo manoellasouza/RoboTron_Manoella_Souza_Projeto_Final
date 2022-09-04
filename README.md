@@ -46,9 +46,9 @@ Além do conteúdo estudado nas sprints passadas, este projeto também tem como 
 - <a href="https://marketplace.visualstudio.com/items?itemName=d-biehl.robotcode">Robot Code</a>
 - <a href="https://marketplace.visualstudio.com/items?itemName=TabNine.tabnine-vscode">Tabnine AI Autocomplete</a>
 
- ## Rodando o projeto
+ ## Preparando o ambiente e clonando o repositório
 
-**1** - Instale o Robot Framework na sua máquina através do CMD
+**1** - Instale o Robot Framework na sua máquina através do terminal
 ```sh 
 pip install robotframework 
 ```
@@ -69,16 +69,23 @@ pip install robotframework-faker
 git clone https://github.com/manoellasouza/RoboTron_Manoella_Souza_Projeto_Final.git . 
 ```
 
+## Rodando o projeto
 
-**5** - Rode a ServeRest localmente no CMD (não feche o CMD enquanto estiver realizando os testes!)
+Rode a ServeRest localmente pelo terminal
+> Não feche este terminal enquanto estiver realizando os testes!
 ```sh 
 npx serverest
 ```
 
-**6** - Abra o VS Code e o CMD dentro da pasta e digite o comando no CMD para rodar todos os testes
+Abra um terminal dentro da pasta do projeto e execute os testes localmente de acordo com as opções abaixo:
+- Todos os testes
 ```sh 
 robot -d ./reports ./tests
 ```
+
+
+
+
 
 ## Referências
 - <a href="https://serverest.dev/#/">Documentação da API ServeRest</a>
