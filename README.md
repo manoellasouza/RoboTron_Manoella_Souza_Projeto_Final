@@ -48,7 +48,7 @@ Abra um terminal dentro da pasta do projeto e execute os testes localmente de ac
 
 ### Resultados
 
-Ao executar os testes, o resultado é apresentado no **terminal** e os arquivos **report.html** e **log.html** são gerados:
+Ao executar os testes, o resultado é apresentado no terminal e os arquivos report.html e log.html são gerados:
 
 <img align="center" alt="console" height="135" style="border-radius:50px;" src="https://user-images.githubusercontent.com/100487940/188331021-f0fbf0e4-69af-458f-92c7-1a90b55614c7.png"> 
 
