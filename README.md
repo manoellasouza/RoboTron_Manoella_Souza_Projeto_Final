@@ -64,10 +64,9 @@ O log.html detalha os testes, mostrando cada keyword utilizada, a library da key
 
 ### Diretório
 - :file_folder: [keywords/](keywords): Dir com as keywords utilizadas nos testes 
-- :file_folder: [reports/](reports): Dir com os relatórios de resultados dos testes realizados
-- :file_folder: [results/](results) Dir com os relatórios de resultados dos testes realizados
-- :file_folder: [support/](support) Dir com os arquivos base, massas de dados e variáveis
-  - :file_folder: [commom/](commom) Dir com o arquivo commom.robot, a library em Python e o arquivo .robot que consome essa library
+- :file_folder: [reports/](reports): Dir com os relatórios de resultados dos testes realizados, incluindo o report.html e o log.html
+- :file_folder: [support/](support): Dir com os arquivos base, massas de dados e variáveis
+  - :file_folder: [commom/](commom): Dir com o arquivo commom.robot, a library em Python e o arquivo .robot que consome essa library
   - :file_folder: [fixtures/](fixtures): Dir com todas as massas de dados
     - :file_folder: [static/](static): Dir com as massas de dados estáticas
   - :file_folder: [variables/](variables): Dir com o arquivo .robot que contém as variáveis utilizadas
