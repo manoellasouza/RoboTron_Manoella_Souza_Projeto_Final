@@ -62,6 +62,18 @@ O log.html detalha os testes, mostrando cada keyword utilizada, a library da key
 
 ## Sobre o projeto 
 
+### Diretório
+- :file_folder: [keywords/](keywords): Dir com as keywords utilizadas nos testes 
+- :file_folder: [reports/](reports): Dir com os relatórios de resultados dos testes realizados
+- :file_folder: [results/](results) Dir com os relatórios de resultados dos testes realizados
+- :file_folder: [support/](support) Dir com os arquivos base, massas de dados e variáveis
+  - :file_folder: [commom/](commom) Dir com o arquivo commom.robot, a library em Python e o arquivo .robot que consome essa library
+  - :file_folder: [fixtures/](fixtures): Dir com todas as massas de dados
+    - :file_folder: [static/](static): Dir com as massas de dados estáticas
+  - :file_folder: [variables/](variables): Dir com o arquivo .robot que contém as variáveis utilizadas
+- :file_folder: [tests/](tests): Dir com os arquivos de teste .robot para cada endpoint da API
+
+
 ### Libraries utilizadas
 - <a href="https://robotframework.org/robotframework/latest/libraries/BuiltIn.html#library-documentation-top">BuiltIn</a>: library padrão do Robot que possui as palavras-chave mais utilizadas
 - <a href="https://marketsquare.github.io/robotframework-requests/doc/RequestsLibrary.html#library-documentation-top">RequestsLibrary</a>: utilizada para fazer as requisições HTTP REST
