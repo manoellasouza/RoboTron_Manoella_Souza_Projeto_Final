@@ -91,14 +91,17 @@ O <a href="https://github.com/manoellasouza/RoboTron_Manoella_Souza_Projeto_Fina
 - <a href="https://robotizandotestes.blogspot.com/2017/09/season-running-ep-01-log-e-report-de.html">Mayara Fernandes - Conteúdo sobre Log e Report de execução</a>
 - <a href="https://github.com/PauloGoncalvesBH/sample-supertest">Repositório Supertest - Inspiração de ReadMe</a>
 - Vídeos da trilha de aprendizado da Compass UOL
-- Um agradecimento especial aos evangelistas da Compass UOL e aos meus colegas de equipe pelo suporte: <a href="https://github.com/lauraghrk">Laura</a>, <a href="https://github.com/OliveiraMariC">Mari</a>, <a href="https://github.com/phconte">Paulo</a> e <a href="https://github.com/PFrek">Pedro</a> &#129505;
+
+
+<p align="center">Um agradecimento especial aos evangelistas da Compass UOL e aos meus colegas de equipe pelo suporte: <a href="https://github.com/lauraghrk">Laura</a>, <a href="https://github.com/OliveiraMariC">Mari</a>, <a href="https://github.com/phconte">Paulo</a> e <a href="https://github.com/PFrek">Pedro</a> &#129505;</p>
+
 
 ## Autora
 <a href="https://www.linkedin.com/in/manoellasouza/">Manoella Souza</a>
 
 ## Bastidores 
 
-<img align="left" alt="cat-pc" height="150" style="border-radius:70px;" src="https://s4.gifyu.com/images/video-3.gif">  
+
 
 
 
