@@ -37,10 +37,12 @@ Projeto para automação de testes da API ServeRest utilizando o Robot Framework
 `git clone https://github.com/manoellasouza/RoboTron_Manoella_Souza_Projeto_Final.git`
 
 ## Executando os testes
-Rode a ServeRest localmente pelo terminal:  ```npx serverest ```
+1. Rode a ServeRest localmente pelo terminal:  ```npx serverest ```
 > Não feche este terminal enquanto estiver realizando os testes!
 
-Abra um terminal dentro da pasta do projeto e execute os testes localmente de acordo com as opções abaixo:
+2. Abra o projeto através do VS Code. Os arquivos com os cenários de teste estarão na pasta tests.
+
+3. Abra um terminal dentro da pasta do projeto e execute os testes localmente de acordo com as opções abaixo:
 - Todos os endpoints: ```robot -d ./reports ./tests```
 - Endpoint /login: ``` robot -d ./reports ./tests/login_tests.robot ```
 - Endpoint /usuarios: ``` robot -d ./reports ./tests/usuarios_tests.robot ```
@@ -52,15 +54,10 @@ Abra um terminal dentro da pasta do projeto e execute os testes localmente de ac
 
 Ao executar os testes, o resultado é apresentado no terminal e os arquivos report.html e log.html são gerados:
 
-<img align="center" alt="console" height="135" style="border-radius:50px;" src="https://user-images.githubusercontent.com/100487940/188331021-f0fbf0e4-69af-458f-92c7-1a90b55614c7.png"> 
+<img align="center" alt="console" height="150" style="border-radius:50px;" src="https://user-images.githubusercontent.com/100487940/188331021-f0fbf0e4-69af-458f-92c7-1a90b55614c7.png"> 
 
-O report.html é um resumo que mostra o status da execução, horário de início e de término, tempo total da execução e a quantidade de testes que passou e que falhou:
+O <a href="https://github.com/manoellasouza/RoboTron_Manoella_Souza_Projeto_Final/blob/main/imagens/report.png">report.html</a> é um resumo que mostra o status da execução, horário de início e de término, tempo total da execução e a quantidade de testes que passou e que falhou. Já o <a href="https://github.com/manoellasouza/RoboTron_Manoella_Souza_Projeto_Final/blob/main/imagens/log.png">log.html</a> detalha os testes, mostrando cada keyword utilizada, a library da keyword, logs solicitados e resultado da execução.
 
-<img align="center" alt="report" height="318" style="border-radius:50px;" src="https://user-images.githubusercontent.com/100487940/188330937-b6b26ac3-4362-4450-bd4b-edbbce9bf87c.png"> 
-
-O log.html detalha os testes, mostrando cada keyword utilizada, a library da keyword, logs solicitados e resultado da execução:
-
-<img align="center" alt="log" height="350" style="border-radius:50px;" src="https://user-images.githubusercontent.com/100487940/188331593-b42cfb56-e935-4ae5-8b7d-12adc8fe46dc.png"> 
 
 ## Sobre o projeto 
 
