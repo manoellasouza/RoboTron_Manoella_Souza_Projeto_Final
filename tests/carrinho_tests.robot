@@ -89,7 +89,7 @@ Cenario 10: DELETE Carrinho Concluir Compra 200
     Validar Se Carrinho Foi Excluido 
     Validar Estoque de Produtos "${payload}"
 
-Cenario 11: DELETE Carrinho Concluir Compra 200
+Cenario 11: DELETE Concluir Compra Carrinho Não Encontrado 200
     [Tags]    CONCLUIRCARINVALIDO
     Fazer Login e Armazenar Token
     DELETE Endpoint /carrinhos "concluir-compra"
@@ -109,12 +109,11 @@ Cenario 13: DELETE Carrinho Cancelar Compra 200
     Criar Carrinho Estatico Valido e Armazenar ID
     DELETE Endpoint /carrinhos "cancelar-compra"
     Validar Status Code "200"
-    # Na documentação aparece somente "Registro excluído com sucesso":
     Validar Mensagem "Registro excluído com sucesso. Estoque dos produtos reabastecido"
     Validar Se Carrinho Foi Excluido 
     Validar Estoque de Produtos "${payload}"
 
-Cenario 14: DELETE Carrinho Cancelar Compra 200
+Cenario 14: DELETE Cancelar Compra Carrinho Não Encontrado 200
     [Tags]    CANCELARCARINVALIDO
     Fazer Login e Armazenar Token
     DELETE Endpoint /carrinhos "cancelar-compra"

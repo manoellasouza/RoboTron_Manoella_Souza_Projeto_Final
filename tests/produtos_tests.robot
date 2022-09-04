@@ -40,7 +40,7 @@ Cenario 04: POST Criar Produto Nome Já Existente 400
     Validar Mensagem "Já existe produto com esse nome"
 
 Cenario 05: POST Criar Produto Sem Nome 400
-   [Tags]    POSTPRODSEMNOME
+   [Tags]    POSTPRODSEMNOME    
     Fazer Login e Armazenar Token
     Selecionar Produto Estatico "produto_sem_nome"
     POST Endpoint /produtos 
@@ -48,7 +48,7 @@ Cenario 05: POST Criar Produto Sem Nome 400
     Validar Erro "nome" 
 
 Cenario 06: POST Criar Produto Sem Preço 400
-   [Tags]    POSTPRODSEMPRECO
+   [Tags]    POSTPRODSEMPRECO      
     Fazer Login e Armazenar Token
     Selecionar Produto Estatico "produto_sem_preco"
     POST Endpoint /produtos 
@@ -56,7 +56,7 @@ Cenario 06: POST Criar Produto Sem Preço 400
     Validar Erro "preco" 
 
 Cenario 07: POST Criar Produto Sem Descrição 400
-   [Tags]    POSTPRODSEMDESCRICAO
+   [Tags]    POSTPRODSEMDESCRICAO     
     Fazer Login e Armazenar Token
     Selecionar Produto Estatico "produto_sem_descricao"
     POST Endpoint /produtos 
@@ -64,14 +64,22 @@ Cenario 07: POST Criar Produto Sem Descrição 400
     Validar Erro "descricao" 
 
 Cenario 08: POST Criar Produto Sem Quantidade 400
-   [Tags]    POSTPRODSEMQTD
+   [Tags]    POSTPRODSEMQTD   
     Fazer Login e Armazenar Token
     Selecionar Produto Estatico "produto_sem_quantidade"
     POST Endpoint /produtos 
     Validar Status Code "400"
     Validar Erro "quantidade" 
 
-Cenario 09: POST Criar Produto Token Inválido 401
+Cenario 09: POST Criar Produto Valor Decimal 400
+   [Tags]    POSTPRODFLOAT    
+    Fazer Login e Armazenar Token
+    Selecionar Produto Estatico "produto_preco_float"
+    POST Endpoint /produtos 
+    Validar Status Code "400"
+    Validar Mensagem Preço  
+
+Cenario 10: POST Criar Produto Token Inválido 401
    [Tags]    POSTPRODTOKEN  
     Selecionar Token Invalido
     Selecionar Produto Estatico "produto_valido"
@@ -79,14 +87,14 @@ Cenario 09: POST Criar Produto Token Inválido 401
     Validar Status Code "401"
     Validar Mensagem "Token de acesso ausente, inválido, expirado ou usuário do token não existe mais"
 
-Cenario 10: POST Criar Produto Rota Administrador 403
+Cenario 11: POST Criar Produto Rota Administrador 403
    [Tags]    POSTPRODADM
     Criar Login Estatico Admin False
     Criar Um Produto Estatico Valido e Armazenar ID
     Validar Status Code "403"
     Validar Mensagem "Rota exclusiva para administradores"
 
-Cenario 11: GET Buscar Produto 200
+Cenario 12: GET Buscar Produto 200
     [Tags]     GETPROD    
     Fazer Login e Armazenar Token
     Criar Um Produto Dinamico e Armazenar ID
@@ -95,13 +103,13 @@ Cenario 11: GET Buscar Produto 200
     DELETE Endpoint /produtos
     Validar Nome Ou Descrição Produto "${random_produto}"
 
-Cenario 12: GET Buscar Produto Não Encontrado 400
+Cenario 13: GET Buscar Produto Não Encontrado 400
     [Tags]     GETPRODINVALIDO
     GET Endpoint /produtos "15892"
     Validar Status Code "400"
     Validar Mensagem "Produto não encontrado"
 
-Cenario 13: DELETE Excluir Produto 200
+Cenario 14: DELETE Excluir Produto 200
     [Tags]    DELETEPROD
     Fazer Login e Armazenar Token
     Criar Um Produto Dinamico e Armazenar ID
@@ -109,7 +117,7 @@ Cenario 13: DELETE Excluir Produto 200
     Validar Status Code "200"
     Validar Nome Ou Descrição Produto "${random_produto}"
 
-Cenario 14: DELETE Excluir Produto Inexistente 200 
+Cenario 15: DELETE Excluir Produto Inexistente 200 
     [Tags]    DELETEPRODINEXISTENTE
     Fazer Login e Armazenar Token
     Selecionar ID Produto "158625"
@@ -117,7 +125,7 @@ Cenario 14: DELETE Excluir Produto Inexistente 200
     Validar Status Code "200"
     Validar Mensagem "Nenhum registro excluído"
 
-Cenario 15: DELETE Excluir Produto Carrinho 400 
+Cenario 16: DELETE Excluir Produto Carrinho 400 
     [Tags]    DELETEPRODCARRINHO
     Fazer Login e Armazenar Token
     Selecionar ID Produto "BeeJh5lz3k6kSIzA"
@@ -125,21 +133,21 @@ Cenario 15: DELETE Excluir Produto Carrinho 400
     Validar Status Code "400"
     Validar Mensagem "Não é permitido excluir produto que faz parte de carrinho"
 
-Cenario 16: DELETE Excluir Produto Token Inválido 401
+Cenario 17: DELETE Excluir Produto Token Inválido 401
     [Tags]    DELETEPRODTOKEN
     Selecionar Token Invalido
     DELETE Endpoint /produtos
     Validar Status Code "401"
     Validar Mensagem "Token de acesso ausente, inválido, expirado ou usuário do token não existe mais"
 
-Cenario 17: DELETE Excluir Produto Rota Administrador 403
+Cenario 18: DELETE Excluir Produto Rota Administrador 403
     [Tags]    DELETEPRODADM
     Criar Login Estatico Admin False
     DELETE Endpoint /produtos
     Validar Status Code "403"    
     Validar Mensagem "Rota exclusiva para administradores"
 
-Cenario 18: PUT Editar Produto 200
+Cenario 19: PUT Editar Produto 200
     [Tags]     PUTPROD
     Fazer Login e Armazenar Token
     Criar Um Produto Estatico Valido e Armazenar ID
@@ -149,7 +157,7 @@ Cenario 18: PUT Editar Produto 200
     Validar Nome Ou Descrição Produto "${random_produto}"
     DELETE Endpoint /produtos
 
-Cenario 19: PUT Editar Produto Cadastro 201
+Cenario 20: PUT Editar Produto Cadastro 201
     [Tags]     PUTPRODCADASTRO
     Fazer Login e Armazenar Token
     Criar Dados Produto Dinamico Valido 
@@ -159,7 +167,7 @@ Cenario 19: PUT Editar Produto Cadastro 201
     Validar Nome Ou Descrição Produto "${random_produto}"
     DELETE Endpoint /produtos
 
-Cenario 20: PUT Editar Produto Nome Já Existente 400
+Cenario 21: PUT Editar Produto Nome Já Existente 400
    [Tags]     PUTPRODNOME
     Fazer Login e Armazenar Token
     Selecionar Produto Estatico "produto_invalido"
@@ -167,39 +175,47 @@ Cenario 20: PUT Editar Produto Nome Já Existente 400
     Validar Status Code "400"
     Validar Mensagem "Já existe produto com esse nome"
 
-Cenario 21: PUT Editar Produto Sem Nome 400
-   [Tags]    PUTPRODSEMNOME
+Cenario 22: PUT Editar Produto Sem Nome 400
+   [Tags]    PUTPRODSEMNOME   
     Fazer Login e Armazenar Token
     Selecionar Produto Estatico "produto_sem_nome"
     PUT Endpoint /produtos "${id_produto}" 
     Validar Status Code "400"
     Validar Erro "nome" 
 
-Cenario 22: PUT Editar Produto Sem Preço 400
-   [Tags]    PUTPRODSEMPRECO
+Cenario 23: PUT Editar Produto Sem Preço 400
+   [Tags]    PUTPRODSEMPRECO   
     Fazer Login e Armazenar Token
     Selecionar Produto Estatico "produto_sem_preco"
     PUT Endpoint /produtos "${id_produto}" 
     Validar Status Code "400"
     Validar Erro "preco" 
 
-Cenario 23: PUT Editar Produto Sem Descrição 400
-   [Tags]    PUTPRODSEMDESCRICAO
+Cenario 24: PUT Editar Produto Sem Descrição 400
+   [Tags]    PUTPRODSEMDESCRICAO   
     Fazer Login e Armazenar Token
     Selecionar Produto Estatico "produto_sem_descricao"
     PUT Endpoint /produtos "${id_produto}" 
     Validar Status Code "400"
     Validar Erro "descricao" 
     
-Cenario 24: PUT Editar Produto Sem Quantidade 400
-   [Tags]    PUTPRODSEMQTD
+Cenario 25: PUT Editar Produto Sem Quantidade 400
+   [Tags]    PUTPRODSEMQTD    
     Fazer Login e Armazenar Token
     Selecionar Produto Estatico "produto_sem_quantidade"
     PUT Endpoint /produtos "${id_produto}" 
     Validar Status Code "400"
     Validar Erro "quantidade" 
 
-Cenario 25: PUT Editar Produto Token Inválido 401
+Cenario 27: PUT Editar Produto Valor Decimal 400
+   [Tags]    PUTPRODFLOAT     
+    Fazer Login e Armazenar Token
+    Selecionar Produto Estatico "produto_preco_float"
+    PUT Endpoint /produtos "${id_produto}" 
+    Validar Status Code "400"
+    Validar Mensagem Preço  
+
+Cenario 28: PUT Editar Produto Token Inválido 401
     [Tags]     PUTPRODTOKEN
     Selecionar Token Invalido
     Selecionar Produto Estatico "produto_valido"
@@ -207,7 +223,7 @@ Cenario 25: PUT Editar Produto Token Inválido 401
     Validar Status Code "401"
     Validar Mensagem "Token de acesso ausente, inválido, expirado ou usuário do token não existe mais"
 
-Cenario 26: PUT Editar Produto Rota Administrador 403
+Cenario 29: PUT Editar Produto Rota Administrador 403
     [Tags]     PUTPRODADM
     Criar Login Estatico Admin False
     Selecionar Produto Estatico "produto_valido"

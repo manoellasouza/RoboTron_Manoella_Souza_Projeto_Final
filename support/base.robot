@@ -2,7 +2,6 @@
 *** Settings ***
 Documentation        Arquivo simples para requisições HTTP em APIs REST
 Library              RequestsLibrary
-Library              Collections
 Library              OperatingSystem
 #Importando tudo o que está na pasta suporte para dentro do arquivo base:
 Resource             ./common/common.robot

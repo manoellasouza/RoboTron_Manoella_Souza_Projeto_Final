@@ -35,6 +35,12 @@
         "password": " ",
         "administrador": "true"
     },
+    "user_nome_espaco": {
+        "nome": " ",
+        "email": "victspr@qa.com.br",
+        "password": " ",
+        "administrador": "true"
+    },
     "user_sem_email": {
         "nome": "Sem Email Teste",
         "email": " ",

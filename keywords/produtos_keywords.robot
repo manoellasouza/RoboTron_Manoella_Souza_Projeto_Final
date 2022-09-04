@@ -50,6 +50,9 @@ Selecionar ID Produto "${id_produto}"
     ${id_produto}                          Set Variable                         ${id_produto}                                   
     Set Global Variable                    ${id_produto}
 
+Validar Mensagem Preço
+    Should Be Equal                        ${response.json()["preco"]}        preco deve ser um inteiro
+
 Criar Um Produto Estatico Valido e Armazenar ID
     Selecionar Produto Estatico "produto_valido"
     POST Endpoint /produtos 

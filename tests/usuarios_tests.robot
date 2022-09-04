@@ -53,7 +53,7 @@ Cenario 06: POST Criar Usuario Sem E-mail 400
     Validar Erro "email"  
     
 Cenario 07: POST Criar Usuario Sem Senha 400
-    [Tags]    POSTUSERSEMSENHA
+    [Tags]    POSTUSERSEMSENHA    
     Selecionar Usuario Estatico "user_sem_senha"
     POST Endpoint /usuarios
     Validar Status Code "400"
@@ -103,7 +103,6 @@ Cenario 13: DELETE Deletar Usuario Inexistente 200
     Validar Mensagem "Nenhum registro excluído"
     Validar Se Dado Cadastro Existe "${id_user}"
     
-    
 Cenario 14: DELETE Deletar Usuario Carrinho Cadastrado 400   
     [Tags]    DELETEUSERCARRINHO
     Selecionar ID User "oUb7aGkMtSEPf6BZ"
@@ -138,29 +137,37 @@ Cenario 17: PUT Editar Usuario E-mail Já Cadastrado 400
     Validar Mensagem "Este email já está sendo usado"
 
 Cenario 18: PUT Editar Usuario Sem E-mail 400
-    [Tags]    PUTUSERSEMEMAIL
+    [Tags]    PUTUSERSEMEMAIL    USER
     Selecionar Usuario Estatico "user_sem_email"
     PUT Endpoint /usuarios "${id_user}"
     Validar Status Code "400"
     Validar Erro "email"
 
 Cenario 19: PUT Editar Usuario Sem Senha 400
-    [Tags]    PUTUSERSEMSENHA
+    [Tags]    PUTUSERSEMSENHA    USER
     Selecionar Usuario Estatico "user_sem_senha"
     PUT Endpoint /usuarios "${id_user}"
     Validar Status Code "400"
     Validar Erro "password"
 
 Cenario 20: PUT Editar Usuario Sem Nome 400
-    [Tags]    PUTUSERSEMNOME
+    [Tags]    PUTUSERSEMNOME    USER
     Selecionar Usuario Estatico "user_sem_nome"
     PUT Endpoint /usuarios "${id_user}"
     Validar Status Code "400"
     Validar Erro "nome"
 
 Cenario 21: PUT Editar Usuario Sem Adm 400
-    [Tags]    PUTUSERSEMADM
+    [Tags]    PUTUSERSEMADM    USER
     Selecionar Usuario Estatico "user_sem_admin"
     PUT Endpoint /usuarios "${id_user}"
     Validar Status Code "400"
     Validar Erro "administrador"
+
+Cenario 22: PUT Editar Usuario E-mail Inválido 400
+    [Tags]    PUTUSEREMAILINVALIDO        USER
+    Selecionar Usuario Estatico "user_email_invalido"
+    PUT Endpoint /usuarios "${id_user}"
+    Validar Status Code "400"
+    Validar Erro "email" 
+    

@@ -32,3 +32,5 @@ Validar Ter Logado
     Should Be Equal            ${response.json()["message"]}            Login realizado com sucesso
     Should Not Be Empty        ${response.json()["authorization"]} 
 
+Validar Mensagem E-mail em Branco
+    Should Be Equal            ${response.json()["email"]}    email não pode ficar em branco

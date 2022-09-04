@@ -8,6 +8,18 @@
     "produto_invalido": {
         "nome": "Samsung 60 polegadas",
         "preco": 250,
+        "descricao": "TV",
+        "quantidade": 200
+    },
+    "produto_preco_float": {
+        "nome": "LG 60 Polegadas",
+        "preco": 250.5,
+        "descricao": "TV",
+        "quantidade": 200
+    },
+    "produto_nome_espaco": {
+        "nome": " ",
+        "preco": 250,
         "descricao": "Teclado",
         "quantidade": 200
     },
