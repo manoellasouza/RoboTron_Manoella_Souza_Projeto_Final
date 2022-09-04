@@ -52,7 +52,7 @@ Abra um terminal dentro da pasta do projeto e execute os testes localmente de ac
 
 Ao executar os testes, o resultado é apresentado no terminal e os arquivos report.html e log.html são gerados:
 
-<img align="center" alt="console" height="135" style="border-radius:50px;" src="https://user-images.githubusercontent.com/100487940/188331021-f0fbf0e4-69af-458f-92c7-1a90b55614c7.png"> 
+<img align="center" alt="console" height="150" style="border-radius:50px;" src="https://user-images.githubusercontent.com/100487940/188331021-f0fbf0e4-69af-458f-92c7-1a90b55614c7.png"> 
 
 O <a href="https://github.com/manoellasouza/RoboTron_Manoella_Souza_Projeto_Final/blob/main/imagens/report.png">report.html</a> é um resumo que mostra o status da execução, horário de início e de término, tempo total da execução e a quantidade de testes que passou e que falhou. Já o <a href="https://github.com/manoellasouza/RoboTron_Manoella_Souza_Projeto_Final/blob/main/imagens/log.png">log.html</a> detalha os testes, mostrando cada keyword utilizada, a library da keyword, logs solicitados e resultado da execução.
 
