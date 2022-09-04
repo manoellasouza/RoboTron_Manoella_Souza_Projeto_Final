@@ -13,6 +13,8 @@ Projeto para automação de testes da API ServeRest utilizando o Robot Framework
    * [Executando os testes](#executando-os-testes)
       * [Resultados](#resultados)
    * [Sobre o projeto](#sobre-o-projeto)
+      * [Diretório](#diretório)
+      * [Bugs e sugestões de melhoria](#bugs-e-sugestões-de-melhoria)
       * [Libraries utilizadas](#libraries-utilizadas)
       * [Extensões VS Code utilizadas](#extensões-vs-code-utilizadas)
    * [Referências](#referências)
@@ -72,6 +74,8 @@ O log.html detalha os testes, mostrando cada keyword utilizada, a library da key
   - :file_folder: [variables/](variables): Dir com o arquivo .robot que contém as variáveis utilizadas
 - :file_folder: [tests/](tests): Dir com os arquivos de teste .robot para cada endpoint da API
 
+### Bugs e sugestões de melhoria
+  Acesse as <a href="https://github.com/manoellasouza/RoboTron_Manoella_Souza_Projeto_Final/issues">Issues</a> para conferir.
 
 ### Libraries utilizadas
 - <a href="https://robotframework.org/robotframework/latest/libraries/BuiltIn.html#library-documentation-top">BuiltIn</a>: library padrão do Robot que possui as palavras-chave mais utilizadas
