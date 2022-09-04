@@ -8,8 +8,10 @@
 ### Tópicos
    * [Sobre o projeto](#sobre-o-projeto)
    * [Pré-requisitos](#pré-requisitos)
-   * [Rodando o projeto](#rodando-o-projeto)
    * [Libraries utilizadas](#libraries-utilizadas)
+   * [Extensões VS Code recomendadas](#extensões-vs-code-recomendadas)
+   * [Preparando o ambiente e clonando o repositório](#preparando-o-ambiente-e-clonando-o-repositório)
+   * [Rodando o projeto](#rodando-o-projeto)
    * [Referências](#referências)
    * [Autora](#autora)
    * [Licença](#licença)
@@ -70,7 +72,6 @@ git clone https://github.com/manoellasouza/RoboTron_Manoella_Souza_Projeto_Final
 ```
 
 ## Rodando o projeto
-
 Rode a ServeRest localmente pelo terminal
 > Não feche este terminal enquanto estiver realizando os testes!
 ```sh 
@@ -83,9 +84,25 @@ Abra um terminal dentro da pasta do projeto e execute os testes localmente de ac
 robot -d ./reports ./tests
 ```
 
+- Apenas os testes do endpoint /login
+```sh 
+robot -d ./reports ./tests/login_tests.robot
+```
 
+- Apenas os testes do endpoint /usuarios
+```sh 
+robot -d ./reports ./tests/usuarios_tests.robot
+```
 
+- Apenas os testes do endpoint /produtos
+```sh 
+robot -d ./reports ./tests/produtos_tests.robot
+```
 
+- Apenas os testes do endpoint /carrinhos
+```sh 
+robot -d ./reports ./tests/carrinho_tests.robot
+```
 
 ## Referências
 - <a href="https://serverest.dev/#/">Documentação da API ServeRest</a>
@@ -94,9 +111,6 @@ robot -d ./reports ./tests
 
 ## Autora
 <a href="https://www.linkedin.com/in/manoellasouza/">Manoella Souza</a>
-
-## Licença
-<a href="https://github.com/manoellasouza/RoboTron_-Manoella_Souza-_Compass/blob/main/LICENSE">MIT License</a>
 
 ## Bastidores 
 
