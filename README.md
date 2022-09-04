@@ -1,4 +1,7 @@
+[![Badge ServeRest](https://img.shields.io/badge/API-ServeRest-green)](https://github.com/ServeRest/ServeRest/)
+
 <img align="right" alt="logo-compass" height="30" style="border-radius:50px;" src="https://i.ibb.co/qCC4kKF/logo-compass2.png"> 
+
 
 # Projeto Final - Testando a API ServeRest com Robot 
 
@@ -14,15 +17,16 @@
 
 
 ## Sobre o projeto 
-Projeto sobre automação de testes da API ServeRest utilizando o Robot Framework, realizado durante as Sprints 5 e 6 do Programa de Bolsas RoboTron da Compass UOL.
+Projeto para automação de testes da API ServeRest utilizando o Robot Framework, realizado durante as Sprints 5 e 6 do Programa de Bolsas RoboTron da Compass UOL.
 
 Além do conteúdo estudado nas sprints passadas, este projeto também tem como objetivo reforçar os seguintes conhecimentos:
+- Padrão Service-Objects
 - Escrita de cenários de teste em TDD
-- Utilização das libraries do Robot 
+- Utilização e criação de libraries 
 - Lidar com requests e responses
 - Autenticação de APIs
 - Manipular dados estáticos e dinâmicos
-- Criar e consumir library em Python
+- Reutilização de código
 
 ## Pré-requisitos 
 - <a href="https://www.python.org/downloads/">Python 3</a>: é a linguagem base do Robot Framework
@@ -43,34 +47,38 @@ Além do conteúdo estudado nas sprints passadas, este projeto também tem como 
 - <a href="https://marketplace.visualstudio.com/items?itemName=TabNine.tabnine-vscode">Tabnine AI Autocomplete</a>
 
  ## Rodando o projeto
- ````bash 
-# Instale o Robot Framework na sua máquina através do CMD
-pip install robotframework
 
-# Verifique se a instalação foi bem sucedida
+**1** - Instale o Robot Framework na sua máquina através do CMD
+```sh 
+pip install robotframework 
+```
+
+**2** - Verifique se a instalação foi bem sucedida
+```sh 
 robot --version
+```
 
-#Instale a RequestsLibrary
+**3** - Instale a RequestsLibrary e a Robot Framework Faker
+```sh 
 pip install robotframework-requests
-
-#Instale a Robot Framework Faker
 pip install robotframework-faker
+```
 
-# Crie uma pasta na sua máquina
-
-# Abra o Git Bash dentro da pasta
-
-# Clone este repositório 
+**4** - Crie uma pasta na sua máquina, abra o Git Bash dentro dela e clone este repositório
+```sh 
 git clone https://github.com/manoellasouza/RoboTron_Manoella_Souza_Projeto_Final.git . 
+```
 
-# Altere a branch para acessar os arquivos
-git checkout develop
 
-# Rode a ServeRest localmente no CMD (não feche o CMD enquanto estiver realizando os testes!)
+**5** - Rode a ServeRest localmente no CMD (não feche o CMD enquanto estiver realizando os testes!)
+```sh 
 npx serverest
+```
 
-# Abra o VS Code dentro da pasta criada e rode os testes
-````
+**6** - Abra o VS Code e o CMD dentro da pasta e digite o comando no CMD para rodar todos os testes
+```sh 
+robot -d ./reports ./tests
+```
 
 ## Referências
 - <a href="https://serverest.dev/#/">Documentação da API ServeRest</a>
