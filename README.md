@@ -54,13 +54,8 @@ Ao executar os testes, o resultado é apresentado no terminal e os arquivos repo
 
 <img align="center" alt="console" height="135" style="border-radius:50px;" src="https://user-images.githubusercontent.com/100487940/188331021-f0fbf0e4-69af-458f-92c7-1a90b55614c7.png"> 
 
-O report.html é um resumo que mostra o status da execução, horário de início e de término, tempo total da execução e a quantidade de testes que passou e que falhou:
+O <a href="https://github.com/manoellasouza/RoboTron_Manoella_Souza_Projeto_Final/blob/main/imagens/report.png">report.html</a> é um resumo que mostra o status da execução, horário de início e de término, tempo total da execução e a quantidade de testes que passou e que falhou. Já o <a href="https://github.com/manoellasouza/RoboTron_Manoella_Souza_Projeto_Final/blob/main/imagens/log.png">log.html</a> detalha os testes, mostrando cada keyword utilizada, a library da keyword, logs solicitados e resultado da execução.
 
-<img align="center" alt="report" height="318" style="border-radius:50px;" src="https://user-images.githubusercontent.com/100487940/188330937-b6b26ac3-4362-4450-bd4b-edbbce9bf87c.png"> 
-
-O log.html detalha os testes, mostrando cada keyword utilizada, a library da keyword, logs solicitados e resultado da execução:
-
-<img align="center" alt="log" height="350" style="border-radius:50px;" src="https://user-images.githubusercontent.com/100487940/188331593-b42cfb56-e935-4ae5-8b7d-12adc8fe46dc.png"> 
 
 ## Sobre o projeto 
 
