@@ -37,10 +37,12 @@ Projeto para automação de testes da API ServeRest utilizando o Robot Framework
 `git clone https://github.com/manoellasouza/RoboTron_Manoella_Souza_Projeto_Final.git`
 
 ## Executando os testes
-Rode a ServeRest localmente pelo terminal:  ```npx serverest ```
+1. Rode a ServeRest localmente pelo terminal:  ```npx serverest ```
 > Não feche este terminal enquanto estiver realizando os testes!
 
-Abra um terminal dentro da pasta do projeto e execute os testes localmente de acordo com as opções abaixo:
+2. Abra o projeto através do VS Code. Os arquivos com os cenários de teste estarão na pasta tests.
+
+3. Abra um terminal dentro da pasta do projeto e execute os testes localmente de acordo com as opções abaixo:
 - Todos os endpoints: ```robot -d ./reports ./tests```
 - Endpoint /login: ``` robot -d ./reports ./tests/login_tests.robot ```
 - Endpoint /usuarios: ``` robot -d ./reports ./tests/usuarios_tests.robot ```
