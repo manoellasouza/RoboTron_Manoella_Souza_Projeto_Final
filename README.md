@@ -101,7 +101,7 @@ O <a href="https://github.com/manoellasouza/RoboTron_Manoella_Souza_Projeto_Fina
 
 ## Bastidores 
 
-
+<img align="left" alt="cat-pc" height="150" style="border-radius:70px;" src="https://thumbs.gfycat.com/RegularScentedKoala-max-1mb.gif">  
 
 
 
