@@ -7,7 +7,7 @@
 Projeto para automação de testes da API ServeRest utilizando o Robot Framework, realizado durante as Sprints 5 e 6 do Programa de Bolsas RoboTron da Compass UOL.
 
 ### Tópicos
-   * [Instalação do projeto](#instalação-do-projeto)
+   * [Instalando o projeto](#instalando-o-projeto)
       * [Pré-requisitos](#pré-requisitos)
       * [Preparando o ambiente e clonando o repositório](#preparando-o-ambiente-e-clonando-o-repositório)
    * [Executando os testes](#executando-os-testes)
@@ -18,7 +18,7 @@ Projeto para automação de testes da API ServeRest utilizando o Robot Framework
    * [Referências](#referências)
    * [Autora](#autora)
 
-## Instalação do projeto 
+## Instalando o projeto 
 ### Pré-requisitos 
 - <a href="https://www.python.org/downloads/">Python 3</a>: é a linguagem base do Robot Framework
 - <a href="https://robotframework.org/">Robot Framework</a>: para fazer a automação de testes através das libraries
