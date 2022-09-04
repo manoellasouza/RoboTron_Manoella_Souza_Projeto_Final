@@ -37,58 +37,26 @@ Além do conteúdo estudado nas sprints passadas, este projeto também tem como 
 
  ## Preparando o ambiente e clonando o repositório
 
-**1** - Instale o Robot Framework na sua máquina através do terminal
-```sh 
-pip install robotframework 
-```
-
-**2** - Instale a RequestsLibrary e a Robot Framework Faker
-```sh 
-pip install robotframework-requests
-pip install robotframework-faker
-```
-
-**3** - Crie uma pasta na sua máquina, abra o Git Bash dentro dela e clone este repositório
-```sh 
-git clone https://github.com/manoellasouza/RoboTron_Manoella_Souza_Projeto_Final.git . 
-```
+1. Instale o Robot Framework via terminal: `pip install robotframework`
+2. Instale a RequestsLibrary: `pip install robotframework-requests`
+3. Instale a Robot Framework Faker: `pip install robotframework-faker`
+4. Clone este repositório no local que você deseja: 
+`git clone https://github.com/manoellasouza/RoboTron_Manoella_Souza_Projeto_Final.git`
 
 ## Rodando o projeto
-Rode a ServeRest localmente pelo terminal
+Rode a ServeRest localmente pelo terminal:  ```npx serverest ```
 > Não feche este terminal enquanto estiver realizando os testes!
-```sh 
-npx serverest
-```
+
+
 
 Abra um terminal dentro da pasta do projeto e execute os testes localmente de acordo com as opções abaixo:
-- Todos os endpoints:
-```sh 
-robot -d ./reports ./tests
-```
+- Todos os endpoints: ```robot -d ./reports ./tests```
+- Endpoint /login: ``` robot -d ./reports ./tests/login_tests.robot ```
+- Endpoint /usuarios: ``` robot -d ./reports ./tests/usuarios_tests.robot ```
+- Endpoint /produtos: ``` robot -d ./reports ./tests/produtos_tests.robot ```
+- Endpoint /carrinhos: ``` robot -d ./reports ./tests/carrinho_tests.robot ```
+- Utilizando a TAG de cada cenário, por exemplo: ``` robot -d ./reports -i GETALLUSERS ./tests/usuarios_tests.robot ```
 
-- Endpoint /login:
-```sh 
-robot -d ./reports ./tests/login_tests.robot
-```
-
-- Endpoint /usuarios:
-```sh 
-robot -d ./reports ./tests/usuarios_tests.robot
-```
-
-- Endpoint /produtos:
-```sh 
-robot -d ./reports ./tests/produtos_tests.robot
-```
-
-- Endpoint /carrinhos:
-```sh 
-robot -d ./reports ./tests/carrinho_tests.robot
-```
-- Utilizando a TAG de cada cenário, por exemplo:
-```sh 
-robot -d ./reports -i GETALLUSERS ./tests/usuarios_tests.robot
-```
 
 ## Libraries utilizadas
 - <a href="https://robotframework.org/robotframework/latest/libraries/BuiltIn.html#library-documentation-top">BuiltIn</a>: library padrão do Robot que possui as palavras-chave mais utilizadas
