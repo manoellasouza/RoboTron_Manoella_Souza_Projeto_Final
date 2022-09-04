@@ -6,7 +6,7 @@
 
 Projeto para automação de testes da API ServeRest utilizando o Robot Framework, realizado durante as Sprints 5 e 6 do Programa de Bolsas RoboTron da Compass UOL.
 
-### Tópicos
+## Tópicos
    * [Instalando o projeto](#instalando-o-projeto)
       * [Pré-requisitos](#pré-requisitos)
       * [Preparando o ambiente e clonando o repositório](#preparando-o-ambiente-e-clonando-o-repositório)
