@@ -92,8 +92,7 @@ O <a href="https://github.com/manoellasouza/RoboTron_Manoella_Souza_Projeto_Fina
 - <a href="https://github.com/PauloGoncalvesBH/sample-supertest">Repositório Supertest - Inspiração de ReadMe</a>
 - Vídeos da trilha de aprendizado da Compass UOL
 
-
-<p align="center">Um agradecimento especial aos evangelistas da Compass UOL e aos meus colegas de equipe pelo suporte: <a href="https://github.com/lauraghrk">Laura</a>, <a href="https://github.com/OliveiraMariC">Mari</a>, <a href="https://github.com/phconte">Paulo</a> e <a href="https://github.com/PFrek">Pedro</a> &#129505;</p>
+Um agradecimento especial aos evangelistas da Compass UOL e aos meus colegas de equipe pelo suporte: <a href="https://github.com/lauraghrk">Laura</a>, <a href="https://github.com/OliveiraMariC">Mari</a>, <a href="https://github.com/phconte">Paulo</a> e <a href="https://github.com/PFrek">Pedro</a> &#129505;
 
 
 ## Autora
