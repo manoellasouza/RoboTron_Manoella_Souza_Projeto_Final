@@ -1,41 +1,32 @@
 [![Badge ServeRest](https://img.shields.io/badge/API-ServeRest-green)](https://github.com/ServeRest/ServeRest/)
 
-<img align="right" alt="logo-compass" height="65" style="border-radius:50px;" src="https://i.ibb.co/88f4VpL/cones.png"> 
-
+<img align="right" alt="logo-compass" height="45" style="border-radius:50px;" src="https://i.ibb.co/88f4VpL/cones.png"> 
 
 # Projeto Final - Testando a API ServeRest com Robot 
 
-### Tópicos
-   * [Sobre o projeto](#sobre-o-projeto)
-   * [Pré-requisitos](#pré-requisitos)
-   * [Preparando o ambiente e clonando o repositório](#preparando-o-ambiente-e-clonando-o-repositório)
-   * [Rodando o projeto](#rodando-o-projeto)
-   * [Libraries utilizadas](#libraries-utilizadas)
-   * [Extensões VS Code recomendadas](#extensões-vs-code-recomendadas)
-   * [Referências](#referências)
-   * [Autora](#autora)
-   * [Bastidores](#bastidores)
-
-## Sobre o projeto 
 Projeto para automação de testes da API ServeRest utilizando o Robot Framework, realizado durante as Sprints 5 e 6 do Programa de Bolsas RoboTron da Compass UOL.
 
-Além do conteúdo estudado nas sprints passadas, este projeto também tem como objetivo reforçar os seguintes conhecimentos:
-- Padrão Service-Objects
-- Escrita de cenários de teste em TDD
-- Utilização e criação de libraries 
-- Lidar com requests e responses
-- Autenticação de APIs
-- Manipular dados estáticos e dinâmicos
-- Reutilização de código
+### Tópicos
+   * [Instalação do projeto](#instalação-do-projeto)
+      * [Pré-requisitos](#pré-requisitos)
+      * [Preparando o ambiente e clonando o repositório](#preparando-o-ambiente-e-clonando-o-repositório)
+   * [Executando os testes](#executando-os-testes)
+      * [Resultados](#resultados)
+   * [Sobre o projeto](#sobre-o-projeto)
+      * [Libraries utilizadas](#libraries-utilizadas)
+      * [Extensões VS Code utilizadas](#extensões-vs-code-utilizadas)
+   * [Referências](#referências)
+   * [Autora](#autora)
 
-## Pré-requisitos 
+## Instalação do projeto 
+### Pré-requisitos 
 - <a href="https://www.python.org/downloads/">Python 3</a>: é a linguagem base do Robot Framework
 - <a href="https://robotframework.org/">Robot Framework</a>: para fazer a automação de testes através das libraries
 - <a href="https://git-scm.com/downloads">Git</a>: para clonar o projeto para a sua máquina
 - <a href="https://nodejs.org/en/">Node.js</a>: para rodar os testes localmente
 - <a href="https://code.visualstudio.com/">Visual Studio Code</a>: para rodar o projeto na sua máquina
 
- ## Preparando o ambiente e clonando o repositório
+### Preparando o ambiente e clonando o repositório
 
 1. Instale o Robot Framework via terminal: `pip install robotframework`
 2. Instale a RequestsLibrary: `pip install robotframework-requests`
@@ -43,11 +34,9 @@ Além do conteúdo estudado nas sprints passadas, este projeto também tem como 
 4. Clone este repositório no local que você deseja: 
 `git clone https://github.com/manoellasouza/RoboTron_Manoella_Souza_Projeto_Final.git`
 
-## Rodando o projeto
+## Executando os testes
 Rode a ServeRest localmente pelo terminal:  ```npx serverest ```
 > Não feche este terminal enquanto estiver realizando os testes!
-
-
 
 Abra um terminal dentro da pasta do projeto e execute os testes localmente de acordo com as opções abaixo:
 - Todos os endpoints: ```robot -d ./reports ./tests```
@@ -57,22 +46,38 @@ Abra um terminal dentro da pasta do projeto e execute os testes localmente de ac
 - Endpoint /carrinhos: ``` robot -d ./reports ./tests/carrinho_tests.robot ```
 - Utilizando a TAG de cada cenário, por exemplo: ``` robot -d ./reports -i GETALLUSERS ./tests/usuarios_tests.robot ```
 
+### Resultados
 
-## Libraries utilizadas
+Ao executar os testes, o resultado é apresentado no **terminal** e os arquivos **report.html** e **log.html** são gerados:
+
+<img align="center" alt="console" height="135" style="border-radius:50px;" src="https://user-images.githubusercontent.com/100487940/188331021-f0fbf0e4-69af-458f-92c7-1a90b55614c7.png"> 
+
+O report.html é um resumo que mostra o status da execução, horário de início e de término, tempo total da execução e a quantidade de testes que passou e que falhou:
+
+<img align="center" alt="report" height="318" style="border-radius:50px;" src="https://user-images.githubusercontent.com/100487940/188330937-b6b26ac3-4362-4450-bd4b-edbbce9bf87c.png"> 
+
+O log.html detalha os testes, mostrando cada keyword utilizada, a library da keyword, logs solicitados e resultado da execução:
+
+<img align="center" alt="log" height="350" style="border-radius:50px;" src="https://user-images.githubusercontent.com/100487940/188331593-b42cfb56-e935-4ae5-8b7d-12adc8fe46dc.png"> 
+
+## Sobre o projeto 
+
+### Libraries utilizadas
 - <a href="https://robotframework.org/robotframework/latest/libraries/BuiltIn.html#library-documentation-top">BuiltIn</a>: library padrão do Robot que possui as palavras-chave mais utilizadas
 - <a href="https://marketsquare.github.io/robotframework-requests/doc/RequestsLibrary.html#library-documentation-top">RequestsLibrary</a>: utilizada para fazer as requisições HTTP REST
 - <a href="https://pypi.org/project/robotframework-faker/">Robot Framework Faker</a>: para fazer um fake das massas de dados dentro dos testes
 - <a href="https://robotframework.org/robotframework/latest/libraries/OperatingSystem.html">Operating System</a>: para ler os arquivos JSON
 
-## Extensões VS Code recomendadas
+### Extensões VS Code utilizadas
 - <a href="https://marketplace.visualstudio.com/items?itemName=ms-python.python">Python</a>
 - <a href="https://marketplace.visualstudio.com/items?itemName=d-biehl.robotcode">Robot Code</a>
 - <a href="https://marketplace.visualstudio.com/items?itemName=TabNine.tabnine-vscode">Tabnine AI Autocomplete</a>
 
 ## Referências
 - <a href="https://serverest.dev/#/">Documentação da API ServeRest</a>
+- <a href="https://robotizandotestes.blogspot.com/2017/09/season-running-ep-01-log-e-report-de.html">Log e Report de execução</a>
 - Vídeos da trilha de aprendizado da Compass UOL
-- Um agradecidmento especial aos evangelistas da Compass UOL e aos meus colegas de equipe pelo suporte: <a href="https://github.com/OliveiraMariC">Mari</a>, <a href="https://github.com/lauraghrk">Laura</a>, <a href="https://github.com/phconte">Paulo</a> e <a href="https://github.com/PFrek">Pedro</a> &#129505;
+- Um agradecimento especial aos evangelistas da Compass UOL e aos meus colegas de equipe pelo suporte: <a href="https://github.com/lauraghrk">Laura</a>, <a href="https://github.com/OliveiraMariC">Mari</a>, <a href="https://github.com/phconte">Paulo</a> e <a href="https://github.com/PFrek">Pedro</a> &#129505;
 
 ## Autora
 <a href="https://www.linkedin.com/in/manoellasouza/">Manoella Souza</a>
