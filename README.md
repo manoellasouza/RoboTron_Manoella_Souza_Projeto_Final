@@ -1,6 +1,6 @@
 [![Badge ServeRest](https://img.shields.io/badge/API-ServeRest-green)](https://github.com/ServeRest/ServeRest/)
 
-<img align="right" alt="logo-compass" height="30" style="border-radius:50px;" src="https://i.ibb.co/qCC4kKF/logo-compass2.png"> 
+<img align="right" alt="logo-compass" height="65" style="border-radius:50px;" src="https://i.ibb.co/88f4VpL/cones.png"> 
 
 
 # Projeto Final - Testando a API ServeRest com Robot 
@@ -107,7 +107,7 @@ robot -d ./reports ./tests/carrinho_tests.robot
 ## Referências
 - <a href="https://serverest.dev/#/">Documentação da API ServeRest</a>
 - Vídeos da trilha de aprendizado da Compass UOL
-- Um agradecidmento especial aos evangelistas da Compass UOL e aos meus colegas de equipe pelo suporte: <a href="https://github.com/OliveiraMariC">Mari</a>, <a href="https://github.com/lauraghrk">Laura</a>, <a href="https://github.com/phconte">Paulo</a> e <a href="https://github.com/PFrek">Pedro</a> &#128155;
+- Um agradecidmento especial aos evangelistas da Compass UOL e aos meus colegas de equipe pelo suporte: <a href="https://github.com/OliveiraMariC">Mari</a>, <a href="https://github.com/lauraghrk">Laura</a>, <a href="https://github.com/phconte">Paulo</a> e <a href="https://github.com/PFrek">Pedro</a> &#129505;
 
 ## Autora
 <a href="https://www.linkedin.com/in/manoellasouza/">Manoella Souza</a>
