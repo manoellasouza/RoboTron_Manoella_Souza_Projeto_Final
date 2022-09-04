@@ -8,14 +8,13 @@
 ### Tópicos
    * [Sobre o projeto](#sobre-o-projeto)
    * [Pré-requisitos](#pré-requisitos)
-   * [Libraries utilizadas](#libraries-utilizadas)
-   * [Extensões VS Code recomendadas](#extensões-vs-code-recomendadas)
    * [Preparando o ambiente e clonando o repositório](#preparando-o-ambiente-e-clonando-o-repositório)
    * [Rodando o projeto](#rodando-o-projeto)
+   * [Libraries utilizadas](#libraries-utilizadas)
+   * [Extensões VS Code recomendadas](#extensões-vs-code-recomendadas)
    * [Referências](#referências)
    * [Autora](#autora)
    * [Bastidores](#bastidores)
-
 
 ## Sobre o projeto 
 Projeto para automação de testes da API ServeRest utilizando o Robot Framework, realizado durante as Sprints 5 e 6 do Programa de Bolsas RoboTron da Compass UOL.
@@ -36,17 +35,6 @@ Além do conteúdo estudado nas sprints passadas, este projeto também tem como 
 - <a href="https://nodejs.org/en/">Node.js</a>: para rodar os testes localmente
 - <a href="https://code.visualstudio.com/">Visual Studio Code</a>: para rodar o projeto na sua máquina
 
-## Libraries utilizadas
-- <a href="https://robotframework.org/robotframework/latest/libraries/BuiltIn.html#library-documentation-top">BuiltIn</a>: library padrão do Robot que possui as palavras-chave mais utilizadas
-- <a href="https://marketsquare.github.io/robotframework-requests/doc/RequestsLibrary.html#library-documentation-top">RequestsLibrary</a>: utilizada para fazer as requisições HTTP REST
-- <a href="https://pypi.org/project/robotframework-faker/">Robot Framework Faker</a>: para fazer um fake das massas de dados dentro dos testes
-- <a href="https://robotframework.org/robotframework/latest/libraries/OperatingSystem.html">Operating System</a>: para ler os arquivos JSON
-
-## Extensões VS Code recomendadas
-- <a href="https://marketplace.visualstudio.com/items?itemName=ms-python.python">Python</a>
-- <a href="https://marketplace.visualstudio.com/items?itemName=d-biehl.robotcode">Robot Code</a>
-- <a href="https://marketplace.visualstudio.com/items?itemName=TabNine.tabnine-vscode">Tabnine AI Autocomplete</a>
-
  ## Preparando o ambiente e clonando o repositório
 
 **1** - Instale o Robot Framework na sua máquina através do terminal
@@ -54,18 +42,13 @@ Além do conteúdo estudado nas sprints passadas, este projeto também tem como 
 pip install robotframework 
 ```
 
-**2** - Verifique se a instalação foi bem sucedida
-```sh 
-robot --version
-```
-
-**3** - Instale a RequestsLibrary e a Robot Framework Faker
+**2** - Instale a RequestsLibrary e a Robot Framework Faker
 ```sh 
 pip install robotframework-requests
 pip install robotframework-faker
 ```
 
-**4** - Crie uma pasta na sua máquina, abra o Git Bash dentro dela e clone este repositório
+**3** - Crie uma pasta na sua máquina, abra o Git Bash dentro dela e clone este repositório
 ```sh 
 git clone https://github.com/manoellasouza/RoboTron_Manoella_Souza_Projeto_Final.git . 
 ```
@@ -78,30 +61,45 @@ npx serverest
 ```
 
 Abra um terminal dentro da pasta do projeto e execute os testes localmente de acordo com as opções abaixo:
-- Todos os testes
+- Todos os endpoints:
 ```sh 
 robot -d ./reports ./tests
 ```
 
-- Apenas os testes do endpoint /login
+- Endpoint /login:
 ```sh 
 robot -d ./reports ./tests/login_tests.robot
 ```
 
-- Apenas os testes do endpoint /usuarios
+- Endpoint /usuarios:
 ```sh 
 robot -d ./reports ./tests/usuarios_tests.robot
 ```
 
-- Apenas os testes do endpoint /produtos
+- Endpoint /produtos:
 ```sh 
 robot -d ./reports ./tests/produtos_tests.robot
 ```
 
-- Apenas os testes do endpoint /carrinhos
+- Endpoint /carrinhos:
 ```sh 
 robot -d ./reports ./tests/carrinho_tests.robot
 ```
+- Utilizando a TAG de cada cenário, por exemplo:
+```sh 
+robot -d ./reports -i GETALLUSERS ./tests/usuarios_tests.robot
+```
+
+## Libraries utilizadas
+- <a href="https://robotframework.org/robotframework/latest/libraries/BuiltIn.html#library-documentation-top">BuiltIn</a>: library padrão do Robot que possui as palavras-chave mais utilizadas
+- <a href="https://marketsquare.github.io/robotframework-requests/doc/RequestsLibrary.html#library-documentation-top">RequestsLibrary</a>: utilizada para fazer as requisições HTTP REST
+- <a href="https://pypi.org/project/robotframework-faker/">Robot Framework Faker</a>: para fazer um fake das massas de dados dentro dos testes
+- <a href="https://robotframework.org/robotframework/latest/libraries/OperatingSystem.html">Operating System</a>: para ler os arquivos JSON
+
+## Extensões VS Code recomendadas
+- <a href="https://marketplace.visualstudio.com/items?itemName=ms-python.python">Python</a>
+- <a href="https://marketplace.visualstudio.com/items?itemName=d-biehl.robotcode">Robot Code</a>
+- <a href="https://marketplace.visualstudio.com/items?itemName=TabNine.tabnine-vscode">Tabnine AI Autocomplete</a>
 
 ## Referências
 - <a href="https://serverest.dev/#/">Documentação da API ServeRest</a>
