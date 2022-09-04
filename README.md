@@ -14,7 +14,6 @@
    * [Rodando o projeto](#rodando-o-projeto)
    * [Referências](#referências)
    * [Autora](#autora)
-   * [Licença](#licença)
    * [Bastidores](#bastidores)
 
 
