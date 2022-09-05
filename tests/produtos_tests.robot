@@ -115,6 +115,7 @@ Cenario 14: DELETE Excluir Produto 200
     Criar Um Produto Dinamico e Armazenar ID
     DELETE Endpoint /produtos
     Validar Status Code "200"
+    Validar Mensagem "Registro excluído com sucesso"
     Validar Nome Ou Descrição Produto "${random_produto}"
 
 Cenario 15: DELETE Excluir Produto Inexistente 200 

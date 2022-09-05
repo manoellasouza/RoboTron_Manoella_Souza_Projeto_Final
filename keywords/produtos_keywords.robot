@@ -18,6 +18,7 @@ GET Endpoint /produtos "${id_produto}"
 POST Endpoint /produtos 
     &{header}                             Create Dictionary                  Authorization=${token_auth}                         
     ${response}                           POST On Session                    serverest                    /produtos        json=&{payload}        headers=&{header}        expected_status=any 
+    Log To Console                        ${payload}
     Log To Console                        Response: ${response.content}
     Set Global Variable                   ${response}
     Validar Content-type
