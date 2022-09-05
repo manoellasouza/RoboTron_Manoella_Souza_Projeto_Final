@@ -92,6 +92,7 @@ Clique <a href="https://github.com/manoellasouza/RoboTron_Manoella_Souza_Projeto
 - <a href="https://marketsquare.github.io/robotframework-requests/doc/RequestsLibrary.html#library-documentation-top">RequestsLibrary</a>: utilizada para fazer as requisições HTTP REST
 - <a href="https://pypi.org/project/robotframework-faker/">Robot Framework Faker</a>: para fazer um fake das massas de dados dentro dos testes
 - <a href="https://robotframework.org/robotframework/latest/libraries/OperatingSystem.html">Operating System</a>: para ler os arquivos JSON
+- <a href="https://robotframework.org/robotframework/latest/libraries/OperatingSystem.html">Collections</a>: para lidar com listas e dicionários do Python
 
 ### Extensões VS Code utilizadas
 - <a href="https://marketplace.visualstudio.com/items?itemName=ms-python.python">Python</a>
