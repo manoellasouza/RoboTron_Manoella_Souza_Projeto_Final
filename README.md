@@ -14,6 +14,7 @@ Projeto de automação de testes da API ServeRest utilizando o Robot Framework, 
       * [Resultados](#resultados)
    * [Sobre o projeto](#sobre-o-projeto)
       * [Diretório](#diretório)
+      * [Mapa mental](#mapa-mental)
       * [Bugs e sugestões de melhoria](#bugs-e-sugestões-de-melhoria)
       * [Libraries utilizadas](#libraries-utilizadas)
       * [Extensões VS Code utilizadas](#extensões-vs-code-utilizadas)
@@ -64,6 +65,9 @@ O <a href="https://github.com/manoellasouza/RoboTron_Manoella_Souza_Projeto_Fina
 A automação de testes de uma API é importante para que os testes e as correções sejam realizados em menos tempo, o que diminui os custos com as correções e acelera o lançamento do produto.
 
 ### Diretório
+- :file_folder: [extras/](keywords): Dir com os arquivos extras deste repositório
+  - :file_folder: [arquivos-bdd-testes/](arquivos-bdd-testes): Dir com os arquivos .bdd utilizados para realizar os testes
+  - :file_folder: [imagens/](imagens): Dir com as imagens de exemplo de Log e Report 
 - :file_folder: [keywords/](keywords): Dir com as keywords utilizadas nos testes 
 - :file_folder: [reports/](reports): Dir com os relatórios de resultados dos testes realizados, incluindo o report.html e o log.html
 - :file_folder: [support/](support): Dir com os arquivos base, massas de dados e variáveis
@@ -79,8 +83,6 @@ A automação de testes de uma API é importante para que os testes e as correç
 Clique <a href="https://github.com/manoellasouza/RoboTron_Manoella_Souza_Projeto_Final/blob/main/mapa-mental-serverest.xmind">AQUI</a> para acessar o arquivo .xmind.
 
 ![Mapa Mental - ServeRest](https://user-images.githubusercontent.com/100487940/188462292-8a30d620-85dd-4334-bedc-ef9b0d08a69b.png)
-
-
 
 ### Bugs e sugestões de melhoria
   Os bugs da ServeRest são, em sua maioria, documentais. Já as melhorias sugeridas têm como objetivo aperfeiçoar a experiência do usuário e aproximar mais as regras da aplicação a um cenário de venda real. Acesse as <a href="https://github.com/manoellasouza/RoboTron_Manoella_Souza_Projeto_Final/issues">Issues</a> para conferir os bugs e as sugestões de melhorias em detalhes.
