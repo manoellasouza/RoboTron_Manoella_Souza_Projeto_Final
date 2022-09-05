@@ -1,4 +1,4 @@
-[![Badge ServeRest](https://img.shields.io/badge/API-ServeRest-green)](https://github.com/ServeRest/ServeRest/)
+[![Badge ServeRest](https://img.shields.io/badge/API-ServeRest-green)](https://github.com/ServeRest/ServeRest/) [![Issues][issues-shield]][issues-url]
 
 <img align="right" alt="logo-compass" height="45" style="border-radius:50px;" src="https://i.ibb.co/88f4VpL/cones.png"> 
 
@@ -104,7 +104,9 @@ Um agradecimento especial aos evangelistas da Compass UOL e aos meus colegas de 
 <img align="left" alt="cat-pc" height="150" style="border-radius:70px;" src="https://thumbs.gfycat.com/RegularScentedKoala-max-1mb.gif">  
 
 
-
+<!-- MARKDOWN LINKS & IMAGES -->
+[issues-shield]: https://img.shields.io/github/issues/manoellasouza/RoboTron_Manoella_Souza_Projeto_Final?style=flat
+[issues-url]: https://github.com/manoellasouza/RoboTron_Manoella_Souza_Projeto_Final/issues
 
 
 
