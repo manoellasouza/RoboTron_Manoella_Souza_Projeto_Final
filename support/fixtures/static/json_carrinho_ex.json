@@ -1,0 +1,50 @@
+{
+    "carrinho_valido": {
+        "produtos": [
+            {
+            "idProduto": "BeeJh5lz3k6kSIzA",
+            "quantidade": 1
+            },
+            {
+            "idProduto": "K6leHdftCeOJj8BJ",
+            "quantidade": 3 
+            }
+        ]
+    },
+    "carrinho_sem_produto": {
+        "produtos": [
+            {
+            "idProduto": " ",
+            "quantidade": 1
+            },
+            {
+            "idProduto": "K6leHdftCeOJj8BJ",
+            "quantidade": 3 
+            }
+        ]
+    },
+    "carrinho_produto_duplicado": {
+        "produtos": [
+            {
+            "idProduto": "BeeJh5lz3k6kSIzA",
+            "quantidade": "1"
+            },
+            {
+            "idProduto": "BeeJh5lz3k6kSIzA",
+            "quantidade": 3 
+            }
+        ]
+    },
+    "carrinho_quantidade_insuficiente": {
+        "produtos": [
+            {
+            "idProduto": "BeeJh5lz3k6kSIzA",
+            "quantidade": 1000000000
+            },
+            {
+            "idProduto": "K6leHdftCeOJj8BJ",
+            "quantidade": 3 
+            }
+        ]
+    }
+}

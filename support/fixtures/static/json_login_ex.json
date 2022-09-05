@@ -1,0 +1,30 @@
+{   
+    "user_valido": {
+        "email":"fulano@qa.com",
+        "password":"teste"
+    },
+    "user_email_invalido": {
+        "email": "emailinexistente@gmail.com",
+        "password":"teste"
+    },
+    "user_email_incorreto": {
+        "email": "fulanoqa.comm",
+        "password":"teste"
+    },
+    "user_senha_invalida": {
+        "email": "fulano@qa.com",
+        "password":"teste123"
+    },
+    "user_sem_senha": {
+        "email":"fulano@qa.com",
+        "password":""
+    },
+    "user_sem_email": {
+        "email":"",
+        "password":"teste"
+    },
+    "user_sem_admin": {
+        "email":"anne-s@qa.com.br",
+        "password":"12345"
+    }
+}

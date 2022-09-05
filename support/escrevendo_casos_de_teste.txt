@@ -1,0 +1,266 @@
+# Escrevendo cenários de teste na API ServeRest
+
+# LOGIN 
+
+POST - Fazer login com sucesso na API ServeRest em /login
+- Dados válidos
+- Ter um usuário cadastrado
+- A requisição deve retornar um status 200
+
+# USUÁRIOS 
+
+GET - Listar todos os usuários da API ServeRest em /usuarios 
+- Mostrar todos os usuários cadastrados na aplicação
+- A requisição deve retornar um status 200
+
+POST - Criar um usuário novo dentro da API ServeRest em /usuarios
+- Dados válidos
+- O e-mail não deve estar cadastrado
+- O body deve conter nome, email, password e administrador
+- A requisição deve retornar um status 201
+
+POST - Tentar fazer login com um usuário inválido na API ServeRest em /usuarios
+- Utilizar dados inválidos
+- Não deve estar cadastrado
+- A requisição deve retornar um status 400
+
+POST - Tentar criar um usuário com dados inválidos na API ServeRest em /usuarios
+- Utilizar dados inválidos no cadastro
+- O usuário pode já estar cadastrado
+- A requisição deve retornar um status 400
+
+POST - Tentar criar um usuário já cadastrado na API ServeRest em /usuarios
+- Utilizar dados válidos no cadastro
+- O usuário já deve estar cadastrado
+- A requisição deve retonar um status 400
+
+DELETE - Excluir usuário da API ServeRest com o id "0uxuPY0cbmQhpEz1" em ​/usuarios​/{_id}
+- Validar que o usuário com id 0uxuPY0cbmQhpEz1 existe
+- Usuário com id 0uxuPY0cbmQhpEz1 não deve ter um carrinho cadastrado
+- A requisição deve retornar um status 200
+
+PUT - Editar usuário da API ServeRest com o id "0uxuPY0cbmQhpEz1" em ​/usuarios​/{_id}
+- Utilizar dados válidas para edição
+- Ter certeza que o usuário já está cadastrado
+- A requisição deve retornar um status 200
+
+GET - Buscar usuário da API ServeRest com o id "0uxuPY0cbmQhpEz1" em ​/usuarios​/{_id}
+- Validar que o usuário com id 0uxuPY0cbmQhpEz1 existe
+- Mostrar somente o usuário com id pesquisado 
+- A requisição deve retornar um status 200
+
+GET - Tentar buscar usuário da API ServeRest com id inexistente em ​/usuarios​/{_id}
+- Validar que o usuário com a id que será pesquisa não existe
+- A requisição deve retonar um status 400
+
+DELETE - Tentar excluir usuário da API ServeRest com id inexistente em ​/usuarios​/{_id}
+- Validar que o usuário com a id que será utilizada não existe
+- A requisição deve retonar um status 400
+
+DELETE - Tentar excluir usuário da API ServeRest com id "0uxuPY0cbmQhpEz1" e carrinho cadastrado em ​/usuarios​/{_id}
+- Validar que o usuário com id 0uxuPY0cbmQhpEz1 existe
+- Usuário com id 0uxuPY0cbmQhpEz1 deve ter um carrinho cadastrado
+- A requisição deve retornar um status 400
+
+PUT - Tentar editar usuário com id não encontrada na API ServeRest em ​/usuarios​/{_id}
+- Utilizar dados válidas para edição
+- O body deve conter nome, email, password e administrador
+- Ter certeza que o id não está cadastrado
+- A requisição deve retornar um status 201, criando um novo cadastro
+
+PUT - Tentar editar usuário com id não encontrada utilizando e-mail já cadastrado na API ServeRest em ​/usuarios​/{_id}
+- Utilizar dados válidas para edição
+- O body deve conter nome, email, password e administrador
+- Ter certeza que o id não está cadastrado
+- Ter certeza que o e-mail já está cadastrado
+- A requisição deve retornar um status 400
+
+PUT - Tentar editar usuário com dados inválidos com id "0uxuPY0cbmQhpEz1" na API ServeRest em ​/usuarios​/{_id}
+- Utilizar dados inválidas para edição
+- Ter certeza que o id está cadastrado
+- A requisição deve retornar um status 400
+
+# PRODUTOS
+
+GET - Listar todos os produtos da API ServeRest em /produtos 
+- Mostrar todos os produtos cadastrados na aplicação
+- A requisição deve retornar um status 200
+
+POST - Cadastrar novo produto dentro da API ServeRest em /produtos
+- Dados válidos
+- O nome do produto não deve estar cadastrado
+- O body deve conter nome, preco, descricao e quantidade
+- A requisição deve retornar um status 201
+
+POST - Tentar cadastrar novo produto com nome já existente dentro da API ServeRest em /produtos
+- Dados válidos
+- Ter certeza que o nome do produto já está cadastrado
+- O body deve conter nome, preco, descricao e quantidade
+- A requisição deve retornar um status 400
+
+POST - Tentar cadastrar novo produto com token ausente dentro da API ServeRest em /produtos
+- Utilizar dados válidos no cadastro
+- Ter certeza que o campo do token está em branco
+- O body deve conter nome, preco, descricao e quantidade
+- A requisição deve retornar um status 401
+
+POST - Tentar cadastrar novo produto com token inválido dentro da API ServeRest em /produtos
+- Utilizar dados válidos no cadastro
+- Ter certeza que o token é inválido
+- O body deve conter nome, preco, descricao e quantidade
+- A requisição deve retornar um status 401
+
+POST - Tentar cadastrar novo produto com token expirado dentro da API ServeRest em /produtos
+- Utilizar dados válidos no cadastro
+- Ter certeza que o token está expirado
+- O body deve conter nome, preco, descricao e quantidade
+- A requisição deve retornar um status 401
+
+POST - Tentar cadastrar novo produto sem ser administrador dentro da API ServeRest em /produtos
+- Utilizar dados válidos no cadastro
+- Ter certeza que o token está expirado
+- O body deve conter nome, preco, descricao e quantidade
+- A requisição deve retornar um status 403
+
+GET - Buscar produto da API ServeRest com o id "BeeJh5lz3k6kSIzA" em ​/produtos​/{_id}
+- Validar que o produto com id BeeJh5lz3k6kSIzA existe
+- Mostrar somente o produto com id pesquisado 
+- A requisição deve retornar um status 200
+
+GET - Tentar buscar produto da API ServeRest com id não cadastrado em ​/produtos​/{_id}
+- Validar que o produto com a id que será pesquisa não existe
+- A requisição deve retonar um status 400
+
+DELETE - Excluir produto da API ServeRest com o id "0uxuPY0cbmQhpEz1" em ​/produtos​/{_id}
+- Validar que o produto com id 0uxuPY0cbmQhpEz1 existe
+- Produto com id 0uxuPY0cbmQhpEz1 não deve fazer parte de um carrinho 
+- Utilizar token válido 
+- A requisição deve retornar um status 200
+
+DELETE - Tentar excluir produto da API ServeRest com o id "0uxuPY0cbmQhpEz1" que faz parte de carrinho em ​/produtos​/{_id}
+- Validar que o produto com id 0uxuPY0cbmQhpEz1 existe
+- Produto com id 0uxuPY0cbmQhpEz1 deve fazer parte de um carrinho 
+- Utilizar token válido 
+- A requisição deve retornar um status 400
+
+DELETE - Tentar excluir produto da API ServeRest com o id "0uxuPY0cbmQhpEz1" e token ausente/inválido/expirado em ​/produtos​/{_id}
+- Validar que o produto com id 0uxuPY0cbmQhpEz1 existe
+- Produto com id 0uxuPY0cbmQhpEz1 não deve fazer parte de um carrinho 
+- Ter certeza que o token está ausente/inválido/expirado
+- A requisição deve retornar um status 401
+
+DELETE - Tentar excluir produto da API ServeRest com o id inválida em ​/produtos​/{_id}
+- Validar que o produto com a id que será utilizada não existe
+- Utilizar token válido 
+- A requisição deve retonar um status 400
+
+DELETE - Tentar excluir produto da API ServeRest com o id "0uxuPY0cbmQhpEz1" sem ser administrador em ​/produtos​/{_id}
+- Validar que o produto com id 0uxuPY0cbmQhpEz1 existe
+- Utilizar token válido 
+- A requisição deve retornar um status 403
+
+PUT - Editar produto da API ServeRest com o id "0uxuPY0cbmQhpEz1" em ​/produtos​/{_id}
+- Validar que o produto com id 0uxuPY0cbmQhpEz1 existe
+- Utilizar dados válidas para edição
+- Utilizar token válido
+- A requisição deve retornar um status 200
+
+PUT - Tentar editar produto com id não encontrado na API ServeRest em ​/produtos​/{_id}
+- Utilizar dados válidas para edição
+- O body deve conter nome, preco, descricao e quantidade
+- O nome do produto deve ser diferente dos já cadastrados
+- Ter certeza que o id do produto não está cadastrado
+- Utilizar token válido
+- A requisição deve retornar um status 201, criando um novo cadastro 
+
+PUT - Tentar editar produto com id não encontrada utilizando nome já cadastrado na API ServeRest em ​/produtos​/{_id}
+- Utilizar dados válidas para edição
+- O body deve conter nome, preco, descricao e quantidade
+- Ter certeza que o id do produto não está cadastrado
+- Ter certeza que o nome do produto já está cadastrado
+- Utilizar token válido
+- A requisição deve retornar um status 400
+
+PUT - Tentar editar usuário com dados inválidos com id "0uxuPY0cbmQhpEz1" na API ServeRest em ​/produtos​/{_id}
+- Validar que o produto com id 0uxuPY0cbmQhpEz1 existe
+- Utilizar dados inválidas para edição
+- Utilizar token válido
+- A requisição deve retornar um status 400
+
+PUT - Tentar editar produto da API ServeRest com o id "0uxuPY0cbmQhpEz1" e token ausente/inválido/expirado em ​/produtos​/{_id}
+- Validar que o produto com id 0uxuPY0cbmQhpEz1 existe
+- Ter certeza que o token está ausente/inválido/expirado
+- A requisição deve retornar um status 401
+
+PUT - Tentar editar produto da API ServeRest com o id "0uxuPY0cbmQhpEz1" sem ser administrador em ​/produtos​/{_id}
+- Validar que o produto com id 0uxuPY0cbmQhpEz1 existe
+- Utilizar dados válidas para edição
+- O body deve conter nome, preco, descricao e quantidade
+- Utilizar token válido 
+- A requisição deve retornar um status 403
+
+# CARRINHOS
+
+GET - Listar todos os carrinhos da API ServeRest em /carrinhos 
+- Mostrar todos os carrinhos cadastrados na aplicação
+- Os carrinhos devem ser únicos para cada usuário
+- A requisição deve retornar um status 200
+
+POST - Cadastrar novo carrinho dentro da API ServeRest em /carrinhos
+- Dados válidos
+- O body deve conter idProduto e quantidade para cada produto
+- Ter certeza que o usuário não possui carrinho cadastrado
+- Utilizar token válido
+- A requisição deve retornar um status 201
+- Verificar se foi realizada a redução da quantidade no cadastro de cada produto inserido no carrinho
+
+POST - Tentar cadastrar novo carrinho em usuário que já possui carrinho cadastrado dentro da API ServeRest em /carrinhos
+- Dados válidos
+- O body deve conter idProduto e quantidade para cada produto
+- Ter certeza que o usuário possui carrinho cadastrado
+- Utilizar token válido
+- A requisição deve retornar um status 400
+
+# NO CASO ACIMA TAMBÉM TEM ESSAS OUTRAS OPÇÕES PARA FAZER CASO DE TESTE:
+#"Não é permitido possuir produto duplicado | Não é permitido ter mais de 1 carrinho | Produto não encontrado | Produto não possui quantidade suficiente"
+
+POST - Tentar cadastrar novo carrinho com token ausente/inválido/expirado dentro da API ServeRest em /carrinhos
+- Dados válidos
+- O body deve conter idProduto e quantidade para cada produto
+- Ter certeza que o usuário não possui carrinho cadastrado
+- Utilizar token ausente/inválido/expirado
+- A requisição deve retornar um status 401
+
+GET - Buscar carrinho da API ServeRest com o id "qbMqntef4iTOwWfg" em ​/carrinhos​/{_id}
+- Validar que o carrinho com id qbMqntef4iTOwWfg existe
+- Mostrar somente o carrinho com id pesquisado 
+- A requisição deve retornar um status 200
+
+GET - Tentar buscar carrinho da API ServeRest com id não cadastrado em ​/carrinhos​/{_id}
+- Validar que o carrinho com o id que será pesquisado não existe
+- A requisição deve retonar um status 400
+
+# NOS DOIS CASOS ABAIXO OS PRODUTOS NÃO PODERÃO RETORNAR AO ESTOQUE, CERTO? CASO DE TESTE DEVE INCLUIR ISSO?
+
+DELETE - Excluir carrinho da API ServeRest em que a compra foi concluída em ​/carrinhos​/concluir-compra
+- Validar que o carrinho existe
+- Validar que o token do usuário é válido
+- A requisição deve retornar um status 200
+- Verificar se carrinho excluído foi vinculado ao usuário do token utilizado
+
+DELETE - Tentar excluir carrinho da API ServeRest em que a compra foi concluída com token ausente/inválido/expirado em ​/carrinhos​/concluir-compra
+- Validar que o carrinho existe
+- Utilizar token ausente/inválido/expirado
+- A requisição deve retornar um status 401
+
+DELETE - Excluir carrinho da API ServeRest em que a compra foi cancelada em ​/carrinhos​/cancelar-compra
+- Validar que o carrinho existe
+- Validar que o token do usuário é válido
+- A requisição deve retornar um status 200
+- Verificar se carrinho excluído foi vinculado ao usuário do token utilizado
+- Varificar se o estoque dos produtos desse carrinho foi reabastecido
+
+DELETE - Tentar excluir carrinho da API ServeRest em que a compra foi concluída com token ausente/inválido/expirado em ​/carrinhos​/cancelar-compra
+- Validar que o carrinho existe
+- Utilizar token ausente/inválido/expirado
+- A requisição deve retornar um status 401

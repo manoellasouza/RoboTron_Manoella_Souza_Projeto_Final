@@ -1,0 +1,50 @@
+{
+    "produto_valido": {
+        "nome": "Monitor Logitech",
+        "preco": 550,
+        "descricao": "Monitor",
+        "quantidade": 150
+    },
+    "produto_invalido": {
+        "nome": "Samsung 60 polegadas",
+        "preco": 250,
+        "descricao": "TV",
+        "quantidade": 200
+    },
+    "produto_preco_float": {
+        "nome": "LG 60 Polegadas",
+        "preco": 250.5,
+        "descricao": "TV",
+        "quantidade": 200
+    },
+    "produto_nome_espaco": {
+        "nome": " ",
+        "preco": 250,
+        "descricao": "Teclado",
+        "quantidade": 200
+    },
+    "produto_sem_nome": {
+        "nome": "",
+        "preco": 250,
+        "descricao": "Teclado",
+        "quantidade": 200
+    },
+    "produto_sem_preco": {
+        "nome": "Teclado Logitech",
+        "preco": " ",
+        "descricao": "Teclado",
+        "quantidade": 200
+    },
+    "produto_sem_descricao": {
+        "nome": "Teclado Logitech",
+        "preco": 250,
+        "descricao": "",
+        "quantidade": 200
+    },
+    "produto_sem_quantidade": {
+        "nome": "Teclado Logitech",
+        "preco": 250,
+        "descricao": "Teclado",
+        "quantidade": " "
+    } 
+}
