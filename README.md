@@ -70,8 +70,15 @@ O <a href="https://github.com/manoellasouza/RoboTron_Manoella_Souza_Projeto_Fina
     - :file_folder: [static/](static): Dir com as massas de dados estáticas
   - :file_folder: [variables/](variables): Dir com o arquivo .robot que contém as variáveis utilizadas
 - :file_folder: [tests/](tests): Dir com os arquivos de teste .robot para cada endpoint da API
-- :file_folder: [mapa-mental/](mapa-mental): Dir com o mapa mental de todas as rotas da API
 - :page_with_curl: [funcoes-python-explicadas](funcoes-python-explicadas): Arquivo explicando o código e os objetivos das funções utilizadas na library criada com Python 
+- :page_with_curl: [mapa-mental/](mapa-mental): Arquivo com o mapa mental de todas as rotas da API
+
+### Mapa mental
+Clique <a href="https://github.com/manoellasouza/RoboTron_Manoella_Souza_Projeto_Final/blob/main/mapa-mental-serverest.xmind">AQUI</a> para acessar o arquivo .xmind.
+
+<img align="center" alt="console" height="800" style="border-radius:50px;" src="https://user-images.githubusercontent.com/100487940/188448051-6981da03-272d-4c22-9718-1f5e563cd52a.png"> 
+
+
 
 ### Bugs e sugestões de melhoria
   Os bugs da ServeRest são, em sua maioria, documentais. Já as melhorias sugeridas têm como objetivo aperfeiçoar a experiência do usuário e aproximar mais as regras da aplicação a um cenário de venda real. Acesse as <a href="https://github.com/manoellasouza/RoboTron_Manoella_Souza_Projeto_Final/issues">Issues</a> para conferir os bugs e as sugestões de melhorias em detalhes.
