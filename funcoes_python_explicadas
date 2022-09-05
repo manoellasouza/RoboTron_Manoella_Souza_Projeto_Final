@@ -1,0 +1,89 @@
+import requests as req
+
+def Get_Endpoint_Dado_Usuarios(dado):
+    """
+    Esta função recebe o nome, e-mail ou ID que o usuário deseja para verificar se existe
+    na lista dos usuários. Ela se inicia com a request para listar todos os usuários, carrega o arquivo json e
+    em seguida compara se o valor das chaves é igual ao dado recebido na função. Caso positivo, a função retorna 
+    quantas vezes o dado aparece na lista e em qual ID. Caso negativo, ela vai retornar que o dado não consta na lista.
+    Esta função pode ser utilizada para confirmar a criação, edição ou exclusão de um cadastro de usuário.
+    """
+    r =  req.get("http://localhost:3000/usuarios")
+    mensagem = " "
+    lista1, lista2, lista3 = [], [], []
+    para_json = r.json()
+    users = para_json['usuarios']
+    for i in users:
+        if (i.get('nome') == dado):
+            lista1.append(i['_id'])
+        elif (i.get('email') == dado):
+            lista2.append(i['_id'])
+        elif (i.get('_id') == dado):
+            lista3.append(i['_id'])
+    if len(lista1) != 0:
+        mensagem = (f"O nome {dado} aparece {len(lista1)} vez(es) na lista de usuários e está cadastrado no(s) seguinte(s) IDs: {lista1}")
+    elif len(lista2) != 0:
+        mensagem = (f"O email {dado} aparece {len(lista2)} vez(es) na lista de usuários e está cadastrada no(s) seguinte(s) IDs: {lista2}")
+    elif len(lista3) != 0:
+        mensagem = (f"O ID {dado} aparece {len(lista3)} vez(es) na lista de usuários.")
+    else: 
+        mensagem = (f"{dado} não consta na lista de cadastro dos usuários")
+    return mensagem
+
+
+def Get_Endpoint_Dado_Produtos(dado):
+    """
+    Esta função recebe o nome ou a descrição que o usuário deseja para verificar se existe na lista dos produtos. 
+    Ela se inicia com a request para listar todos os produtos, carrega o arquivo json e em seguida compara se o 
+    valor das chaves é igual ao dado recebido na função. Caso positivo, a função retorna quantas vezes o dado 
+    aparece na lista e em qual ID. Caso negativo, ela vai retornar que o dado não consta na lista.
+    Esta função pode ser utilizada para confirmar a criação, edição ou exclusão de um cadastro de produto.
+    """
+    r =  req.get("http://localhost:3000/produtos")
+    lista1, lista2 = [], []
+    mensagem = " "
+    para_json = r.json()
+    products = para_json['produtos']
+    for i in products:
+        if (i.get('nome') == dado):
+            lista1.append(i['_id'])
+        if (i.get('descricao') == dado):
+            lista2.append(i['_id']) 
+    if len(lista1) != 0:
+        mensagem = (f"O nome {dado} aparece {len(lista1)} vez(es) na lista de produtos e está cadastrado no(s) seguinte(s) IDs: {lista1}")
+    if len(lista2) != 0:
+        mensagem = (f"A categoria {dado} aparece {len(lista2)} vez(es) na lista de produtos e está cadastrada no(s) seguinte(s) IDs: {lista2}")
+    if len(lista1) == 0 and len(lista2) == 0:
+        mensagem = (f"{dado} não consta na lista de cadastro dos produtos")
+    return mensagem
+
+
+def Get_Endpoint_Estoque_Produtos(payload):
+    """
+    Esta função recebe e guarda na variável carrinho os dados de um carrinho válido que foi selecionado.
+    A variável estoque recebe os dados da request para listar os produtos em formato json.
+    Em seguida as duas variáveis são comparadas, adicionando a uma lista os produtos e as quantidades 
+    dos IDs em comum. Esta função tem como objetivo confirmar se os produtos do carrinho saíram do estoque
+    após a conclusão ou cancelamento de uma compra.
+    """
+    r =  req.get("http://localhost:3000/produtos")   
+    lista = []
+    para_json = r.json()
+    estoque = para_json['produtos']
+    carrinho = payload['produtos']
+    for x in estoque:
+        for i in carrinho:
+            if (x['_id'] == i['idProduto']): 
+                lista.append(f"{x['nome']} ({x['_id']}): {x['quantidade']}")
+    return lista
+    
+    
+def Get_Endpoint_Usuarios_Administradores():
+    """
+    Função simples que faz uma requisição com a query administrador=true para verificar
+    quais são os usuários listados que possuem cadastro como administrador.
+    """
+    r =  req.get("http://localhost:3000/usuarios?administrador=true")   
+    para_json = r.json()
+    return para_json
+    
