@@ -41,6 +41,8 @@ Projeto de automação de testes da API ServeRest utilizando o Robot Framework, 
 1. Rode a ServeRest localmente pelo terminal:  ```npx serverest ```
 > Não feche este terminal enquanto estiver realizando os testes!
 
+2. Baixe os <a href="https://github.com/manoellasouza/RoboTron_Manoella_Souza_Projeto_Final/tree/main/extras/arquivos-bdd-testes">arquivos .bdd</a> deste repositório e faça a substituição em ```C:\Users\NomeUsuario\AppData\Local\npm-cache\_npx\5ae2362f38c57068\node_modules\serverest\src\data```. Esses arquivos contêm os dados base de cadastro usados para realizar os testes deste projeto.
+
 2. Abra o projeto através do VS Code. Os arquivos com os cenários de teste estarão na pasta tests.
 
 3. Abra um terminal dentro da pasta do projeto e execute os testes localmente de acordo com as opções abaixo:
