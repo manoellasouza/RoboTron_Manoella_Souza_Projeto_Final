@@ -76,7 +76,7 @@ O <a href="https://github.com/manoellasouza/RoboTron_Manoella_Souza_Projeto_Fina
 ### Mapa mental
 Clique <a href="https://github.com/manoellasouza/RoboTron_Manoella_Souza_Projeto_Final/blob/main/mapa-mental-serverest.xmind">AQUI</a> para acessar o arquivo .xmind.
 
-<img align="center" alt="console" height="850" style="border-radius:50px;" src="https://user-images.githubusercontent.com/100487940/188448051-6981da03-272d-4c22-9718-1f5e563cd52a.png"> 
+![Mapa Mental - ServeRest](https://user-images.githubusercontent.com/100487940/188462292-8a30d620-85dd-4334-bedc-ef9b0d08a69b.png)
 
 
 
