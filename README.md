@@ -66,15 +66,15 @@ A automação de testes de uma API é importante para que os testes e as correç
 
 ### Diretório
 - :file_folder: [extras/](extras): Dir com os arquivos extras deste repositório
-  - :file_folder: [arquivos-bdd-testes/](arquivos-bdd-testes): Dir com os arquivos .bdd utilizados para realizar os testes
-  - :file_folder: [imagens/](imagens): Dir com as imagens de exemplo de Log e Report 
+  - :file_folder: [arquivos-bdd-testes/](extras/arquivos-bdd-testes): Dir com os arquivos .bdd utilizados para realizar os testes
+  - :file_folder: [imagens/](extras/imagens): Dir com as imagens de exemplo de Log e Report 
 - :file_folder: [keywords/](keywords): Dir com as keywords utilizadas nos testes 
 - :file_folder: [reports/](reports): Dir com os relatórios de resultados dos testes realizados, incluindo o report.html e o log.html
 - :file_folder: [support/](support): Dir com os arquivos base, massas de dados e variáveis
-  - :file_folder: [commom/](commom): Dir com o arquivo commom.robot, a library em Python e o arquivo .robot que consome essa library
-  - :file_folder: [fixtures/](fixtures): Dir com todas as massas de dados
-    - :file_folder: [static/](static): Dir com as massas de dados estáticas
-  - :file_folder: [variables/](variables): Dir com o arquivo .robot que contém as variáveis padrão utilizadas
+  - :file_folder: [common/](support/common): Dir com o arquivo commom.robot, a library em Python e o arquivo .robot que consome essa library
+  - :file_folder: [fixtures/](support/fixtures): Dir com todas as massas de dados
+    - :file_folder: [static/](support/fixtures/static): Dir com as massas de dados estáticas
+  - :file_folder: [variables/](support/variables): Dir com o arquivo .robot que contém as variáveis padrão utilizadas
 - :file_folder: [tests/](tests): Dir com os arquivos de teste .robot para cada endpoint da API
 - :page_with_curl: [funcoes-python-explicadas](funcoes-python-explicadas): Arquivo explicando o código e os objetivos das funções utilizadas na library criada com Python 
 - :page_with_curl: [mapa-mental/](mapa-mental): Arquivo com o mapa mental de todas as rotas da API
