@@ -5,20 +5,22 @@ Resource             ../support/base.robot
 *** Keywords ***
 GET Endpoint /usuarios 
     ${response}                           GET On Session                       serverest        /usuarios
-    # ${response}                         GET On Session                       serverest        /usuarios    params=administrador=true
     Log To Console                        Response: ${response.content}
     Set Global Variable                   ${response}
+    Validar Content-type
 
 GET Endpoint /usuarios "${id_user}"
     ${response}                           GET On Session                        serverest        /usuarios/${id_user}        expected_status=any 
     Log To Console                        Response: ${response.content}
     Set Global Variable                   ${response}
+    Validar Content-type
 
 POST Endpoint /usuarios
     ${response}                           POST On Session                       serverest        /usuarios/                   json=&{payload}        expected_status=any
     Log To Console                        ${payload}
     Log To Console                        Response: ${response.content}
     Set Global Variable                   ${response}  
+    Validar Content-type
     IF    "${response.status_code}" == "201"   
         ${id_user}                        Set Variable        ${response.json()["_id"]} 
         Set Global Variable               ${id_user} 
@@ -28,11 +30,13 @@ DELETE Endpoint /usuarios/id
     ${response}                           DELETE On Session                      serverest        /usuarios/${id_user}      expected_status=any   
     Log To Console                        Response: ${response.content}
     Set Global Variable                   ${response}
+    Validar Content-type
 
 PUT Endpoint /usuarios "${id_user}"
     ${response}                           PUT On Session                         serverest        /usuarios/${id_user}        json=&{payload}    expected_status=any      
     Log To Console                        Response: ${response.content}
     Set Global Variable                   ${response}
+    Validar Content-type
     IF    "${response.status_code}" == "201"   
         ${id_user}                        Set Variable                           ${response.json()["_id"]} 
         Set Global Variable               ${id_user} 

@@ -1,7 +1,7 @@
 *** Settings ***
 Documentation        Keywords e Variaveis para Ações Gerais
 Library              OperatingSystem  
-
+Library              Collections 
 
 *** Keywords ***
 Validar Status Code "${statuscode}"
@@ -16,6 +16,11 @@ Importar JSON Estatico
 
 Validar Mensagem "${message}"
     Should Be Equal            ${response.json()["message"]}    ${message}
+
+Validar Content-type
+    ${response.value}=       Get From Dictionary       ${response.headers}        content-type 
+    Should Be Equal          ${response.value}       application/json; charset=utf-8
+
 
 Validar Quantidade Total "${quantidade}"
     Should Be Equal        ${response.json()["quantidade"]}    ${quantidade}

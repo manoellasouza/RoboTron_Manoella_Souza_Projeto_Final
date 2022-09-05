@@ -137,35 +137,35 @@ Cenario 17: PUT Editar Usuario E-mail Já Cadastrado 400
     Validar Mensagem "Este email já está sendo usado"
 
 Cenario 18: PUT Editar Usuario Sem E-mail 400
-    [Tags]    PUTUSERSEMEMAIL    USER
+    [Tags]    PUTUSERSEMEMAIL    
     Selecionar Usuario Estatico "user_sem_email"
     PUT Endpoint /usuarios "${id_user}"
     Validar Status Code "400"
     Validar Erro "email"
 
 Cenario 19: PUT Editar Usuario Sem Senha 400
-    [Tags]    PUTUSERSEMSENHA    USER
+    [Tags]    PUTUSERSEMSENHA    
     Selecionar Usuario Estatico "user_sem_senha"
     PUT Endpoint /usuarios "${id_user}"
     Validar Status Code "400"
     Validar Erro "password"
 
 Cenario 20: PUT Editar Usuario Sem Nome 400
-    [Tags]    PUTUSERSEMNOME    USER
+    [Tags]    PUTUSERSEMNOME    
     Selecionar Usuario Estatico "user_sem_nome"
     PUT Endpoint /usuarios "${id_user}"
     Validar Status Code "400"
     Validar Erro "nome"
 
 Cenario 21: PUT Editar Usuario Sem Adm 400
-    [Tags]    PUTUSERSEMADM    USER
+    [Tags]    PUTUSERSEMADM  
     Selecionar Usuario Estatico "user_sem_admin"
     PUT Endpoint /usuarios "${id_user}"
     Validar Status Code "400"
     Validar Erro "administrador"
 
 Cenario 22: PUT Editar Usuario E-mail Inválido 400
-    [Tags]    PUTUSEREMAILINVALIDO        USER
+    [Tags]    PUTUSEREMAILINVALIDO      
     Selecionar Usuario Estatico "user_email_invalido"
     PUT Endpoint /usuarios "${id_user}"
     Validar Status Code "400"

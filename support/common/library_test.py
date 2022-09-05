@@ -1,5 +1,8 @@
 import requests as req
 
+# Arquivo explicando o código e os objetivos das funções utilizadas nesta library:
+# https://github.com/manoellasouza/RoboTron_Manoella_Souza_Projeto_Final/blob/main/funcoes-python-explicadas
+
 def Get_Endpoint_Dado_Usuarios(dado):
     r =  req.get("http://localhost:3000/usuarios")
     mensagem = " "

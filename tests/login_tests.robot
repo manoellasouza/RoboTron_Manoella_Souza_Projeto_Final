@@ -5,6 +5,8 @@ Resource             ../support/base.robot
 Suite Setup          Criar Sessao       
 
 *** Test Cases ***
+# Testes realizados conforme o código da aplicação, pois a documentação possui bug documental em todos estes cenários.
+# Saiba mais detalhes aqui: https://github.com/manoellasouza/RoboTron_Manoella_Souza_Projeto_Final/issues/3
 
 Cenario 01: POST Login Estatico Valido 200
    [Tags]    LOGINVALIDO       

@@ -3,6 +3,7 @@
 Documentation        Arquivo simples para requisições HTTP em APIs REST
 Library              RequestsLibrary
 Library              OperatingSystem
+Library              Collections 
 #Importando tudo o que está na pasta suporte para dentro do arquivo base:
 Resource             ./common/common.robot
 Resource             ./common/consumir_library_python.robot

@@ -7,17 +7,20 @@ GET Endpoint /carrinhos
     ${response}               GET On Session                     serverest            /carrinhos
     Set Global Variable       ${response}
     Log To Console            Response: ${response.content}
+    Validar Content-type
 
 GET Endpoint /carrinhos "${id_carrinho}"
     ${response}               GET On Session                      serverest            /carrinhos/${id_carrinho}          expected_status=any
     Set Global Variable       ${response}
     Log To Console            Response: ${response.content}
+    Validar Content-type
 
 POST Endpoint /carrinhos 
     &{header}                 Create Dictionary                   Authorization=${token_auth}                         
     ${response}               POST On Session                     serverest             /carrinhos           json=&{payload}     headers=&{header}    expected_status=any
     Log To Console            Response: ${response.content}
     Set Global Variable       ${response}
+    Validar Content-type
     IF    "${response.status_code}" == "201"   
         ${id_carrinho}                   Set Variable        ${response.json()["_id"]} 
         Set Global Variable              ${id_carrinho} 
@@ -28,6 +31,7 @@ DELETE Endpoint /carrinhos "${deletar_carrinho}"
     ${response}               DELETE On Session                    serverest                   /carrinhos/${deletar_carrinho}    headers=&{header}    expected_status=any
     Log To Console            Response: ${response.content}
     Set Global Variable       ${response}
+    Validar Content-type
 
 Selecionar Carrinho Estatico "${carrinho}"
     ${json}                    Importar JSON Estatico        json_carrinho_ex.json  

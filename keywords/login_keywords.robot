@@ -10,9 +10,10 @@ Selecionar Usuario Login "${user}"
 
 POST Endpoint /login
     ${response}              POST On Session                    serverest        /login    json=&{payload}    expected_status=any 
-    Log To Console           Response: ${response.content}
+    Log To Console           Response: ${response.content}       
     Set Global Variable      ${response}
-    
+    Validar Content-type
+
 Armazenar Token    
     ${token_auth}            Set Variable        ${response.json()["authorization"]}   
     Set Global Variable      ${token_auth}
