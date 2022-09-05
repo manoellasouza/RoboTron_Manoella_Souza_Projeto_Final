@@ -4,7 +4,7 @@
 
 # Projeto Final - Testando a API ServeRest com Robot 
 
-Projeto para automação de testes da API ServeRest utilizando o Robot Framework, realizado durante as Sprints 5 e 6 do Programa de Bolsas RoboTron da Compass UOL.
+Projeto de automação de testes da API ServeRest utilizando o Robot Framework, realizado durante as Sprints 5 e 6 do Programa de Bolsas RoboTron da Compass UOL. 
 
 ## Tópicos
    * [Instalando o projeto](#instalando-o-projeto)
@@ -17,7 +17,7 @@ Projeto para automação de testes da API ServeRest utilizando o Robot Framework
       * [Bugs e sugestões de melhoria](#bugs-e-sugestões-de-melhoria)
       * [Libraries utilizadas](#libraries-utilizadas)
       * [Extensões VS Code utilizadas](#extensões-vs-code-utilizadas)
-   * [Referências](#referências)
+   * [Referências e agradecimentos](#referências-e-agradecimentos)
    * [Autora](#autora)
 
 ## Instalando o projeto 
@@ -61,6 +61,8 @@ O <a href="https://github.com/manoellasouza/RoboTron_Manoella_Souza_Projeto_Fina
 
 ## Sobre o projeto 
 
+A automação de testes de uma API é importante para que os testes e as correções sejam realizados em menos tempo, o que diminui os custos com as correções e acelera o lançamento do produto.
+
 ### Diretório
 - :file_folder: [keywords/](keywords): Dir com as keywords utilizadas nos testes 
 - :file_folder: [reports/](reports): Dir com os relatórios de resultados dos testes realizados, incluindo o report.html e o log.html
@@ -68,7 +70,7 @@ O <a href="https://github.com/manoellasouza/RoboTron_Manoella_Souza_Projeto_Fina
   - :file_folder: [commom/](commom): Dir com o arquivo commom.robot, a library em Python e o arquivo .robot que consome essa library
   - :file_folder: [fixtures/](fixtures): Dir com todas as massas de dados
     - :file_folder: [static/](static): Dir com as massas de dados estáticas
-  - :file_folder: [variables/](variables): Dir com o arquivo .robot que contém as variáveis utilizadas
+  - :file_folder: [variables/](variables): Dir com o arquivo .robot que contém as variáveis padrão utilizadas
 - :file_folder: [tests/](tests): Dir com os arquivos de teste .robot para cada endpoint da API
 - :page_with_curl: [funcoes-python-explicadas](funcoes-python-explicadas): Arquivo explicando o código e os objetivos das funções utilizadas na library criada com Python 
 - :page_with_curl: [mapa-mental/](mapa-mental): Arquivo com o mapa mental de todas as rotas da API
@@ -94,7 +96,7 @@ Clique <a href="https://github.com/manoellasouza/RoboTron_Manoella_Souza_Projeto
 - <a href="https://marketplace.visualstudio.com/items?itemName=d-biehl.robotcode">Robot Code</a>
 - <a href="https://marketplace.visualstudio.com/items?itemName=TabNine.tabnine-vscode">Tabnine AI Autocomplete</a>
 
-## Referências
+## Referências e agradecimentos
 - <a href="https://serverest.dev/#/">Documentação da API ServeRest</a>
 - <a href="https://robotizandotestes.blogspot.com/2017/09/season-running-ep-01-log-e-report-de.html">Mayara Fernandes - Conteúdo sobre Log e Report de execução</a>
 - <a href="https://github.com/PauloGoncalvesBH/sample-supertest">Repositório Supertest - Inspiração de ReadMe</a>
