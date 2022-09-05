@@ -57,7 +57,7 @@ Ao executar os testes, o resultado é apresentado no terminal e os arquivos repo
 
 ![image](https://user-images.githubusercontent.com/100487940/188459886-25f55d58-31c8-4ddc-924d-05c58b0b03b6.png)
 
-O <a href="https://github.com/manoellasouza/RoboTron_Manoella_Souza_Projeto_Final/blob/main/imagens/report.png">report.html</a> é um resumo que mostra o status da execução, horário de início e de término, tempo total da execução e a quantidade de testes que passou e que falhou. Já o <a href="https://github.com/manoellasouza/RoboTron_Manoella_Souza_Projeto_Final/blob/main/imagens/log.png">log.html</a> detalha os testes, mostrando cada keyword utilizada, a library da keyword, logs solicitados e resultado da execução.
+O <a href="https://github.com/manoellasouza/RoboTron_Manoella_Souza_Projeto_Final/blob/main/extras/imagens/report.png">report.html</a> é um resumo que mostra o status da execução, horário de início e de término, tempo total da execução e a quantidade de testes que passou e que falhou. Já o <a href="https://github.com/manoellasouza/RoboTron_Manoella_Souza_Projeto_Final/blob/main/extras/imagens/log.png">log.html</a> detalha os testes, mostrando cada keyword utilizada, a library da keyword, logs solicitados e resultado da execução.
 
 
 ## Sobre o projeto 
@@ -65,7 +65,7 @@ O <a href="https://github.com/manoellasouza/RoboTron_Manoella_Souza_Projeto_Fina
 A automação de testes de uma API é importante para que os testes e as correções sejam realizados em menos tempo, o que diminui os custos com as correções e acelera o lançamento do produto.
 
 ### Diretório
-- :file_folder: [extras/](keywords): Dir com os arquivos extras deste repositório
+- :file_folder: [extras/](extras): Dir com os arquivos extras deste repositório
   - :file_folder: [arquivos-bdd-testes/](arquivos-bdd-testes): Dir com os arquivos .bdd utilizados para realizar os testes
   - :file_folder: [imagens/](imagens): Dir com as imagens de exemplo de Log e Report 
 - :file_folder: [keywords/](keywords): Dir com as keywords utilizadas nos testes 
