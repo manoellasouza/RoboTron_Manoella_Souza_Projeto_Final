@@ -63,8 +63,9 @@ def Get_Endpoint_Estoque_Produtos(payload):
     Esta função recebe e guarda na variável carrinho os dados de um carrinho válido que foi selecionado.
     A variável estoque recebe os dados da request para listar os produtos em formato json.
     Em seguida as duas variáveis são comparadas, adicionando a uma lista os produtos e as quantidades 
-    dos IDs em comum. Esta função tem como objetivo confirmar se os produtos do carrinho saíram do estoque
-    após a conclusão ou cancelamento de uma compra.
+    dos IDs em comum. Esta função tem como objetivo verificar o estoque desses produtos no momento em que
+    ela é chamada, por isso ela é chamada ao selecionar o carrinho e ao ser concluída ou cancelada uma compra,
+    para que o usuário consiga visualizar se o estoque sofreu alteração ou não.
     """
     r =  req.get("http://localhost:3000/produtos")   
     lista = []
