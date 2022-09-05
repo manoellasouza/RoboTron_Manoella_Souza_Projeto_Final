@@ -74,7 +74,7 @@ O <a href="https://github.com/manoellasouza/RoboTron_Manoella_Souza_Projeto_Fina
 - :page_with_curl: [funcoes-python-explicadas](funcoes-python-explicadas): Arquivo explicando o código e os objetivos das funções utilizadas na library criada com Python 
 
 ### Bugs e sugestões de melhoria
-  Acesse as <a href="https://github.com/manoellasouza/RoboTron_Manoella_Souza_Projeto_Final/issues">Issues</a> para conferir.
+  Os bugs da ServeRest são, em sua maioria, documentais. Já as melhorias sugeridas têm como objetivo aperfeiçoar a experiência do usuário e aproximar mais as regras da aplicação a um cenário de venda real. Acesse as <a href="https://github.com/manoellasouza/RoboTron_Manoella_Souza_Projeto_Final/issues">Issues</a> para conferir os bugs e as sugestões de melhorias em detalhes.
 
 ### Libraries utilizadas
 - <a href="https://robotframework.org/robotframework/latest/libraries/BuiltIn.html#library-documentation-top">BuiltIn</a>: library padrão do Robot que possui as palavras-chave mais utilizadas
