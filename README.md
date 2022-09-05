@@ -4,7 +4,7 @@
 
 # Projeto Final - Testando a API ServeRest com Robot 
 
-Projeto para automação de testes da API ServeRest utilizando o Robot Framework, realizado durante as Sprints 5 e 6 do Programa de Bolsas RoboTron da Compass UOL.
+Projeto para automação de testes da API ServeRest utilizando o Robot Framework, realizado durante as Sprints 5 e 6 do Programa de Bolsas RoboTron da Compass UOL. 
 
 ## Tópicos
    * [Instalando o projeto](#instalando-o-projeto)
@@ -60,6 +60,8 @@ O <a href="https://github.com/manoellasouza/RoboTron_Manoella_Souza_Projeto_Fina
 
 
 ## Sobre o projeto 
+
+A automação de testes de uma API é importante para que os testes e as correções sejam realizados em menos tempo, o que diminui os custos com as correções e acelera o lançamento do produto.
 
 ### Diretório
 - :file_folder: [keywords/](keywords): Dir com as keywords utilizadas nos testes 
