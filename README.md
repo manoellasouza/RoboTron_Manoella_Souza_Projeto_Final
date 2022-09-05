@@ -17,7 +17,7 @@ Projeto para automação de testes da API ServeRest utilizando o Robot Framework
       * [Bugs e sugestões de melhoria](#bugs-e-sugestões-de-melhoria)
       * [Libraries utilizadas](#libraries-utilizadas)
       * [Extensões VS Code utilizadas](#extensões-vs-code-utilizadas)
-   * [Referências](#referências)
+   * [Referências e agradecimentos](#referências-e-agradecimentos)
    * [Autora](#autora)
 
 ## Instalando o projeto 
@@ -94,7 +94,7 @@ Clique <a href="https://github.com/manoellasouza/RoboTron_Manoella_Souza_Projeto
 - <a href="https://marketplace.visualstudio.com/items?itemName=d-biehl.robotcode">Robot Code</a>
 - <a href="https://marketplace.visualstudio.com/items?itemName=TabNine.tabnine-vscode">Tabnine AI Autocomplete</a>
 
-## Referências
+## Referências e agradecimentos
 - <a href="https://serverest.dev/#/">Documentação da API ServeRest</a>
 - <a href="https://robotizandotestes.blogspot.com/2017/09/season-running-ep-01-log-e-report-de.html">Mayara Fernandes - Conteúdo sobre Log e Report de execução</a>
 - <a href="https://github.com/PauloGoncalvesBH/sample-supertest">Repositório Supertest - Inspiração de ReadMe</a>
