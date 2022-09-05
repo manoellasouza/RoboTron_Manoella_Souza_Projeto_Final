@@ -70,7 +70,7 @@ A automação de testes de uma API é importante para que os testes e as correç
   - :file_folder: [commom/](commom): Dir com o arquivo commom.robot, a library em Python e o arquivo .robot que consome essa library
   - :file_folder: [fixtures/](fixtures): Dir com todas as massas de dados
     - :file_folder: [static/](static): Dir com as massas de dados estáticas
-  - :file_folder: [variables/](variables): Dir com o arquivo .robot que contém as variáveis utilizadas
+  - :file_folder: [variables/](variables): Dir com o arquivo .robot que contém as variáveis padrão utilizadas
 - :file_folder: [tests/](tests): Dir com os arquivos de teste .robot para cada endpoint da API
 - :page_with_curl: [funcoes-python-explicadas](funcoes-python-explicadas): Arquivo explicando o código e os objetivos das funções utilizadas na library criada com Python 
 - :page_with_curl: [mapa-mental/](mapa-mental): Arquivo com o mapa mental de todas as rotas da API
