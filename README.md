@@ -4,7 +4,7 @@
 
 # Projeto Final - Testando a API ServeRest com Robot 
 
-Projeto para automação de testes da API ServeRest utilizando o Robot Framework, realizado durante as Sprints 5 e 6 do Programa de Bolsas RoboTron da Compass UOL. 
+Projeto de automação de testes da API ServeRest utilizando o Robot Framework, realizado durante as Sprints 5 e 6 do Programa de Bolsas RoboTron da Compass UOL. 
 
 ## Tópicos
    * [Instalando o projeto](#instalando-o-projeto)
