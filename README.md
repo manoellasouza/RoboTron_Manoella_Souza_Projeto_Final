@@ -68,7 +68,7 @@ A automação de testes de uma API é importante para que os testes e as correç
 
 ### Diretório
 - :file_folder: [extras/](extras): Dir com os arquivos extras deste repositório
-  - :file_folder: [arquivos-bdd-testes/](extras/arquivos-bdd-testes): Dir com os arquivos .bdd utilizados para realizar os testes
+  - :file_folder: [arquivos-bdd-testes/](extras/arquivos-bdd-testes): Dir com os arquivos .bdd base utilizados para realizar os testes
   - :file_folder: [imagens/](extras/imagens): Dir com as imagens de exemplo de Log e Report 
 - :file_folder: [keywords/](keywords): Dir com as keywords utilizadas nos testes 
 - :file_folder: [reports/](reports): Dir com os relatórios de resultados dos testes realizados, incluindo o report.html e o log.html
